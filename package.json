@@ -13,6 +13,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.16.7",
+        "@types/node": "^20.10.8",
         "@typescript-eslint/eslint-plugin": "^6.18.1",
         "autoprefixer": "^10.4.4",
         "axios": "^0.25.0",
@@ -42,7 +43,6 @@
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/react": "^1.0.14",
         "@types/jest": "^29.5.11",
-        "@types/node": "^20.10.8",
         "@types/react": "^18.2.47",
         "@types/react-dom": "^18.2.18",
         "inertia": "^0.0.7",

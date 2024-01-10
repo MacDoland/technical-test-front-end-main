@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\FarmResource;
+use App\Http\Resources\TurbineResource;
 use App\Models\Farm;
+use App\Models\Turbine;
 use Illuminate\Http\Request;
 
 use Inertia\Inertia;
@@ -17,8 +19,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //TODO: Possibly combining into single model
+        $farms = FarmResource::collection(Farm::all());
+        $turbines = TurbineResource::collection(Turbine::all());
+
         $data = [
-            'farms' => FarmResource::collection(Farm::all()),
+            'farms' => $farms,
+            'turbines' => $turbines,
         ];
 
         return Inertia::render('Home', $data);
