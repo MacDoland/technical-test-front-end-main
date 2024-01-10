@@ -9,7 +9,8 @@
         "prod": "npm run production",
         "production": "mix --production",
         "lint": "eslint ./resources --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "lint-fix": "eslint ./resources --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix"
+        "lint-fix": "/eslint ./resources --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.16.7",
@@ -28,7 +29,9 @@
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
+        "husky": "^8.0.0",
         "laravel-mix": "^6.0.6",
+        "lint-staged": "^15.2.0",
         "lodash": "^4.17.19",
         "postcss": "^8.4.12",
         "prettier": "^3.1.1",
