@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 // TODO: extract types to dts file
 interface WindFarm {
@@ -11,12 +11,13 @@ interface WindFarm {
 }
 
 const Farm: React.FC = () => {
-  const [farms, setFarms] = useState<WindFarm[]>([]);
+  const { id } = useParams();
+  const [farm, setFarm] = useState<WindFarm>();
 
   useEffect(() => {
-    axios.get("/api/farms").then(response => {
+    axios.get(`/api/farms/${id}`).then(response => {
       if (response && response.data) {
-        setFarms(response.data.data);
+        setFarm(response.data.data);
       }
     });
   }, []);
@@ -24,14 +25,7 @@ const Farm: React.FC = () => {
   return (
     <>
       <h1>Farms</h1>
-      {farms.map(farm => {
-        return (
-          <div key={farm.id}>
-            <span>{farm.name}</span>
-            <NavLink to={`/farm/${farm.id}`}>view</NavLink>
-          </div>
-        );
-      })}
+      {farm && <div>{farm.name}</div>}
     </>
   );
 };
