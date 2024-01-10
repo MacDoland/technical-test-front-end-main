@@ -76,4 +76,15 @@ composer install --ignore-platform-reqs
   - Sail creates a docker volume which is persistent, so stopping/starting sail will not affect/fix issues in a volume (missing DB etc)
 
 ## Your Notes
-This is a place for you to add your notes, plans, thinking and any feedback you have for us of the task, please feel free to include whatever you like here, we'll make sure to read it. 
+First step is to set up the project foundations such as adding TS, linting, tests.
+
+Then some simple views that render all the models for each controller
+
+Just for transparency - I am completely new to Laravel, I'm learning how it works as I go along. I'm trying my best to build my application in way that feels like an extension of the framework rather than something bolted on. 
+~~For that reason I'm introducting inertia as from I understand this allows me to continue to use Laravels routing and keeps it in a MVC pattern.~~ I discovered that going with inertia meeant I would have to tamper with the API that has been defined, as it's whole thing is being able to build SPA's without an API, so decided to revert back to using api calls.
+
+I have some sketchy designs on some screens I would like to build which I'll send through via email later. My initial plan is finish a set of views for the existing controllers, and then maybe add a couple of my own to do a map and 3D scene. This way I can complete the requirements and afford myself some time later to jump on the cool bits!
+
+
+
+

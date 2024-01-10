@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FarmController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,8 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
 
-Route::fallback([HomeController::class, 'index']);
+
+Route::fallback(function () {
+    return view('entrypoint');
+});
