@@ -76,6 +76,8 @@ composer install --ignore-platform-reqs
   - Sail creates a docker volume which is persistent, so stopping/starting sail will not affect/fix issues in a volume (missing DB etc)
 
 ## Your Notes
+
+### General notes
 First step is to set up the project foundations such as adding TS, linting, tests.
 
 Then some simple views that render all the models for each controller
@@ -85,6 +87,5 @@ Just for transparency - I am completely new to Laravel, I'm learning how it work
 
 I have some sketchy designs on some screens I would like to build which I'll send through via email later. My initial plan is finish a set of views for the existing controllers, and then maybe add a couple of my own to do a map and 3D scene. This way I can complete the requirements and afford myself some time later to jump on the cool bits!
 
-
-
+I installed husky to run linting / typescript compile checks pre git commit - however I struggled to figure out how to have it run reliably through sail and docker (with git credentials) so I've commented it out for now - I'll do manual checks for the interim and maybe look into it again later
 

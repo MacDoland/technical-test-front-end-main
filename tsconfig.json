@@ -6,11 +6,13 @@
     "compilerOptions": {
       "outDir": "public/js",
       "lib": ["dom", "dom.iterable", "esnext"],
-      "module": "esnext",
+      "module": "es6",
       "moduleResolution": "bundler",
       "target": "es2015",
       "allowJs": true,
       "allowSyntheticDefaultImports": true,
+      "allowImportingTsExtensions": false,
+      "noEmit": false,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "isolatedModules": true,
@@ -21,4 +23,8 @@
       "strict": true
     },
     "include": ["resources/js/**/*"],
+    "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+  ]
   }

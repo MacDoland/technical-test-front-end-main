@@ -1,6 +1,7 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import isNotNullOrUndefined from "../helpers/helpers";
 
 // TODO: extract types to dts file
 interface WindFarm {
@@ -10,22 +11,29 @@ interface WindFarm {
   update_at: string;
 }
 
+interface WindFarmResponse {
+  data: WindFarm;
+}
+
 const Farm: React.FC = () => {
   const { id } = useParams();
   const [farm, setFarm] = useState<WindFarm>();
 
   useEffect(() => {
-    axios.get(`/api/farms/${id}`).then(response => {
-      if (response && response.data) {
-        setFarm(response.data.data);
-      }
-    });
-  }, []);
+    axios
+      .get<WindFarmResponse>(`/api/farms/${id}`)
+      .then((response: AxiosResponse<WindFarmResponse>) => {
+        if (typeof response?.data !== "undefined") {
+          setFarm(response.data.data);
+        }
+      })
+      .catch(e => {});
+  }, [id]);
 
   return (
     <>
       <h1>Farms</h1>
-      {farm && <div>{farm.name}</div>}
+      {isNotNullOrUndefined(farm) ? <div>{farm?.name}</div> : null}
     </>
   );
 };

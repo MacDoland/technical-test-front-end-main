@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
-npx tsc
+#TODO: re-enable pre-commit hooks
+# npx lint-staged
+# npx tsc

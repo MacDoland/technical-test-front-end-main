@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -10,15 +10,22 @@ interface WindFarm {
   update_at: string;
 }
 
+interface WindFarmResponse {
+  data: WindFarm[];
+}
+
 const Farm: React.FC = () => {
   const [farms, setFarms] = useState<WindFarm[]>([]);
 
   useEffect(() => {
-    axios.get("/api/farms").then(response => {
-      if (response && response.data) {
-        setFarms(response.data.data);
-      }
-    });
+    axios
+      .get<WindFarmResponse>("/api/farms")
+      .then((response: AxiosResponse<WindFarmResponse>) => {
+        if (typeof response?.data !== "undefined") {
+          setFarms(response.data.data);
+        }
+      })
+      .catch(e => {});
   }, []);
 
   return (
