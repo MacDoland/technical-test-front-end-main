@@ -6,6 +6,7 @@ import Farms from "./pages/Farms";
 import Welcome from "./pages/Welcome";
 import PageNotFound from "./pages/errors/PageNotFound";
 import Farm from "./pages/Farm";
+import Turbines from "./pages/Turbines";
 
 const app = document.getElementById("app") as HTMLElement;
 
@@ -21,6 +22,7 @@ root.render(
           <Route path="farm">
             <Route path=":id" element={<Farm />} />
           </Route>
+          <Route path="turbines" element={<Turbines />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

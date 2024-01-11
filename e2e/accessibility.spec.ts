@@ -36,3 +36,15 @@ test.describe("farm", () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
+
+test.describe("turbines", () => {
+  test("should not have any automatically detectable accessibility issues", async ({
+    page,
+  }) => {
+    await page.goto("http://localhost/turbines");
+
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});

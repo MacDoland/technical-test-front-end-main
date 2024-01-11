@@ -10,6 +10,9 @@ const App: React.FC = () => {
         <NavLink end to="/farms">
           Farms
         </NavLink>
+        <NavLink end to="/turbines">
+          Turbines
+        </NavLink>
       </nav>
       <main>
         <Outlet />
