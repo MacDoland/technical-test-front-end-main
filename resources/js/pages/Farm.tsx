@@ -1,22 +1,17 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import isNotNullOrUndefined from "../helpers/helpers";
 import useGetData from "../hooks/useGetData";
-
-// TODO: extract types to dts file
-interface WindFarm {
-  id: number;
-  name: string;
-  created_at: string;
-  update_at: string;
-}
+import List from "../components/List";
+import type { ListItem, WindFarm, WindTurbine } from "../types/types";
 
 const Farm: React.FC = () => {
-  const { id } = useParams();
-  const [farm, setFarm] = useState<WindFarm>();
+  const { id: farmId } = useParams();
 
-  useGetData(`/api/farms/${id}`, setFarm);
+  const farm: WindFarm | null = useGetData(`/api/farms/${farmId}`);
+  const turbines: WindTurbine[] | null = useGetData(
+    `/api/farms/${farmId}/turbines`,
+  );
 
   return (
     <>
@@ -25,6 +20,17 @@ const Farm: React.FC = () => {
       </Helmet>
       <h1>Farm</h1>
       {isNotNullOrUndefined(farm) ? <div>{farm?.name}</div> : null}
+      {isNotNullOrUndefined(turbines) ? (
+        <>
+          <h2>Turbines</h2>
+          <List
+            items={turbines as ListItem[]}
+            showLinks={false}
+            childUrlName="turbines"
+            keyPrefix="turbine-"
+          />
+        </>
+      ) : null}
     </>
   );
 };

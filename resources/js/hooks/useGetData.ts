@@ -1,26 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios, { type AxiosResponse } from "axios";
 
 interface ApiResponse<T> {
   data: T;
 }
 
-const useGetData = <T>(
-  url: string,
-  setState: React.Dispatch<React.SetStateAction<T>>,
-): void => {
+const useGetData = <T>(url: string, dependencyArray: any[] = []): T | null => {
+  const [data, setData] = useState<T | null>(null);
+
   useEffect(() => {
     axios
       .get<ApiResponse<T>>(url)
       .then((response: AxiosResponse<ApiResponse<T>>) => {
         if (typeof response?.data !== "undefined") {
-          setState(response.data.data);
+          setData(response.data.data);
         }
       })
       .catch(e => {
         // Handle error
       });
-  }, [url, setState]);
+  }, [url, dependencyArray]);
+
+  return data;
 };
 
 export default useGetData;

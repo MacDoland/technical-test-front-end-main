@@ -12,7 +12,7 @@ describe("List Component", () => {
         name: "Example Item 1",
       },
       {
-        id: 0,
+        id: 1,
         name: "Example Item 2",
       },
     ];
@@ -40,7 +40,7 @@ describe("List Component", () => {
         name: "Example Item 1",
       },
       {
-        id: 0,
+        id: 1,
         name: "Example Item 2",
       },
     ];
@@ -66,7 +66,7 @@ describe("List Component", () => {
         name: "Example Item 1",
       },
       {
-        id: 0,
+        id: 1,
         name: "Example Item 2",
       },
     ];

@@ -1,18 +1,19 @@
 import { act, render, screen } from "@testing-library/react";
-import axios from "axios";
 import { turbines } from "../../../../fixtures/turbines.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import Turbines from "../Turbines";
+import useGetData from "../../hooks/useGetData";
 
-jest.mock("axios");
-
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+jest.mock("../../hooks/useGetData", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe("Turbines Component", () => {
   test("renders and displays expected turbine names", async () => {
     // Arrange
-    mockedAxios.get.mockResolvedValueOnce({ data: turbines });
+    (useGetData as jest.Mock).mockReturnValue(turbines.data);
 
     // Act
     await act(async () => {
@@ -28,7 +29,6 @@ describe("Turbines Component", () => {
     const turbineC = await screen.getByText("Red");
 
     // Assert
-    expect(mockedAxios.get).toHaveBeenCalled();
     expect(turbineA).toBeInTheDocument();
     expect(turbineB).toBeInTheDocument();
     expect(turbineC).toBeInTheDocument();

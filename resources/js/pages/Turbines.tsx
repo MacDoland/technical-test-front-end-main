@@ -1,23 +1,12 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import useGetData from "../hooks/useGetData";
 import List from "../components/List";
 
-// TODO: extract types to dts file
-interface WindTurbine {
-  id: number;
-  farm_id: number;
-  lat: string;
-  lng: string;
-  name: string;
-  created_at: string;
-  update_at: string;
-}
+import type { ListItem, WindTurbine } from "../types/types";
+import isNotNullOrUndefined from "../helpers/helpers";
 
 const Farm: React.FC = () => {
-  const [turbines, setTurbines] = useState<WindTurbine[]>([]);
-
-  useGetData("/api/turbines", setTurbines);
+  const turbines: WindTurbine[] | null = useGetData("/api/turbines");
 
   return (
     <>
@@ -25,7 +14,9 @@ const Farm: React.FC = () => {
         <title>Turbines</title>
       </Helmet>
       <h1>Turbines</h1>
-      <List items={turbines} childUrlName="turbine" />
+      {isNotNullOrUndefined(turbines) ? (
+        <List items={turbines as ListItem[]} childUrlName="turbine" />
+      ) : null}
     </>
   );
 };

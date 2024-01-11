@@ -1,20 +1,11 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import useGetData from "../hooks/useGetData";
 import List from "../components/List";
-
-// TODO: extract types to dts file
-interface WindFarm {
-  id: number;
-  name: string;
-  created_at: string;
-  update_at: string;
-}
+import type { ListItem, WindFarm } from "../types/types";
+import isNotNullOrUndefined from "../helpers/helpers";
 
 const Farm: React.FC = () => {
-  const [farms, setFarms] = useState<WindFarm[]>([]);
-
-  useGetData("/api/farms", setFarms);
+  const farms: WindFarm[] | null = useGetData("/api/farms");
 
   return (
     <>
@@ -22,7 +13,9 @@ const Farm: React.FC = () => {
         <title>Farms</title>
       </Helmet>
       <h1>Farms</h1>
-      <List items={farms} childUrlName="farms" />
+      {isNotNullOrUndefined(farms) ? (
+        <List items={farms as ListItem[]} childUrlName="farms" />
+      ) : null}
     </>
   );
 };

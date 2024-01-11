@@ -1,23 +1,23 @@
 import { renderHook } from "@testing-library/react";
 import axios from "axios";
-import useGetData from "./useGetData";
+import useGetData from "../useGetData";
 
 jest.mock("axios");
-const mockSetState = jest.fn();
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("useGetData", () => {
   test("should use our setState callback and invoke it with the expected data", async () => {
     // Arrange
     const responseData = { data: "mock" };
-    axios.get.mockResolvedValueOnce({ data: responseData });
+    mockedAxios.get.mockResolvedValueOnce({ data: responseData });
 
     // Act
-    renderHook(() => {
-      return useGetData("url", mockSetState);
+    const result = renderHook(() => {
+      return useGetData("url");
     });
 
     // Assert
-    expect(mockSetState).toHaveBeenCalledWith(responseData.data);
-    expect(mockSetState).toHaveBeenCalledTimes(1);
+    expect(result).toBe(responseData.data);
   });
 });

@@ -1,18 +1,21 @@
 import { NavLink } from "react-router-dom";
 import isNotNullOrUndefined from "../helpers/helpers";
 
-interface ListItem {
-  id: number;
-  name: string;
-}
+import type { ListItem } from "../types/types";
 
 interface ListProps {
   items: ListItem[];
   showLinks?: boolean;
   childUrlName?: string;
+  keyPrefix?: string;
 }
 
-const List = ({ items, showLinks, childUrlName }: ListProps): JSX.Element => {
+const List = ({
+  items,
+  showLinks,
+  childUrlName,
+  keyPrefix,
+}: ListProps): JSX.Element => {
   const urlPart = isNotNullOrUndefined(childUrlName) ? `/${childUrlName}` : "";
 
   // TODO: rethink what link url should be when childUrlName is not set
@@ -20,16 +23,18 @@ const List = ({ items, showLinks, childUrlName }: ListProps): JSX.Element => {
 
   return (
     <ul>
-      {items.map(item => {
-        return (
-          <li key={item.id}>
-            <span>{item.name}</span>
-            {showLinks === true ? (
-              <NavLink to={`${urlPart}/${item.id}`}>view</NavLink>
-            ) : null}
-          </li>
-        );
-      })}
+      {isNotNullOrUndefined(items)
+        ? items.map(item => {
+            return (
+              <li key={`${keyPrefix}${item.id}`}>
+                <span>{item.name}</span>
+                {showLinks === true ? (
+                  <NavLink to={`${urlPart}/${item.id}`}>view</NavLink>
+                ) : null}
+              </li>
+            );
+          })
+        : null}
     </ul>
   );
 };
@@ -37,6 +42,7 @@ const List = ({ items, showLinks, childUrlName }: ListProps): JSX.Element => {
 List.defaultProps = {
   showLinks: false,
   childUrlName: "",
+  keyPrefix: "",
 };
 
 export default List;

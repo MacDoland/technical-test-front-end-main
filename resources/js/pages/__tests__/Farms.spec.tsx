@@ -1,18 +1,19 @@
 import { act, render, screen } from "@testing-library/react";
-import axios from "axios";
 import { farms } from "../../../../fixtures/farms.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import Farms from "../Farms";
+import useGetData from "../../hooks/useGetData";
 
-jest.mock("axios");
-
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+jest.mock("../../hooks/useGetData", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe("Farms Component", () => {
   test("renders and displays expected farm names", async () => {
     // Arrange
-    mockedAxios.get.mockResolvedValueOnce({ data: farms });
+    (useGetData as jest.Mock).mockReturnValue(farms.data);
 
     // Act
     await act(async () => {
@@ -30,7 +31,6 @@ describe("Farms Component", () => {
     const farmE = await screen.getByText("East Lonnyview");
 
     // Assert
-    expect(mockedAxios.get).toHaveBeenCalled();
     expect(farmA).toBeInTheDocument();
     expect(farmB).toBeInTheDocument();
     expect(farmC).toBeInTheDocument();
