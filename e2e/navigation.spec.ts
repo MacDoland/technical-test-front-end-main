@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Navagation", () => {
-  test("Should navigate to farms page when Farms link is clicked", async ({
+test.describe("navagation", () => {
+  test("should navigate to farms page when Farms link is clicked", async ({
     page,
   }) => {
     // Arrange

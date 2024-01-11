@@ -2,6 +2,7 @@ import axios, { type AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import isNotNullOrUndefined from "../helpers/helpers";
+import { Helmet } from "react-helmet";
 
 // TODO: extract types to dts file
 interface WindFarm {
@@ -32,7 +33,10 @@ const Farm: React.FC = () => {
 
   return (
     <>
-      <h1>Farms</h1>
+      <Helmet>
+        <title>Farm</title>
+      </Helmet>
+      <h1>Farm</h1>
       {isNotNullOrUndefined(farm) ? <div>{farm?.name}</div> : null}
     </>
   );

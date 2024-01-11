@@ -1,5 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
 
 // TODO: extract types to dts file
@@ -30,6 +31,9 @@ const Farm: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Farms</title>
+      </Helmet>
       <h1>Farms</h1>
       {farms.map(farm => {
         return (

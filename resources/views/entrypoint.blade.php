@@ -1,4 +1,4 @@
-<html class="h-full bg-gray-100">
+<html lang="en" class="h-full bg-gray-100">
 
 <head>
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
