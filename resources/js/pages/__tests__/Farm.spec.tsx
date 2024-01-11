@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { HelmetProvider } from "react-helmet-async";
 import { farm } from "../../../../fixtures/farm.js";
 import { turbines } from "../../../../fixtures/turbines.js";
 import "@testing-library/jest-dom";
@@ -33,9 +34,11 @@ describe("Farm Component", () => {
 
     // Act
     render(
-      <BrowserRouter>
-        <Farm />
-      </BrowserRouter>,
+      <HelmetProvider>
+        <BrowserRouter>
+          <Farm />
+        </BrowserRouter>
+      </HelmetProvider>,
     );
 
     const farmName = await screen.getByText("West Viviannemouth");

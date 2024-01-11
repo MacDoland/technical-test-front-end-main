@@ -101,3 +101,7 @@ Once I have all the basic MVP components together I can start to think about the
 It dawns on me that number of the views displaying Farms, Turbines, Inspections etc could be pretty similar and represented by one or a few components. That is if I wanted to just show them individually, but the api-spec describes relation ships so for the moment I am going to keep them as seperate views and I will look for an opportunity to refactor later.
 
 
+### Data Structure
+
+Looking at how relational structure of the data there are quite a number of calls required just to display the components of a turbine. I'm thinking that data like this (componentType) is unlikely to update very frequently so it might be worth fetching it and caching it locally so when we display data on different turbines that we dont have to keep making repeated calls for the same data. The grade types are another candidate for this. So if I make the call once then store it somewhere like local storage and make it available through context then any component should be able to quickly look up the name.
+

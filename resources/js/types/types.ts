@@ -16,4 +16,12 @@ interface WindTurbine extends ListItem {
   update_at: string;
 }
 
-export type { ListItem, WindFarm, WindTurbine };
+interface TurbineComponent {
+  id: number;
+  turbine_id: number;
+  component_type_id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export type { ListItem, TurbineComponent, WindFarm, WindTurbine };

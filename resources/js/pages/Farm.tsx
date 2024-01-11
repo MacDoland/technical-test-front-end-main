@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import isNotNullOrUndefined from "../helpers/helpers";
 import useGetData from "../hooks/useGetData";
 import List from "../components/List";

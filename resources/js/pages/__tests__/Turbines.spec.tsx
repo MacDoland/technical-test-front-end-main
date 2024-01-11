@@ -1,4 +1,5 @@
 import { act, render, screen } from "@testing-library/react";
+import { HelmetProvider } from "react-helmet-async";
 import { turbines } from "../../../../fixtures/turbines.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -18,9 +19,11 @@ describe("Turbines Component", () => {
     // Act
     await act(async () => {
       render(
-        <BrowserRouter>
-          <Turbines />
-        </BrowserRouter>,
+        <HelmetProvider>
+          <BrowserRouter>
+            <Turbines />
+          </BrowserRouter>
+        </HelmetProvider>,
       );
     });
 

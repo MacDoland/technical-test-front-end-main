@@ -1,4 +1,5 @@
 import { act, render, screen } from "@testing-library/react";
+import { HelmetProvider } from "react-helmet-async";
 import { farms } from "../../../../fixtures/farms.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -18,9 +19,11 @@ describe("Farms Component", () => {
     // Act
     await act(async () => {
       render(
-        <BrowserRouter>
-          <Farms />
-        </BrowserRouter>,
+        <HelmetProvider>
+          <BrowserRouter>
+            <Farms />
+          </BrowserRouter>
+        </HelmetProvider>,
       );
     });
 

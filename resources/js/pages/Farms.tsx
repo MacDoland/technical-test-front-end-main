@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import useGetData from "../hooks/useGetData";
 import List from "../components/List";
 import type { ListItem, WindFarm } from "../types/types";
@@ -14,7 +14,7 @@ const Farm: React.FC = () => {
       </Helmet>
       <h1>Farms</h1>
       {isNotNullOrUndefined(farms) ? (
-        <List items={farms as ListItem[]} childUrlName="farms" />
+        <List items={farms as ListItem[]} childUrlName="farms" showLinks />
       ) : null}
     </>
   );
