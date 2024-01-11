@@ -13,6 +13,8 @@ describe("Farms Component", () => {
   test("renders and displays expected farm names", async () => {
     // Arrange
     mockedAxios.get.mockResolvedValueOnce({ data: farms });
+
+    // Act
     await act(async () => {
       render(
         <BrowserRouter>
@@ -21,7 +23,6 @@ describe("Farms Component", () => {
       );
     });
 
-    // Act
     const farmA = await screen.getByText("West Viviannemouth");
     const farmB = await screen.getByText("Wehnertown");
     const farmC = await screen.getByText("Goodwinmouth");
