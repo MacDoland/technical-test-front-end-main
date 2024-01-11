@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
 import useGetData from "../hooks/useGetData";
+import List from "../components/List";
 
 // TODO: extract types to dts file
 interface WindTurbine {
@@ -25,14 +25,7 @@ const Farm: React.FC = () => {
         <title>Turbines</title>
       </Helmet>
       <h1>Turbines</h1>
-      {turbines.map(turbine => {
-        return (
-          <div key={turbine.id}>
-            <span>{turbine.name}</span>
-            <NavLink to={`/turbine/${turbine.id}`}>view</NavLink>
-          </div>
-        );
-      })}
+      <List items={turbines} childUrlName="turbine" />
     </>
   );
 };

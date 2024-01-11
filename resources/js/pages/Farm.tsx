@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import isNotNullOrUndefined from "../helpers/helpers";
 import { Helmet } from "react-helmet";
+import isNotNullOrUndefined from "../helpers/helpers";
 import useGetData from "../hooks/useGetData";
 
 // TODO: extract types to dts file

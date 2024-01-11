@@ -95,3 +95,9 @@ My next step is getting my testing setup in the simple components I've put toget
 
 Once I have all the basic MVP components together I can start to think about the presentation and how I break these down into reusable components, having the initial tests in place will be benefitial to make sure I don't break anything in the process.
 
+
+### Refactoring Components
+
+It dawns on me that number of the views displaying Farms, Turbines, Inspections etc could be pretty similar and represented by one or a few components. That is if I wanted to just show them individually, but the api-spec describes relation ships so for the moment I am going to keep them as seperate views and I will look for an opportunity to refactor later.
+
+

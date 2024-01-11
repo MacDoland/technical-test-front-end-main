@@ -29,7 +29,7 @@ test.describe("farm", () => {
   test("should not have any automatically detectable accessibility issues", async ({
     page,
   }) => {
-    await page.goto("http://localhost/farm/1");
+    await page.goto("http://localhost/farms/1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 

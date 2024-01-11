@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 body {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 main {
-    padding: 40px;
+  padding: 40px;
 }
 
-h1{
-    font-size: 32px;
+h1 {
+  font-size: 32px;
 }
 
 nav {
-    background: #111;
-    color: #fff;
-    display: flex;
-    gap: 10px;
-    padding: 20px;
+  background: #111;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
 }

@@ -18,8 +18,9 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Welcome />} />
-          <Route path="farms" element={<Farms />} />
-          <Route path="farm">
+
+          <Route path="farms">
+            <Route path="" element={<Farms />} />
             <Route path=":id" element={<Farm />} />
           </Route>
           <Route path="turbines" element={<Turbines />} />

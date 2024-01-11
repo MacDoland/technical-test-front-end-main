@@ -20,7 +20,7 @@ const useGetData = <T>(
       .catch(e => {
         // Handle error
       });
-  }, []);
+  }, [url, setState]);
 };
 
 export default useGetData;

@@ -10,6 +10,7 @@
     "production": "mix --production",
     "lint": "eslint ./resources --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint ./resources --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "prettier": "prettier ./resources --write",
     "prepare": "husky install",
     "test": "jest",
     "test-e2e": "npx playwright test"
