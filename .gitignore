@@ -15,3 +15,7 @@ yarn-error.log
 
 /public/css
 /public/js
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
