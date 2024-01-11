@@ -1,7 +1,7 @@
-import axios, { type AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
+import useGetData from "../hooks/useGetData";
 
 // TODO: extract types to dts file
 interface WindFarm {
@@ -11,23 +11,10 @@ interface WindFarm {
   update_at: string;
 }
 
-interface WindFarmResponse {
-  data: WindFarm[];
-}
-
 const Farm: React.FC = () => {
   const [farms, setFarms] = useState<WindFarm[]>([]);
 
-  useEffect(() => {
-    axios
-      .get<WindFarmResponse>("/api/farms")
-      .then((response: AxiosResponse<WindFarmResponse>) => {
-        if (typeof response?.data !== "undefined") {
-          setFarms(response.data.data);
-        }
-      })
-      .catch(e => {});
-  }, []);
+  useGetData("/api/farms", setFarms);
 
   return (
     <>

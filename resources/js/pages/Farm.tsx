@@ -1,8 +1,8 @@
-import axios, { type AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import isNotNullOrUndefined from "../helpers/helpers";
 import { Helmet } from "react-helmet";
+import useGetData from "../hooks/useGetData";
 
 // TODO: extract types to dts file
 interface WindFarm {
@@ -12,24 +12,11 @@ interface WindFarm {
   update_at: string;
 }
 
-interface WindFarmResponse {
-  data: WindFarm;
-}
-
 const Farm: React.FC = () => {
   const { id } = useParams();
   const [farm, setFarm] = useState<WindFarm>();
 
-  useEffect(() => {
-    axios
-      .get<WindFarmResponse>(`/api/farms/${id}`)
-      .then((response: AxiosResponse<WindFarmResponse>) => {
-        if (typeof response?.data !== "undefined") {
-          setFarm(response.data.data);
-        }
-      })
-      .catch(e => {});
-  }, [id]);
+  useGetData(`/api/farms/${id}`, setFarm);
 
   return (
     <>

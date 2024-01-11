@@ -1,7 +1,7 @@
-import axios, { type AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
+import useGetData from "../hooks/useGetData";
 
 // TODO: extract types to dts file
 interface WindTurbine {
@@ -14,23 +14,10 @@ interface WindTurbine {
   update_at: string;
 }
 
-interface WindTurbineResponse {
-  data: WindTurbine[];
-}
-
 const Farm: React.FC = () => {
   const [turbines, setTurbines] = useState<WindTurbine[]>([]);
 
-  useEffect(() => {
-    axios
-      .get<WindTurbineResponse>("/api/turbines")
-      .then((response: AxiosResponse<WindTurbineResponse>) => {
-        if (typeof response?.data !== "undefined") {
-          setTurbines(response.data.data);
-        }
-      })
-      .catch(e => {});
-  }, []);
+  useGetData("/api/turbines", setTurbines);
 
   return (
     <>
