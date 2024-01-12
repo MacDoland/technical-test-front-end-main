@@ -13,6 +13,9 @@ const App: React.FC = () => {
         <NavLink end to="/turbines">
           Turbines
         </NavLink>
+        <NavLink end to="/inspections">
+          Inspections
+        </NavLink>
       </nav>
       <main>
         <Outlet />

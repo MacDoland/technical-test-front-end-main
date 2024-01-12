@@ -27,6 +27,12 @@ interface ComponentType extends ListItem, Resource {}
 interface GradeType extends ListItem, Resource {}
 interface TurbineComponent extends ListItem {}
 
+interface Inspection extends Resource {
+  id: number;
+  turbine_id: number;
+  inspected_at: string;
+}
+
 interface WindFarmContextType {
   componentTypes: ComponentType[];
   gradeTypes: GradeType[];
@@ -36,6 +42,7 @@ export type {
   GradeType,
   ListItem,
   Component,
+  Inspection,
   TurbineComponent,
   WindFarm,
   WindTurbine,

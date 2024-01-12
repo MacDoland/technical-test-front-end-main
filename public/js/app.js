@@ -13,9 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.tsx");
 /* harmony import */ var _pages_Farms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Farms */ "./resources/js/pages/Farms.tsx");
 /* harmony import */ var _pages_Welcome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Welcome */ "./resources/js/pages/Welcome.tsx");
@@ -24,6 +24,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Turbine__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Turbine */ "./resources/js/pages/Turbine.tsx");
 /* harmony import */ var _pages_Turbines__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/Turbines */ "./resources/js/pages/Turbines.tsx");
 /* harmony import */ var _providers_WindFarmProvider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./providers/WindFarmProvider */ "./resources/js/providers/WindFarmProvider.tsx");
+/* harmony import */ var _pages_Inspections__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/Inspections */ "./resources/js/pages/Inspections.tsx");
+
 
 
 
@@ -40,36 +42,42 @@ __webpack_require__.r(__webpack_exports__);
 var app = document.getElementById("app");
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(app);
 root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), {
-  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_11__.HelmetProvider, {
+  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_12__.HelmetProvider, {
     children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_providers_WindFarmProvider__WEBPACK_IMPORTED_MODULE_10__.WindFarmProvider, {
-      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
-        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
+        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, {
+          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "/",
             element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
-            children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
               path: "/",
               element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Welcome__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
               path: "farms",
-              children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+              children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 path: "",
                 element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farms__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-              }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+              }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 path: ":id",
                 element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farm__WEBPACK_IMPORTED_MODULE_7__["default"], {})
               })]
-            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
               path: "turbines",
-              children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+              children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 path: "",
                 element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbines__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-              }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+              }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 path: ":id",
                 element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbine__WEBPACK_IMPORTED_MODULE_8__["default"], {})
               })]
+            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+              path: "inspections",
+              children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+                path: "",
+                element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Inspections__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+              })
             })]
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "*",
             element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_errors_PageNotFound__WEBPACK_IMPORTED_MODULE_6__["default"], {})
           })]
@@ -113,6 +121,10 @@ var App = function App() {
         end: true,
         to: "/turbines",
         children: "Turbines"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/inspections",
+        children: "Inspections"
       })]
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Outlet, {})
@@ -348,6 +360,63 @@ var Farm = function Farm() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/Inspections.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/pages/Inspections.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _hooks_useGetData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useGetData */ "./resources/js/hooks/useGetData.ts");
+/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+
+var Inspections = function Inspections() {
+  var inspections = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_1__["default"])("/api/inspections");
+
+  var mapInspections = function mapInspections(componentList) {
+    return componentList.map(function (item) {
+      return {
+        id: item.id,
+        name: item.inspected_at
+      };
+    });
+  };
+
+  var displayInspections = (0,react__WEBPACK_IMPORTED_MODULE_4__.useCallback)(mapInspections, [inspections]);
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
+        children: "Inspections"
+      })
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+      children: "Inspections"
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["default"])(inspections) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      items: displayInspections(inspections),
+      childUrlName: "inspections",
+      showLinks: true
+    }) : null]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspections);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Turbine.tsx":
 /*!****************************************!*\
   !*** ./resources/js/pages/Turbine.tsx ***!
@@ -360,12 +429,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/useGetData */ "./resources/js/hooks/useGetData.ts");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var _hooks_useGetData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useGetData */ "./resources/js/hooks/useGetData.ts");
 /* harmony import */ var _providers_WindFarmProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../providers/WindFarmProvider */ "./resources/js/providers/WindFarmProvider.tsx");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -393,32 +462,33 @@ var Turbine = function Turbine() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
       turbineId = _useParams.id;
 
-  var context = (0,react__WEBPACK_IMPORTED_MODULE_3__.useContext)(_providers_WindFarmProvider__WEBPACK_IMPORTED_MODULE_4__.WindFarmContext);
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_providers_WindFarmProvider__WEBPACK_IMPORTED_MODULE_4__.WindFarmContext);
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       turbineComponents = _useState2[0],
       setTurbineComponents = _useState2[1];
 
-  var turbine = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/turbines/".concat(turbineId));
-  var components = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/turbines/".concat(turbineId, "/components"), new Array());
+  var turbine = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_3__["default"])("/api/turbines/".concat(turbineId));
+  var components = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_3__["default"])("/api/turbines/".concat(turbineId, "/components"), new Array());
 
-  var componentsWithNames = function componentsWithNames(components) {
-    return components.map(function (component) {
+  var mapComponents = function mapComponents(componentList) {
+    return componentList.map(function (item) {
       var matchingComponentType = context.componentTypes.find(function (componentType) {
-        return componentType.id === component.id;
+        return componentType.id === item.id;
       });
       return {
-        id: component.id,
-        name: matchingComponentType ? matchingComponentType.name : undefined
+        id: item.id,
+        name: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["default"])(matchingComponentType) ? matchingComponentType === null || matchingComponentType === void 0 ? void 0 : matchingComponentType.name : undefined
       };
     });
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
-    var displayComponents = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["default"])(components) ? componentsWithNames(components) : new Array();
+  var createComponentsDisplay = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(mapComponents, [context.componentTypes]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var displayComponents = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["default"])(components) ? createComponentsDisplay(components) : new Array();
     setTurbineComponents(displayComponents);
-  }, [components, context.componentTypes]);
+  }, [components, context.componentTypes, createComponentsDisplay]);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -426,9 +496,9 @@ var Turbine = function Turbine() {
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Turbine"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["default"])(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["default"])(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       children: turbine === null || turbine === void 0 ? void 0 : turbine.name
-    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["default"])(components) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["default"])(components) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
       children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
         children: "Components"
       }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -560,6 +630,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/useGetData */ "./resources/js/hooks/useGetData.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+
 
 
 
@@ -572,11 +644,14 @@ var WindFarmProvider = function WindFarmProvider(_ref) {
   var children = _ref.children;
   var componentTypes = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/component-types", new Array());
   var gradeTypes = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/grade-types", new Array());
+  var value = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(function () {
+    return {
+      componentTypes: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["default"])(componentTypes) ? componentTypes : new Array(),
+      gradeTypes: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["default"])(gradeTypes) ? gradeTypes : new Array()
+    };
+  }, [componentTypes, gradeTypes]);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(WindFarmContext.Provider, {
-    value: {
-      componentTypes: componentTypes || new Array(),
-      gradeTypes: gradeTypes || new Array()
-    },
+    value: value,
     children: children
   });
 };
