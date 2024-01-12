@@ -1,4 +1,5 @@
 import React from "react";
+import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -19,27 +20,31 @@ const root = createRoot(app);
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-      <WindFarmProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="/" element={<Welcome />} />
-              <Route path="farms">
-                <Route path="" element={<Farms />} />
-                <Route path=":id" element={<Farm />} />
-              </Route>
-              <Route path="turbines">
-                <Route path="" element={<Turbines />} />
-                <Route path=":id" element={<Turbine />} />
-              </Route>
-              <Route path="inspections">
-                <Route path="" element={<Inspections />} />
-              </Route>
-            </Route>
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </WindFarmProvider>
+      <CacheProvider>
+        <WindFarmProvider>
+          <AsyncBoundary>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<App />}>
+                  <Route path="/" element={<Welcome />} />
+                  <Route path="farms">
+                    <Route path="" element={<Farms />} />
+                    <Route path=":id" element={<Farm />} />
+                  </Route>
+                  <Route path="turbines">
+                    <Route path="" element={<Turbines />} />
+                    <Route path=":id" element={<Turbine />} />
+                  </Route>
+                  <Route path="inspections">
+                    <Route path="" element={<Inspections />} />
+                  </Route>
+                </Route>
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </AsyncBoundary>
+        </WindFarmProvider>
+      </CacheProvider>
     </HelmetProvider>
   </React.StrictMode>,
 );

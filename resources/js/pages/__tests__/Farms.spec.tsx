@@ -1,28 +1,29 @@
 import { act, render, screen } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
-import { farms } from "../../../../fixtures/farms.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import Farms from "../Farms";
-import useGetData from "../../hooks/useGetData";
-
-jest.mock("../../hooks/useGetData", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
+import { CacheProvider, AsyncBoundary } from "@rest-hooks/react";
+import { MockResolver, mockInitialState } from "@rest-hooks/test";
+import results from "../../../../fixtures/fixtures";
 
 describe("Farms Component", () => {
   test("renders and displays expected farm names", async () => {
     // Arrange
-    (useGetData as jest.Mock).mockReturnValue(farms.data);
 
     // Act
     await act(async () => {
       render(
         <HelmetProvider>
-          <BrowserRouter>
-            <Farms />
-          </BrowserRouter>
+          <CacheProvider initialState={mockInitialState(results.full)}>
+            <MockResolver fixtures={results.full}>
+              <AsyncBoundary fallback="loading">
+                <BrowserRouter>
+                  <Farms />
+                </BrowserRouter>
+              </AsyncBoundary>
+            </MockResolver>
+          </CacheProvider>
         </HelmetProvider>,
       );
     });

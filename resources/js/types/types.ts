@@ -9,6 +9,9 @@ interface Resource {
 }
 
 interface WindFarm extends ListItem, Resource {}
+interface WindFarmResponse {
+  data: WindFarm;
+}
 
 interface WindTurbine extends ListItem, Resource {
   farm_id: number;
@@ -45,6 +48,7 @@ export type {
   Inspection,
   TurbineComponent,
   WindFarm,
+  WindFarmResponse,
   WindTurbine,
   WindFarmContextType,
 };

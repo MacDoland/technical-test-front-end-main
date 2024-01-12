@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import useGetData from "../hooks/useGetData";
 import List from "../components/List";
 import type { ListItem, WindFarm } from "../types/types";
 import isNotNullOrUndefined from "../helpers/helpers";
+import { getFarms } from "../schema/schema";
+import { useSuspense } from "@rest-hooks/react";
 
-const Farm: React.FC = () => {
-  const farms: WindFarm[] | null = useGetData("/api/farms");
+const Farms: React.FC = () => {
+  const farms = useSuspense(getFarms);
 
   return (
     <>
@@ -14,10 +16,10 @@ const Farm: React.FC = () => {
       </Helmet>
       <h1>Farms</h1>
       {isNotNullOrUndefined(farms) ? (
-        <List items={farms as ListItem[]} childUrlName="farms" showLinks />
+        <List items={farms.data as ListItem[]} childUrlName="farms" showLinks />
       ) : null}
     </>
   );
 };
 
-export default Farm;
+export default Farms;

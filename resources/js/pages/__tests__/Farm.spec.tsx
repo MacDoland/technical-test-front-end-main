@@ -1,47 +1,33 @@
 import { render, screen } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
-import { farm } from "../../../../fixtures/farm.js";
-import { turbines } from "../../../../fixtures/turbines.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
+import { farm } from "../../../../fixtures/farm";
 import Farm from "../Farm";
-import useGetData from "../../hooks/useGetData";
-
-jest.mock("../../hooks/useGetData", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useParams: () => ({
-    id: 1,
-  }),
-}));
+import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
+import { MockResolver, mockInitialState } from "@rest-hooks/test";
+import results from "../../../../fixtures/fixtures";
 
 describe("Farm Component", () => {
   test("renders and displays expected farm name", async () => {
     // Arrange
-    (useGetData as jest.Mock).mockImplementation((url: string) => {
-      if (url === "/api/farms/1") {
-        return farm.data;
-      } else if (url === "/api/farms/1/turbines") {
-        return turbines.data;
-      }
-
-      return { value: "Unknown API Resource" };
-    });
 
     // Act
     render(
       <HelmetProvider>
-        <BrowserRouter>
-          <Farm />
-        </BrowserRouter>
+        <CacheProvider initialState={mockInitialState(results.full)}>
+          <MockResolver fixtures={results.full}>
+            <AsyncBoundary fallback="loading">
+              <BrowserRouter>
+                <Farm />
+              </BrowserRouter>
+            </AsyncBoundary>
+          </MockResolver>
+        </CacheProvider>
       </HelmetProvider>,
     );
 
-    const farmName = await screen.getByText("West Viviannemouth");
+    const farmName = await screen.findByText("West Viviannemouth");
 
     // Assert
     expect(farmName).toBeInTheDocument();
