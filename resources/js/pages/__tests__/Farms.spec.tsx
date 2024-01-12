@@ -15,8 +15,8 @@ describe("Farms Component", () => {
     await act(async () => {
       render(
         <HelmetProvider>
-          <CacheProvider initialState={mockInitialState(results.full)}>
-            <MockResolver fixtures={results.full}>
+          <CacheProvider initialState={mockInitialState(results.farms)}>
+            <MockResolver fixtures={results.farms}>
               <AsyncBoundary fallback="loading">
                 <BrowserRouter>
                   <Farms />

@@ -17,6 +17,8 @@ const app = document.getElementById("app") as HTMLElement;
 
 const root = createRoot(app);
 
+// TODO: refactor/extract BrowserRouter section as it is quite noisey
+
 root.render(
   <React.StrictMode>
     <HelmetProvider>

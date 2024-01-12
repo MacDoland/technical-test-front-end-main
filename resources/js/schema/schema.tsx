@@ -1,3 +1,6 @@
+/* eslint-disable max-classes-per-file */
+// TODO: Consider refactoring into seperate files
+
 import { createResource, Entity, RestEndpoint } from "@rest-hooks/rest";
 
 /* Entities */
@@ -8,13 +11,14 @@ export class Farm extends Entity {
   created_at = "";
   updated_at = false;
 
-  pk() {
+  pk(): string {
     return `${this.id}`;
   }
+
   static key = "Farm";
 
-  static process(value: any, parent: any, key: any) {
-    return value;
+  static process(value: FarmData): Farm {
+    return value.data;
   }
 }
 
@@ -27,50 +31,45 @@ export class Turbine extends Entity {
   created_at = "";
   updated_at = "";
 
-  pk() {
+  pk(): string {
     return `${this.id}`;
   }
 
   static key = "Turbine";
 
-  static process(value: any, parent: any, key: any) {
+  static process(value: TurbineData): Turbine[] {
     return value.data;
   }
 }
 
 export class FarmData extends Entity {
+  id = "FarmData";
   data: Farm = Farm.fromJS();
-  pk() {
-    return `FarmData`;
+
+  pk(): string {
+    return this.id;
   }
 }
 
 export class FarmsData extends Entity {
+  id = "FarmsData";
   data: Farm[] = [];
 
-  pk() {
-    return `FarmsData`;
+  pk(): string {
+    return this.id;
   }
 }
 
 export class TurbineData extends Entity {
-  id = 0;
+  id = "TurbineData";
   data: Turbine[] = [];
 
-  pk() {
-    return `TD`;
-  }
-
-  static process(value: any, parent: any, key: any) {
-    return value;
+  pk(): string {
+    return this.id;
   }
 }
 
 /* Schema */
-
-FarmData.schema = {
-  data: Farm,
-};
 
 Farm.schema = {
   id: Number,
@@ -91,28 +90,22 @@ Turbine.schema = {
 
 /* Resources */
 
-export const getFarm = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: FarmData,
-});
-
 export const getFarmTurbines = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/farms/:id/turbines",
   schema: TurbineData,
 });
 
+export const getFarm = new RestEndpoint({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id",
+  schema: FarmData,
+});
+
 export const getFarms = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/farms",
   schema: FarmsData,
-});
-
-export const FarmResource = createResource({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: Farm,
 });
 
 export const FarmTurbinesResource = createResource({

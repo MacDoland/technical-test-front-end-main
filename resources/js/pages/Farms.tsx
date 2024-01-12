@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
-import type { ListItem, WindFarm } from "../types/types";
+import type { ListItem } from "../types/types";
 import isNotNullOrUndefined from "../helpers/helpers";
 import { getFarms } from "../schema/schema";
-import { useSuspense } from "@rest-hooks/react";
 
 const Farms: React.FC = () => {
   const farms = useSuspense(getFarms);

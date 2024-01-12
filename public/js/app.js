@@ -5417,7 +5417,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Farm: () => (/* binding */ Farm),
 /* harmony export */   FarmData: () => (/* binding */ FarmData),
-/* harmony export */   FarmResource: () => (/* binding */ FarmResource),
 /* harmony export */   FarmTurbinesResource: () => (/* binding */ FarmTurbinesResource),
 /* harmony export */   FarmsData: () => (/* binding */ FarmsData),
 /* harmony export */   Turbine: () => (/* binding */ Turbine),
@@ -5463,9 +5462,8 @@ var Farm = /*#__PURE__*/function (_Entity) {
     }
   }], [{
     key: "process",
-    value: function process(value, parent, key) {
-      console.log("FARM PROCESS", value, parent, key);
-      return value;
+    value: function process(value) {
+      return value.data;
     }
   }]);
   return Farm;
@@ -5493,7 +5491,7 @@ var Turbine = /*#__PURE__*/function (_Entity2) {
     }
   }], [{
     key: "process",
-    value: function process(value, parent, key) {
+    value: function process(value) {
       return value.data;
     }
   }]);
@@ -5549,18 +5547,10 @@ var TurbineData = /*#__PURE__*/function (_Entity5) {
     value: function pk() {
       return "TD";
     }
-  }], [{
-    key: "process",
-    value: function process(value, parent, key) {
-      return value;
-    }
   }]);
   return TurbineData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /* Schema */
-FarmData.schema = {
-  data: Farm
-};
 Farm.schema = {
   id: Number,
   name: String,
@@ -5577,25 +5567,20 @@ Turbine.schema = {
   updated_at: String
 };
 /* Resources */
-var getFarm = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: FarmData
-});
 var getFarmTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
   urlPrefix: "http://localhost/api",
   path: "/farms/:id/turbines",
   schema: TurbineData
 });
+var getFarm = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id",
+  schema: FarmData
+});
 var getFarms = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
   urlPrefix: "http://localhost/api",
   path: "/farms",
   schema: FarmsData
-});
-var FarmResource = (0,_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__["default"])({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: Farm
 });
 var FarmTurbinesResource = (0,_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__["default"])({
   urlPrefix: "http://localhost/api",

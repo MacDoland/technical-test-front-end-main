@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+// TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
+
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useSuspense } from "@rest-hooks/react";
 import isNotNullOrUndefined from "../helpers/helpers";
 import List from "../components/List";
-
 import { getFarm, getFarmTurbines } from "../schema/schema";
-import { useSuspense } from "@rest-hooks/react";
 
 const Farm: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -13,7 +15,7 @@ const Farm: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const idNum = parseInt(id);
+  const idNum = Number(id);
   const farm = useSuspense(getFarm, { id: idNum });
   const farmTurbines = useSuspense(getFarmTurbines, {
     id: idNum,
