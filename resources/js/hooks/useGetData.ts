@@ -5,9 +5,13 @@ interface ApiResponse<T> {
   data: T;
 }
 
-const useGetData = <T>(url: string, dependencyArray: any[] = []): T | null => {
+const useGetData = <T>(
+  url: string,
+  defaultValue: T | null = null,
+): T | null => {
   const isDataFetched = useRef(false);
-  const [data, setData] = useState<T | null>(null);
+
+  const [data, setData] = useState<T | null>(defaultValue);
 
   useEffect(() => {
     if (!isDataFetched.current) {
@@ -25,7 +29,7 @@ const useGetData = <T>(url: string, dependencyArray: any[] = []): T | null => {
           // TODO: handle error
         });
     }
-  }, [url, dependencyArray]);
+  }, [url]);
 
   return data;
 };
