@@ -3,6 +3,7 @@ import {
   ComponentTypesData,
   FarmData,
   FarmsData,
+  InspectionsData,
   TurbineComponentsData,
   TurbineData,
   TurbinesData,
@@ -57,6 +58,12 @@ export const getComponentTypes = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/component-types",
   schema: ComponentTypesData,
+});
+
+export const getInspections = new RestEndpoint({
+  urlPrefix: "http://localhost/api",
+  path: "/inspections",
+  schema: InspectionsData,
 });
 
 export const FarmTurbinesResource = createResource({

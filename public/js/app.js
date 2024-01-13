@@ -5148,10 +5148,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/useGetData */ "./resources/js/hooks/useGetData.ts");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+
 
 
 
@@ -5159,7 +5161,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Inspections = function Inspections() {
-  var inspections = (0,_hooks_useGetData__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/inspections");
+  var inspections = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_4__.getInspections);
   var mapInspections = function mapInspections(componentList) {
     return componentList.map(function (item) {
       return {
@@ -5170,14 +5172,14 @@ var Inspections = function Inspections() {
   };
   var displayInspections = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(mapInspections, []);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Inspections"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Inspections"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["default"])(inspections) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      items: displayInspections(inspections),
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["default"])(inspections) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      items: displayInspections(inspections.data),
       childUrlName: "inspections",
       showLinks: true
     }) : null]
@@ -5416,6 +5418,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getFarm: () => (/* binding */ getFarm),
 /* harmony export */   getFarmTurbines: () => (/* binding */ getFarmTurbines),
 /* harmony export */   getFarms: () => (/* binding */ getFarms),
+/* harmony export */   getInspections: () => (/* binding */ getInspections),
 /* harmony export */   getTurbine: () => (/* binding */ getTurbine),
 /* harmony export */   getTurbineComponents: () => (/* binding */ getTurbineComponents),
 /* harmony export */   getTurbines: () => (/* binding */ getTurbines)
@@ -5468,6 +5471,11 @@ var getComponentTypes = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["defau
   path: "/component-types",
   schema: _entities__WEBPACK_IMPORTED_MODULE_0__.ComponentTypesData
 });
+var getInspections = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/inspections",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.InspectionsData
+});
 var FarmTurbinesResource = (0,_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__["default"])({
   urlPrefix: "http://localhost/api",
   path: "/farms/:id/turbines",
@@ -5491,6 +5499,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Farm: () => (/* binding */ Farm),
 /* harmony export */   FarmData: () => (/* binding */ FarmData),
 /* harmony export */   FarmsData: () => (/* binding */ FarmsData),
+/* harmony export */   Inspection: () => (/* binding */ Inspection),
+/* harmony export */   InspectionData: () => (/* binding */ InspectionData),
+/* harmony export */   InspectionsData: () => (/* binding */ InspectionsData),
 /* harmony export */   Turbine: () => (/* binding */ Turbine),
 /* harmony export */   TurbineComponent: () => (/* binding */ TurbineComponent),
 /* harmony export */   TurbineComponentData: () => (/* binding */ TurbineComponentData),
@@ -5610,7 +5621,7 @@ var ComponentType = /*#__PURE__*/function (_Entity4) {
     _this4.id = 0;
     _this4.name = "";
     _this4.created_at = "";
-    _this4.updated_at = false;
+    _this4.updated_at = "";
     return _this4;
   }
   _createClass(ComponentType, [{
@@ -5627,14 +5638,41 @@ var ComponentType = /*#__PURE__*/function (_Entity4) {
   return ComponentType;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
 ComponentType.key = "ComponentType";
-var FarmData = /*#__PURE__*/function (_Entity5) {
-  _inherits(FarmData, _Entity5);
-  function FarmData() {
+var Inspection = /*#__PURE__*/function (_Entity5) {
+  _inherits(Inspection, _Entity5);
+  function Inspection() {
     var _this5;
-    _classCallCheck(this, FarmData);
-    _this5 = _callSuper(this, FarmData, arguments);
-    _this5.data = Farm.fromJS();
+    _classCallCheck(this, Inspection);
+    _this5 = _callSuper(this, Inspection, arguments);
+    _this5.id = 0;
+    _this5.turbine_id = "";
+    _this5.inspected_at = "";
+    _this5.created_at = "";
+    _this5.updated_at = "";
     return _this5;
+  }
+  _createClass(Inspection, [{
+    key: "pk",
+    value: function pk() {
+      return "".concat(this.id);
+    }
+  }], [{
+    key: "process",
+    value: function process(value) {
+      return value.data;
+    }
+  }]);
+  return Inspection;
+}(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
+Inspection.key = "ComponentType";
+var FarmData = /*#__PURE__*/function (_Entity6) {
+  _inherits(FarmData, _Entity6);
+  function FarmData() {
+    var _this6;
+    _classCallCheck(this, FarmData);
+    _this6 = _callSuper(this, FarmData, arguments);
+    _this6.data = Farm.fromJS();
+    return _this6;
   }
   _createClass(FarmData, [{
     key: "pk",
@@ -5644,14 +5682,14 @@ var FarmData = /*#__PURE__*/function (_Entity5) {
   }]);
   return FarmData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var FarmsData = /*#__PURE__*/function (_Entity6) {
-  _inherits(FarmsData, _Entity6);
+var FarmsData = /*#__PURE__*/function (_Entity7) {
+  _inherits(FarmsData, _Entity7);
   function FarmsData() {
-    var _this6;
+    var _this7;
     _classCallCheck(this, FarmsData);
-    _this6 = _callSuper(this, FarmsData, arguments);
-    _this6.data = [];
-    return _this6;
+    _this7 = _callSuper(this, FarmsData, arguments);
+    _this7.data = [];
+    return _this7;
   }
   _createClass(FarmsData, [{
     key: "pk",
@@ -5661,14 +5699,14 @@ var FarmsData = /*#__PURE__*/function (_Entity6) {
   }]);
   return FarmsData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var TurbineData = /*#__PURE__*/function (_Entity7) {
-  _inherits(TurbineData, _Entity7);
+var TurbineData = /*#__PURE__*/function (_Entity8) {
+  _inherits(TurbineData, _Entity8);
   function TurbineData() {
-    var _this7;
+    var _this8;
     _classCallCheck(this, TurbineData);
-    _this7 = _callSuper(this, TurbineData, arguments);
-    _this7.data = Turbine.fromJS();
-    return _this7;
+    _this8 = _callSuper(this, TurbineData, arguments);
+    _this8.data = Turbine.fromJS();
+    return _this8;
   }
   _createClass(TurbineData, [{
     key: "pk",
@@ -5678,14 +5716,14 @@ var TurbineData = /*#__PURE__*/function (_Entity7) {
   }]);
   return TurbineData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var TurbinesData = /*#__PURE__*/function (_Entity8) {
-  _inherits(TurbinesData, _Entity8);
+var TurbinesData = /*#__PURE__*/function (_Entity9) {
+  _inherits(TurbinesData, _Entity9);
   function TurbinesData() {
-    var _this8;
+    var _this9;
     _classCallCheck(this, TurbinesData);
-    _this8 = _callSuper(this, TurbinesData, arguments);
-    _this8.data = [];
-    return _this8;
+    _this9 = _callSuper(this, TurbinesData, arguments);
+    _this9.data = [];
+    return _this9;
   }
   _createClass(TurbinesData, [{
     key: "pk",
@@ -5695,14 +5733,14 @@ var TurbinesData = /*#__PURE__*/function (_Entity8) {
   }]);
   return TurbinesData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var TurbineComponentData = /*#__PURE__*/function (_Entity9) {
-  _inherits(TurbineComponentData, _Entity9);
+var TurbineComponentData = /*#__PURE__*/function (_Entity10) {
+  _inherits(TurbineComponentData, _Entity10);
   function TurbineComponentData() {
-    var _this9;
+    var _this10;
     _classCallCheck(this, TurbineComponentData);
-    _this9 = _callSuper(this, TurbineComponentData, arguments);
-    _this9.data = TurbineComponent.fromJS();
-    return _this9;
+    _this10 = _callSuper(this, TurbineComponentData, arguments);
+    _this10.data = TurbineComponent.fromJS();
+    return _this10;
   }
   _createClass(TurbineComponentData, [{
     key: "pk",
@@ -5712,14 +5750,14 @@ var TurbineComponentData = /*#__PURE__*/function (_Entity9) {
   }]);
   return TurbineComponentData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var TurbineComponentsData = /*#__PURE__*/function (_Entity10) {
-  _inherits(TurbineComponentsData, _Entity10);
+var TurbineComponentsData = /*#__PURE__*/function (_Entity11) {
+  _inherits(TurbineComponentsData, _Entity11);
   function TurbineComponentsData() {
-    var _this10;
+    var _this11;
     _classCallCheck(this, TurbineComponentsData);
-    _this10 = _callSuper(this, TurbineComponentsData, arguments);
-    _this10.data = [];
-    return _this10;
+    _this11 = _callSuper(this, TurbineComponentsData, arguments);
+    _this11.data = [];
+    return _this11;
   }
   _createClass(TurbineComponentsData, [{
     key: "pk",
@@ -5729,14 +5767,14 @@ var TurbineComponentsData = /*#__PURE__*/function (_Entity10) {
   }]);
   return TurbineComponentsData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var ComponentTypeData = /*#__PURE__*/function (_Entity11) {
-  _inherits(ComponentTypeData, _Entity11);
+var ComponentTypeData = /*#__PURE__*/function (_Entity12) {
+  _inherits(ComponentTypeData, _Entity12);
   function ComponentTypeData() {
-    var _this11;
+    var _this12;
     _classCallCheck(this, ComponentTypeData);
-    _this11 = _callSuper(this, ComponentTypeData, arguments);
-    _this11.data = ComponentType.fromJS();
-    return _this11;
+    _this12 = _callSuper(this, ComponentTypeData, arguments);
+    _this12.data = ComponentType.fromJS();
+    return _this12;
   }
   _createClass(ComponentTypeData, [{
     key: "pk",
@@ -5746,14 +5784,14 @@ var ComponentTypeData = /*#__PURE__*/function (_Entity11) {
   }]);
   return ComponentTypeData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var ComponentTypesData = /*#__PURE__*/function (_Entity12) {
-  _inherits(ComponentTypesData, _Entity12);
+var ComponentTypesData = /*#__PURE__*/function (_Entity13) {
+  _inherits(ComponentTypesData, _Entity13);
   function ComponentTypesData() {
-    var _this12;
+    var _this13;
     _classCallCheck(this, ComponentTypesData);
-    _this12 = _callSuper(this, ComponentTypesData, arguments);
-    _this12.data = [];
-    return _this12;
+    _this13 = _callSuper(this, ComponentTypesData, arguments);
+    _this13.data = [];
+    return _this13;
   }
   _createClass(ComponentTypesData, [{
     key: "pk",
@@ -5762,6 +5800,40 @@ var ComponentTypesData = /*#__PURE__*/function (_Entity12) {
     }
   }]);
   return ComponentTypesData;
+}(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var InspectionData = /*#__PURE__*/function (_Entity14) {
+  _inherits(InspectionData, _Entity14);
+  function InspectionData() {
+    var _this14;
+    _classCallCheck(this, InspectionData);
+    _this14 = _callSuper(this, InspectionData, arguments);
+    _this14.data = Inspection.fromJS();
+    return _this14;
+  }
+  _createClass(InspectionData, [{
+    key: "pk",
+    value: function pk() {
+      return "InspectionData";
+    }
+  }]);
+  return InspectionData;
+}(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var InspectionsData = /*#__PURE__*/function (_Entity15) {
+  _inherits(InspectionsData, _Entity15);
+  function InspectionsData() {
+    var _this15;
+    _classCallCheck(this, InspectionsData);
+    _this15 = _callSuper(this, InspectionsData, arguments);
+    _this15.data = [];
+    return _this15;
+  }
+  _createClass(InspectionsData, [{
+    key: "pk",
+    value: function pk() {
+      return "InspectionsData";
+    }
+  }]);
+  return InspectionsData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Farm.schema = {
   id: Number,

@@ -3,6 +3,7 @@ import {
   getFarm,
   getFarmTurbines,
   getFarms,
+  getInspections,
   getTurbine,
   getTurbineComponents,
   getTurbines,
@@ -10,6 +11,7 @@ import {
 import { farm, farms } from "./farms";
 import { turbine, turbines } from "./turbines";
 import { components, componentTypes } from "./components";
+import { inspections } from "./inspections";
 export default {
   farm: [
     {
@@ -52,6 +54,13 @@ export default {
       endpoint: getTurbines,
       args: [] as const,
       response: turbines,
+    },
+  ],
+  inspections: [
+    {
+      endpoint: getInspections,
+      args: [] as const,
+      response: inspections,
     },
   ],
 };

@@ -67,7 +67,7 @@ export class ComponentType extends Entity {
   id = 0;
   name = "";
   created_at = "";
-  updated_at = false;
+  updated_at = "";
 
   pk(): string {
     return `${this.id}`;
@@ -76,6 +76,24 @@ export class ComponentType extends Entity {
   static key = "ComponentType";
 
   static process(value: ComponentTypeData): ComponentType {
+    return value.data;
+  }
+}
+
+export class Inspection extends Entity {
+  id = 0;
+  turbine_id = "";
+  inspected_at = "";
+  created_at = "";
+  updated_at = "";
+
+  pk(): string {
+    return `${this.id}`;
+  }
+
+  static key = "ComponentType";
+
+  static process(value: InspectionData): Inspection {
     return value.data;
   }
 }
@@ -141,6 +159,22 @@ export class ComponentTypesData extends Entity {
 
   pk(): string {
     return "ComponentsData";
+  }
+}
+
+export class InspectionData extends Entity {
+  data: Inspection = Inspection.fromJS();
+
+  pk(): string {
+    return "InspectionData";
+  }
+}
+
+export class InspectionsData extends Entity {
+  data: Inspection[] = [];
+
+  pk(): string {
+    return "InspectionsData";
   }
 }
 

@@ -1,28 +1,29 @@
 import { act, render, screen } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
-import { inspections } from "../../../../fixtures/Inspections.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import Inspections from "../Inspections";
-import useGetData from "../../hooks/useGetData";
-
-jest.mock("../../hooks/useGetData", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
+import { CacheProvider, AsyncBoundary } from "@rest-hooks/react";
+import { MockResolver, mockInitialState } from "@rest-hooks/test";
+import results from "../../../../fixtures/fixtures";
 
 describe("Inspections Component", () => {
-  test("renders and displays expected farm names", async () => {
+  test("renders and displays expected inspection names", async () => {
     // Arrange
-    (useGetData as jest.Mock).mockReturnValue(inspections.data);
 
     // Act
     await act(async () => {
       render(
         <HelmetProvider>
-          <BrowserRouter>
-            <Inspections />
-          </BrowserRouter>
+          <CacheProvider initialState={mockInitialState(results.inspections)}>
+            <MockResolver fixtures={results.inspections}>
+              <AsyncBoundary fallback="loading">
+                <BrowserRouter>
+                  <Inspections />
+                </BrowserRouter>
+              </AsyncBoundary>
+            </MockResolver>
+          </CacheProvider>
         </HelmetProvider>,
       );
     });

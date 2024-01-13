@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { Helmet } from "react-helmet-async";
-import useGetData from "../hooks/useGetData";
+import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
-import type { ListItem, Inspection } from "../types/types";
+import type { ListItem } from "../types/types";
 import isNotNullOrUndefined from "../helpers/helpers";
+import { getInspections } from "../schema/endpoints";
+import type { Inspection } from "../schema/entities";
 
 const Inspections: React.FC = () => {
-  const inspections: Inspection[] | null = useGetData("/api/inspections");
+  const inspections = useSuspense(getInspections);
 
   const mapInspections: (componentList: Inspection[]) => ListItem[] = (
     componentList: Inspection[],
@@ -29,7 +31,7 @@ const Inspections: React.FC = () => {
       <h1>Inspections</h1>
       {isNotNullOrUndefined(inspections) ? (
         <List
-          items={displayInspections(inspections as Inspection[])}
+          items={displayInspections(inspections.data)}
           childUrlName="inspections"
           showLinks
         />
