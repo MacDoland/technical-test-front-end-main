@@ -3,21 +3,21 @@ import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
 import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined } from "../helpers/helpers";
-import { getTurbines } from "../schema/endpoints";
+import { getGradeTypes } from "../schema/endpoints";
 
-const Turbines: React.FC = () => {
-  const turbines = useSuspense(getTurbines);
+const GradeTypes: React.FC = () => {
+  const gradeTypes = useSuspense(getGradeTypes);
 
   return (
     <>
       <Helmet>
-        <title>Turbines</title>
+        <title>GradeTypes</title>
       </Helmet>
-      <h1>Turbines</h1>
-      {isNotNullOrUndefined(turbines) ? (
+      <h1>GradeTypes</h1>
+      {isNotNullOrUndefined(gradeTypes) ? (
         <List
-          items={turbines.data as ListItem[]}
-          childUrlName="turbines"
+          items={gradeTypes.data as ListItem[]}
+          childUrlName="grade-types"
           showLinks
         />
       ) : null}
@@ -25,4 +25,4 @@ const Turbines: React.FC = () => {
   );
 };
 
-export default Turbines;
+export default GradeTypes;

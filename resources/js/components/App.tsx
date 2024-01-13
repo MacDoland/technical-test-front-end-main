@@ -13,11 +13,20 @@ const App: React.FC = () => {
         <NavLink end to="/turbines">
           Turbines
         </NavLink>
+        <NavLink end to="/components">
+          Components
+        </NavLink>
         <NavLink end to="/inspections">
           Inspections
         </NavLink>
+        <NavLink end to="/grades">
+          Grades
+        </NavLink>
         <NavLink end to="/component-types">
           Component Types
+        </NavLink>
+        <NavLink end to="/grade-types">
+          Grade Types
         </NavLink>
       </nav>
       <main>

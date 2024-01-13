@@ -4,7 +4,7 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import isNotNullOrUndefined from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import List from "../components/List";
 import { getFarm, getFarmTurbines } from "../schema/endpoints";
 

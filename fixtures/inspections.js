@@ -1,3 +1,14 @@
+const inspection = {
+    "data":
+    {
+        "id": 1,
+        "turbine_id": 1,
+        "inspected_at": "2023-04-01 08:00:57",
+        "created_at": "2024-01-09T14:54:49.000000Z",
+        "updated_at": "2024-01-09T14:54:49.000000Z"
+    }
+}
+
 const inspections = {
     "data": [
         {
@@ -353,4 +364,4 @@ const inspections = {
     ]
 };
 
-export { inspections };
+export { inspection, inspections };

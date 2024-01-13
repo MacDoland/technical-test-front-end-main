@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import isNotNullOrUndefined from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 
 import type { ListItem } from "../types/types";
 
