@@ -107,5 +107,8 @@ It gets a lot more difficult to manage and call everything when displaying grade
 
 I was hoping rest-hooks or Reactive Data Client as its now known would help me with doing client side foreign key joins but it hasn't unfortunately. It can normalize data that is in one big structure but doesnt seem to have the mechanisms to describe relationships. It still does a lot of nice things such as data caching but I may have to just do manual maps.
 
+### Component Reuse
+
+There is definitely opportunity to reuse some of the lists for example passing a farm_id to the Turbines component and having it only display a subset but I think I'm going to do it the simple way first and then optimise after if I can find a nice way to correlate the route params with a different url call
 
 

@@ -16,6 +16,9 @@ const App: React.FC = () => {
         <NavLink end to="/inspections">
           Inspections
         </NavLink>
+        <NavLink end to="/component-types">
+          Component Types
+        </NavLink>
       </nav>
       <main>
         <Outlet />

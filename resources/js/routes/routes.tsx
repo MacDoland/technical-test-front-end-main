@@ -7,8 +7,9 @@ import Turbines from "../pages/Turbines";
 import Turbine from "../pages/Turbine";
 import Inspections from "../pages/Inspections";
 import PageNotFound from "../pages/errors/PageNotFound";
+import ComponentTypes from "../pages/ComponentTypes";
 
-const AppRoutes = () => {
+const AppRoutes: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -24,6 +25,10 @@ const AppRoutes = () => {
           </Route>
           <Route path="inspections">
             <Route path="" element={<Inspections />} />
+          </Route>
+          <Route path="component-types">
+            <Route path="" element={<ComponentTypes />} />
+            {/* <Route path=":id" element={<ComponentType />} /> */}
           </Route>
         </Route>
         <Route path="*" element={<PageNotFound />} />

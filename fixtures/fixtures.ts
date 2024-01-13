@@ -63,4 +63,11 @@ export default {
       response: inspections,
     },
   ],
+  componentTypes: [
+    {
+      endpoint: getComponentTypes,
+      args: [] as const,
+      response: componentTypes,
+    },
+  ],
 };
