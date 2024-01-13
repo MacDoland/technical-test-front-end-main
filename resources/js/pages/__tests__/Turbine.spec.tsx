@@ -1,19 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
-import { turbine } from "../../../../fixtures/turbine.js";
-import { components } from "../../../../fixtures/components.js";
-import { componentTypes } from "../../../../fixtures/component-types.js";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import Turbine from "../Turbine";
-import useGetData from "../../hooks/useGetData";
-import { WindFarmContext } from "../../providers/WindFarmProvider";
-import { ComponentType, WindFarmContextType } from "../../types/types";
-
-jest.mock("../../hooks/useGetData", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
+import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
+import { MockResolver, mockInitialState } from "@rest-hooks/test";
+import results from "../../../../fixtures/fixtures";
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -25,35 +17,33 @@ jest.mock("react-router-dom", () => ({
 describe("Turbine Component", () => {
   test("renders and displays expected turbine name", async () => {
     // Arrange
-    (useGetData as jest.Mock).mockImplementation((url: string) => {
-      if (url === "/api/turbines/1") {
-        return turbine.data;
-      } else if (url === "/api/turbines/1/components") {
-        return components.data;
-      }
-
-      return { value: "Unknown API Resource" };
-    });
-
-    const context: WindFarmContextType = {
-      componentTypes: componentTypes.data as ComponentType[],
-      gradeTypes: [],
-    };
 
     // Act
-    render(
-      <HelmetProvider>
-        <WindFarmContext.Provider value={context}>
-          <BrowserRouter>
-            <Turbine />
-          </BrowserRouter>
-        </WindFarmContext.Provider>
-      </HelmetProvider>,
-    );
+    await act(async () => {
+      render(
+        <HelmetProvider>
+          <CacheProvider initialState={mockInitialState(results.turbine)}>
+            <MockResolver fixtures={results.turbine}>
+              <AsyncBoundary fallback="loading">
+                <BrowserRouter>
+                  <Turbine />
+                </BrowserRouter>
+              </AsyncBoundary>
+            </MockResolver>
+          </CacheProvider>
+        </HelmetProvider>,
+      );
+    });
 
     const turbineName = await screen.getByText("Linen");
+    const componentAName = await screen.getByText("Blade");
+    const componentBName = await screen.getByText("Rotor");
+    const componentCName = await screen.getByText("Hub");
 
     // Assert
     expect(turbineName).toBeInTheDocument();
+    expect(componentAName).toBeInTheDocument();
+    expect(componentBName).toBeInTheDocument();
+    expect(componentCName).toBeInTheDocument();
   });
 });

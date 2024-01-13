@@ -1,57 +1,44 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+// TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
+
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useSuspense } from "@rest-hooks/react";
 import isNotNullOrUndefined from "../helpers/helpers";
-import useGetData from "../hooks/useGetData";
-import type {
-  ListItem,
-  Component,
-  TurbineComponent,
-  WindTurbine,
-} from "../types/types";
-import { WindFarmContext } from "../providers/WindFarmProvider";
-import List from "../components/List";
+import List, { type ListItem } from "../components/List";
+import {
+  getComponentTypes,
+  getTurbine,
+  getTurbineComponents,
+} from "../schema/schema";
 
 const Turbine: React.FC = () => {
-  const { id: turbineId } = useParams();
-  const context = useContext(WindFarmContext);
-  const [turbineComponents, setTurbineComponents] =
-    useState<TurbineComponent[]>();
+  const { id } = useParams<{ id?: string }>();
 
-  const turbine = useGetData<WindTurbine>(`/api/turbines/${turbineId}`);
-  const components = useGetData<Component[]>(
-    `/api/turbines/${turbineId}/components`,
-    new Array<Component>(),
-  );
+  if (typeof id === "undefined") {
+    return <div>Loading...</div>;
+  }
 
-  const mapComponents: (componentList: Component[]) => TurbineComponent[] = (
-    componentList: Component[],
-  ) => {
-    return componentList.map(item => {
-      const matchingComponentType = context.componentTypes.find(
-        componentType => componentType.id === item.id,
-      );
+  const idNum = Number(id);
+  const turbine = useSuspense(getTurbine, { id: idNum });
+  const turbineComponents = useSuspense(getTurbineComponents, {
+    id: idNum,
+  });
+  const componentTypes = useSuspense(getComponentTypes);
 
-      return {
-        id: item.id,
-        name: isNotNullOrUndefined(matchingComponentType)
-          ? matchingComponentType?.name
-          : undefined,
-      };
-    });
-  };
+  const turbineComponentsViewModel = turbineComponents.data.map(component => {
+    const targetComponentType = componentTypes.data.find(
+      type => type.id === component.component_type_id,
+    );
 
-  const createComponentsDisplay = useCallback(mapComponents, [
-    context.componentTypes,
-  ]);
-
-  useEffect(() => {
-    const displayComponents = isNotNullOrUndefined(components)
-      ? createComponentsDisplay(components as Component[])
-      : new Array<TurbineComponent>();
-
-    setTurbineComponents(displayComponents);
-  }, [components, context.componentTypes, createComponentsDisplay]);
+    return {
+      ...component,
+      name:
+        typeof targetComponentType !== "undefined"
+          ? targetComponentType.name
+          : "Unknown",
+    };
+  });
 
   return (
     <>
@@ -59,12 +46,12 @@ const Turbine: React.FC = () => {
         <title>Turbine</title>
       </Helmet>
       <h1>Turbine</h1>
-      {isNotNullOrUndefined(turbine) ? <div>{turbine?.name}</div> : null}
-      {isNotNullOrUndefined(components) ? (
+      {isNotNullOrUndefined(turbine) ? <div>{turbine?.data.name}</div> : null}
+      {isNotNullOrUndefined(turbineComponentsViewModel) ? (
         <>
           <h2>Components</h2>
           <List
-            items={turbineComponents as ListItem[]}
+            items={turbineComponentsViewModel as ListItem[]}
             showLinks={false}
             childUrlName="turbines"
             keyPrefix="turbine-"

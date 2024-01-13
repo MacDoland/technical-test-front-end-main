@@ -1,3 +1,17 @@
+const turbine = {
+    "data":
+    {
+        "id": 1,
+        "name": "Linen",
+        "lat": "78.69",
+        "lng": "122.23",
+        "farm_id": 1,
+        "created_at": "2024-01-09T14:54:49.000000Z",
+        "updated_at": "2024-01-09T14:54:49.000000Z"
+    },
+
+}
+
 const turbines = {
     "data": [
         {
@@ -65,7 +79,7 @@ const turbines = {
         },
         {
             "id": 8,
-            "name": "PaleVioletRed",
+            "name": "PaleVioletBlue",
             "lat": "55.24",
             "lng": "-84.46",
             "farm_id": 2,
@@ -228,4 +242,4 @@ const turbines = {
     ]
 };
 
-export { turbines }
+export { turbine, turbines }

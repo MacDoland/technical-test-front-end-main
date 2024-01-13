@@ -103,9 +103,9 @@ It dawns on me that number of the views displaying Farms, Turbines, Inspections 
 
 ### Data Structure
 
-Looking at how relational structure of the data there are quite a number of calls required just to display the components of a turbine. I'm thinking that data like this (componentType) is unlikely to update very frequently so it might be worth fetching it and caching it locally so when we display data on different turbines that we dont have to keep making repeated calls for the same data. The grade types are another candidate for this. So if I make the call once then store it somewhere like local storage and make it available through context then any component should be able to quickly look up the name.
-
 It gets a lot more difficult to manage and call everything when displaying grades as you need to make calls to inspections and components then map all the data together. It's time to upgrade the solution I think - I'm going to look at introducitng Rest hooks to help make the code more manageable. Because I have setup a number of tests on each view hopefully it won't be too much trouble to swap in.
+
+I was hoping rest-hooks or Reactive Data Client as its now known would help me with doing client side foreign key joins but it hasn't unfortunately. It can normalize data that is in one big structure but doesnt seem to have the mechanisms to describe relationships. It still does a lot of nice things such as data caching but I may have to just do manual maps.
 
 
 
