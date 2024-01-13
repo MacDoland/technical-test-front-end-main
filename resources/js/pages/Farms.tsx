@@ -3,7 +3,7 @@ import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
 import type { ListItem } from "../types/types";
 import isNotNullOrUndefined from "../helpers/helpers";
-import { getFarms } from "../schema/schema";
+import { getFarms } from "../schema/endpoints";
 
 const Farms: React.FC = () => {
   const farms = useSuspense(getFarms);

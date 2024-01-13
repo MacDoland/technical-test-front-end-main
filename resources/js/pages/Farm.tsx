@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import isNotNullOrUndefined from "../helpers/helpers";
 import List from "../components/List";
-import { getFarm, getFarmTurbines } from "../schema/schema";
+import { getFarm, getFarmTurbines } from "../schema/endpoints";
 
 const Farm: React.FC = () => {
   const { id } = useParams<{ id?: string }>();

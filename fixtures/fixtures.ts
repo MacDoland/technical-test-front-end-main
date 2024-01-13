@@ -6,7 +6,7 @@ import {
   getTurbine,
   getTurbineComponents,
   getTurbines,
-} from "../resources/js/schema/schema";
+} from "../resources/js/schema/endpoints";
 import { farm, farms } from "./farms";
 import { turbine, turbines } from "./turbines";
 import { components, componentTypes } from "./components";

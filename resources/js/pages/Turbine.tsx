@@ -10,7 +10,7 @@ import {
   getComponentTypes,
   getTurbine,
   getTurbineComponents,
-} from "../schema/schema";
+} from "../schema/endpoints";
 
 const Turbine: React.FC = () => {
   const { id } = useParams<{ id?: string }>();

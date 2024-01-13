@@ -3,7 +3,7 @@ import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
 import type { ListItem } from "../types/types";
 import isNotNullOrUndefined from "../helpers/helpers";
-import { getTurbines } from "../schema/schema";
+import { getTurbines } from "../schema/endpoints";
 
 const Turbines: React.FC = () => {
   const turbines = useSuspense(getTurbines);

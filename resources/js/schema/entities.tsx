@@ -3,7 +3,7 @@
 // TODO: Consider refactoring into seperate files
 // TODO: Consider refactoring some of these repeated classes into generics if possible
 
-import { createResource, Entity, RestEndpoint } from "@rest-hooks/rest";
+import { Entity } from "@rest-hooks/rest";
 
 /* Entities */
 
@@ -144,8 +144,6 @@ export class ComponentTypesData extends Entity {
   }
 }
 
-/* Schema */
-
 Farm.schema = {
   id: Number,
   name: String,
@@ -171,62 +169,3 @@ TurbineComponent.schema = {
   created_at: String,
   updated_at: String,
 };
-
-/* Resources */
-
-/* Farms */
-export const getFarm = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: FarmData,
-});
-
-export const getFarms = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/farms",
-  schema: FarmsData,
-});
-
-export const getFarmTurbines = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id/turbines",
-  schema: TurbinesData,
-  dataExpiryLength: 50,
-  invalidIfStale: true,
-});
-
-/* Turbines */
-
-export const getTurbine = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines/:id",
-  schema: TurbineData,
-  dataExpiryLength: 50,
-  invalidIfStale: true,
-});
-
-export const getTurbines = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines",
-  schema: TurbinesData,
-  dataExpiryLength: 50,
-  invalidIfStale: true,
-});
-
-export const getTurbineComponents = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines/:id/components",
-  schema: TurbineComponentsData,
-});
-
-export const getComponentTypes = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/component-types",
-  schema: ComponentTypesData,
-});
-
-export const FarmTurbinesResource = createResource({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id/turbines",
-  schema: TurbinesData,
-});

@@ -4936,7 +4936,6 @@ var List = function List(_ref) {
   var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["default"])(childUrlName) ? "/".concat(childUrlName) : "";
   // TODO: rethink what link url should be when childUrlName is not set
   // TODO: consider passing button into a slot
-  console.log(items);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
     children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["default"])(items) ? items.map(function (item) {
       return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
@@ -5042,7 +5041,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/schema */ "./resources/js/schema/schema.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5061,10 +5060,10 @@ var Farm = function Farm() {
     });
   }
   var idNum = Number(id);
-  var farm = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getFarm, {
+  var farm = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarm, {
     id: idNum
   });
-  var farmTurbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getFarmTurbines, {
+  var farmTurbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarmTurbines, {
     id: idNum
   });
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -5108,7 +5107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/schema */ "./resources/js/schema/schema.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 
 
 
@@ -5116,7 +5115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Farms = function Farms() {
-  var farms = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getFarms);
+  var farms = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarms);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -5205,7 +5204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/schema */ "./resources/js/schema/schema.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5224,13 +5223,13 @@ var Turbine = function Turbine() {
     });
   }
   var idNum = Number(id);
-  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getTurbine, {
+  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbine, {
     id: idNum
   });
-  var turbineComponents = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getTurbineComponents, {
+  var turbineComponents = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbineComponents, {
     id: idNum
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getComponentTypes);
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getComponentTypes);
   var turbineComponentsViewModel = turbineComponents.data.map(function (component) {
     var targetComponentType = componentTypes.data.find(function (type) {
       return type.id === component.component_type_id;
@@ -5280,7 +5279,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/schema */ "./resources/js/schema/schema.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 
 
 
@@ -5288,7 +5287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Turbines = function Turbines() {
-  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_schema__WEBPACK_IMPORTED_MODULE_3__.getTurbines);
+  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbines);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -5403,10 +5402,84 @@ var WindFarmProvider = function WindFarmProvider(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/schema/schema.tsx":
-/*!****************************************!*\
-  !*** ./resources/js/schema/schema.tsx ***!
-  \****************************************/
+/***/ "./resources/js/schema/endpoints.tsx":
+/*!*******************************************!*\
+  !*** ./resources/js/schema/endpoints.tsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FarmTurbinesResource: () => (/* binding */ FarmTurbinesResource),
+/* harmony export */   getComponentTypes: () => (/* binding */ getComponentTypes),
+/* harmony export */   getFarm: () => (/* binding */ getFarm),
+/* harmony export */   getFarmTurbines: () => (/* binding */ getFarmTurbines),
+/* harmony export */   getFarms: () => (/* binding */ getFarms),
+/* harmony export */   getTurbine: () => (/* binding */ getTurbine),
+/* harmony export */   getTurbineComponents: () => (/* binding */ getTurbineComponents),
+/* harmony export */   getTurbines: () => (/* binding */ getTurbines)
+/* harmony export */ });
+/* harmony import */ var _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rest-hooks/rest */ "./node_modules/@data-client/rest/lib/RestEndpoint.js");
+/* harmony import */ var _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @rest-hooks/rest */ "./node_modules/@data-client/rest/lib/createResource.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./entities */ "./resources/js/schema/entities.tsx");
+
+
+/* Farms */
+var getFarm = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.FarmData
+});
+var getFarms = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/farms",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.FarmsData
+});
+var getFarmTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id/turbines",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbinesData,
+  dataExpiryLength: 50,
+  invalidIfStale: true
+});
+/* Turbines */
+var getTurbine = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/turbines/:id",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbineData,
+  dataExpiryLength: 50,
+  invalidIfStale: true
+});
+var getTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/turbines",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbinesData,
+  dataExpiryLength: 50,
+  invalidIfStale: true
+});
+var getTurbineComponents = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/turbines/:id/components",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbineComponentsData
+});
+var getComponentTypes = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  urlPrefix: "http://localhost/api",
+  path: "/component-types",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.ComponentTypesData
+});
+var FarmTurbinesResource = (0,_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id/turbines",
+  schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbinesData
+});
+
+/***/ }),
+
+/***/ "./resources/js/schema/entities.tsx":
+/*!******************************************!*\
+  !*** ./resources/js/schema/entities.tsx ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5417,25 +5490,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ComponentTypesData: () => (/* binding */ ComponentTypesData),
 /* harmony export */   Farm: () => (/* binding */ Farm),
 /* harmony export */   FarmData: () => (/* binding */ FarmData),
-/* harmony export */   FarmTurbinesResource: () => (/* binding */ FarmTurbinesResource),
 /* harmony export */   FarmsData: () => (/* binding */ FarmsData),
 /* harmony export */   Turbine: () => (/* binding */ Turbine),
 /* harmony export */   TurbineComponent: () => (/* binding */ TurbineComponent),
 /* harmony export */   TurbineComponentData: () => (/* binding */ TurbineComponentData),
 /* harmony export */   TurbineComponentsData: () => (/* binding */ TurbineComponentsData),
 /* harmony export */   TurbineData: () => (/* binding */ TurbineData),
-/* harmony export */   TurbinesData: () => (/* binding */ TurbinesData),
-/* harmony export */   getComponentTypes: () => (/* binding */ getComponentTypes),
-/* harmony export */   getFarm: () => (/* binding */ getFarm),
-/* harmony export */   getFarmTurbines: () => (/* binding */ getFarmTurbines),
-/* harmony export */   getFarms: () => (/* binding */ getFarms),
-/* harmony export */   getTurbine: () => (/* binding */ getTurbine),
-/* harmony export */   getTurbineComponents: () => (/* binding */ getTurbineComponents),
-/* harmony export */   getTurbines: () => (/* binding */ getTurbines)
+/* harmony export */   TurbinesData: () => (/* binding */ TurbinesData)
 /* harmony export */ });
 /* harmony import */ var _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @rest-hooks/rest */ "./node_modules/@data-client/endpoint/lib/schemas/Entity.js");
-/* harmony import */ var _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rest-hooks/rest */ "./node_modules/@data-client/rest/lib/RestEndpoint.js");
-/* harmony import */ var _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @rest-hooks/rest */ "./node_modules/@data-client/rest/lib/createResource.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -5450,6 +5513,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 /* eslint-disable max-classes-per-file */
+/* eslint-disable class-methods-use-this */
 // TODO: Consider refactoring into seperate files
 // TODO: Consider refactoring some of these repeated classes into generics if possible
 
@@ -5699,7 +5763,6 @@ var ComponentTypesData = /*#__PURE__*/function (_Entity12) {
   }]);
   return ComponentTypesData;
 }(_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_0__["default"]);
-/* Schema */
 Farm.schema = {
   id: Number,
   name: String,
@@ -5723,55 +5786,6 @@ TurbineComponent.schema = {
   created_at: String,
   updated_at: String
 };
-/* Resources */
-/* Farms */
-var getFarm = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id",
-  schema: FarmData
-});
-var getFarms = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/farms",
-  schema: FarmsData
-});
-var getFarmTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id/turbines",
-  schema: TurbinesData,
-  dataExpiryLength: 50,
-  invalidIfStale: true
-});
-/* Turbines */
-var getTurbine = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines/:id",
-  schema: TurbineData,
-  dataExpiryLength: 50,
-  invalidIfStale: true
-});
-var getTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines",
-  schema: TurbinesData,
-  dataExpiryLength: 50,
-  invalidIfStale: true
-});
-var getTurbineComponents = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/turbines/:id/components",
-  schema: TurbineComponentsData
-});
-var getComponentTypes = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  urlPrefix: "http://localhost/api",
-  path: "/component-types",
-  schema: ComponentTypesData
-});
-var FarmTurbinesResource = (0,_rest_hooks_rest__WEBPACK_IMPORTED_MODULE_2__["default"])({
-  urlPrefix: "http://localhost/api",
-  path: "/farms/:id/turbines",
-  schema: TurbinesData
-});
 
 /***/ }),
 
