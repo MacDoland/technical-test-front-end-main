@@ -109,6 +109,8 @@ I was hoping rest-hooks or Reactive Data Client as its now known would help me w
 
 ### Component Reuse
 
-There is definitely opportunity to reuse some of the lists for example passing a farm_id to the Turbines component and having it only display a subset but I think I'm going to do it the simple way first and then optimise after if I can find a nice way to correlate the route params with a different url call
+There is definitely opportunity to reuse some of the lists for example passing a farm_id to the Turbines component and having it only display a subset but I think I'm going to do it the simple way first and then optimise after if I can find a nice way to correlate the route params with a different url call.
+
+I couldn't quite get it working but I was attempting to create a generic ListView component that could recieve a RestEndPoint to call for its data. That would cut down on the number of components to maintain and test.
 
 

@@ -134,6 +134,29 @@ export class GradeType extends Entity {
   }
 }
 
+// TODO: Look into creating generic views that accept generic fetchers for data
+
+// export abstract class APIData<T> extends Entity {
+//   data: T;
+
+//   constructor() {
+//     super();
+//     this.data = {} as T;
+//   }
+
+//   abstract pk(): string;
+// }
+
+// export abstract class APIDataList<T> extends Entity {
+//   data: T[] = [];
+
+//   constructor() {
+//     super();
+//   }
+
+//   abstract pk(): string;
+// }
+
 export class FarmData extends Entity {
   data: Farm = Farm.fromJS();
 

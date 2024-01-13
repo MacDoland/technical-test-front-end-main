@@ -16,6 +16,7 @@ import GradeTypes from "../pages/GradeTypes";
 import GradeType from "../pages/GradeType";
 import ComponentType from "../pages/ComponentType";
 import Component from "../pages/Component";
+import TurbinesFarm from "../pages/TurbinesFarm";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -26,6 +27,8 @@ const AppRoutes: React.FC = () => {
           <Route path="farms">
             <Route path="" element={<Farms />} />
             <Route path=":id" element={<Farm />} />
+            <Route path=":id/turbines/" element={<TurbinesFarm />} />
+            <Route path=":farmId/turbines/:id" element={<Turbine />} />
           </Route>
           <Route path="turbines">
             <Route path="" element={<Turbines />} />

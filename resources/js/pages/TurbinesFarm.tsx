@@ -3,10 +3,19 @@ import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
 import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined } from "../helpers/helpers";
-import { getTurbines } from "../schema/endpoints";
+import { getFarmTurbines, getTurbines } from "../schema/endpoints";
+import { useParams } from "react-router-dom";
 
 const Turbines: React.FC = () => {
-  const turbines = useSuspense(getTurbines);
+  const { id } = useParams<{ id?: string }>();
+
+  if (typeof id === "undefined") {
+    return <div>Loading...</div>;
+  }
+
+  const idAsNumber = Number(id);
+
+  const turbines = useSuspense(getFarmTurbines, { id: idAsNumber });
 
   return (
     <>
