@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
-import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined, mapComponentTurbines } from "../helpers/helpers";
 import {
   getComponentTypes,
@@ -27,11 +26,7 @@ const Components: React.FC = () => {
       </Helmet>
       <h1>Components</h1>
       {isNotNullOrUndefined(components) ? (
-        <List
-          items={namedComponents as ListItem[]}
-          childUrlName="components"
-          showLinks
-        />
+        <List items={namedComponents} childUrlName="components" showLinks />
       ) : null}
     </>
   );

@@ -24,12 +24,20 @@ const List = ({
   return (
     <ul>
       {isNotNullOrUndefined(items)
-        ? items.map(item => {
+        ? items.map((item, index) => {
             return (
-              <li key={`${keyPrefix}${item.id}`}>
+              <li
+                key={`${keyPrefix}${item.id}`}
+                className={`${
+                  index % 2 === 0 ? "bg-slate-200" : "bg-slate-100"
+                } p-2 border-t border-slate-300 flex gap-4 items-center justify-between`}>
                 <span>{item.name}</span>
                 {showLinks === true ? (
-                  <NavLink to={`${urlPart}/${item.id}`}>view</NavLink>
+                  <NavLink
+                    className="text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+                    to={`${urlPart}/${item.id}`}>
+                    view
+                  </NavLink>
                 ) : null}
               </li>
             );

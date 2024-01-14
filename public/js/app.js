@@ -4781,11 +4781,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/components/CacheProvider.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/components/AsyncBoundary.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/components/CacheProvider.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/components/AsyncBoundary.js");
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.tsx");
+/* harmony import */ var _pages_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Loading */ "./resources/js/pages/Loading.tsx");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Layout */ "./resources/js/components/Layout.tsx");
+
+
+
 
 
 
@@ -4795,10 +4801,15 @@ __webpack_require__.r(__webpack_exports__);
 var app = document.getElementById("app");
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(app);
 root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), {
-  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_4__.HelmetProvider, {
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_routes_routes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.HelmetProvider, {
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            fallback: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Loading__WEBPACK_IMPORTED_MODULE_4__["default"], {}),
+            children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_routes_routes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          })
+        })
       })
     })
   })
@@ -4806,10 +4817,10 @@ root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPA
 
 /***/ }),
 
-/***/ "./resources/js/components/App.tsx":
-/*!*****************************************!*\
-  !*** ./resources/js/components/App.tsx ***!
-  \*****************************************/
+/***/ "./resources/js/components/Footer.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Footer.tsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4818,52 +4829,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 
-
-var App = function App() {
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", {
-      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/",
-        children: "Home"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/farms",
-        children: "Farms"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/turbines",
-        children: "Turbines"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/components",
-        children: "Components"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/inspections",
-        children: "Inspections"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/grades",
-        children: "Grades"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/component-types",
-        children: "Component Types"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-        end: true,
-        to: "/grade-types",
-        children: "Grade Types"
-      })]
-    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
-      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Outlet, {})
-    })]
+var Footer = function Footer() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("footer", {
+    className: "flex justify-center bg-slate-900 p-8",
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+      className: "text-white",
+      children: "Created by Joe McDowall for Cyberhawk 2024"
+    })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
+
+/***/ }),
+
+/***/ "./resources/js/components/Layout.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Layout.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.tsx");
+/* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavBar */ "./resources/js/components/NavBar.tsx");
+
+
+
+var Layout = function Layout(_ref) {
+  var children = _ref.children;
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "min-h-screen flex flex-col bg-gradient-to-r from-slate-200 to-slate-300 bg-left-25",
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+      className: "flex-grow container mx-auto p-4 pt-4 pb-12",
+      children: children
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
 
 /***/ }),
 
@@ -4893,11 +4900,13 @@ var List = function List(_ref) {
   // TODO: rethink what link url should be when childUrlName is not set
   // TODO: consider passing button into a slot
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
-    children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(items) ? items.map(function (item) {
+    children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(items) ? items.map(function (item, index) {
       return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+        className: "".concat(index % 2 === 0 ? "bg-slate-200" : "bg-slate-100", " p-2 border-t border-slate-300 flex gap-4 items-center justify-between"),
         children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
           children: item.name
         }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
+          className: "text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800",
           to: "".concat(urlPart, "/").concat(item.id),
           children: "view"
         }) : null]
@@ -4911,6 +4920,98 @@ List.defaultProps = {
   keyPrefix: ""
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);
+
+/***/ }),
+
+/***/ "./resources/js/components/LoadingSpinner.tsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/LoadingSpinner.tsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+// https://tailwindcomponents.com/component/centered-spinner
+var LoadingSpinner = function LoadingSpinner() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "absolute right-1/2 bottom-1/2 transform translate-x-1/2 translate-y-1/2 ",
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "border-t-transparent border-solid animate-spin rounded-full border-teal-700 border-8 h-32 w-32"
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoadingSpinner);
+
+/***/ }),
+
+/***/ "./resources/js/components/NavBar.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/NavBar.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
+
+var NavBar = function NavBar() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", {
+    className: "flex bg-teal-700 text-white font-bold sticky top-0",
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+      end: true,
+      to: "/",
+      className: "",
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+        alt: "Logo - spinning wind turbine",
+        className: "w-12 h-12 m-2",
+        src: "./img/wind-turbine-sm.gif"
+      })
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "flex gap-4 p-4 bold items-center",
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        className: "font-bold",
+        end: true,
+        to: "/farms",
+        children: "Farms"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/turbines",
+        children: "Turbines"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/components",
+        children: "Components"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/inspections",
+        children: "Inspections"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/grades",
+        children: "Grades"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/component-types",
+        children: "Component Types"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+        end: true,
+        to: "/grade-types",
+        children: "Grade Types"
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
 
 /***/ }),
 
@@ -5571,6 +5672,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
 
+/* eslint-disable react-hooks/rules-of-hooks */
+// TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
 
 
 
@@ -5668,6 +5771,28 @@ var Inspections = function Inspections() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspections);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Loading.tsx":
+/*!****************************************!*\
+  !*** ./resources/js/pages/Loading.tsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_LoadingSpinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/LoadingSpinner */ "./resources/js/components/LoadingSpinner.tsx");
+
+
+var Loading = function Loading() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_LoadingSpinner__WEBPACK_IMPORTED_MODULE_1__["default"], {});
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Loading);
 
 /***/ }),
 
@@ -5804,11 +5929,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 
+/* eslint-disable react-hooks/rules-of-hooks */
+// TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
 
 
 
@@ -5909,27 +6036,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/App */ "./resources/js/components/App.tsx");
-/* harmony import */ var _pages_Welcome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Welcome */ "./resources/js/pages/Welcome.tsx");
-/* harmony import */ var _pages_Farm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Farm */ "./resources/js/pages/Farm.tsx");
-/* harmony import */ var _pages_Farms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Farms */ "./resources/js/pages/Farms.tsx");
-/* harmony import */ var _pages_Turbines__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Turbines */ "./resources/js/pages/Turbines.tsx");
-/* harmony import */ var _pages_Turbine__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/Turbine */ "./resources/js/pages/Turbine.tsx");
-/* harmony import */ var _pages_Inspections__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/Inspections */ "./resources/js/pages/Inspections.tsx");
-/* harmony import */ var _pages_errors_PageNotFound__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/errors/PageNotFound */ "./resources/js/pages/errors/PageNotFound.tsx");
-/* harmony import */ var _pages_ComponentTypes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/ComponentTypes */ "./resources/js/pages/ComponentTypes.tsx");
-/* harmony import */ var _pages_Inspection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/Inspection */ "./resources/js/pages/Inspection.tsx");
-/* harmony import */ var _pages_Grades__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/Grades */ "./resources/js/pages/Grades.tsx");
-/* harmony import */ var _pages_Grade__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/Grade */ "./resources/js/pages/Grade.tsx");
-/* harmony import */ var _pages_Components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/Components */ "./resources/js/pages/Components.tsx");
-/* harmony import */ var _pages_GradeTypes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/GradeTypes */ "./resources/js/pages/GradeTypes.tsx");
-/* harmony import */ var _pages_GradeType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/GradeType */ "./resources/js/pages/GradeType.tsx");
-/* harmony import */ var _pages_ComponentType__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../pages/ComponentType */ "./resources/js/pages/ComponentType.tsx");
-/* harmony import */ var _pages_Component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/Component */ "./resources/js/pages/Component.tsx");
-/* harmony import */ var _pages_TurbinesFarm__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../pages/TurbinesFarm */ "./resources/js/pages/TurbinesFarm.tsx");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _pages_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Welcome */ "./resources/js/pages/Welcome.tsx");
+/* harmony import */ var _pages_Farm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Farm */ "./resources/js/pages/Farm.tsx");
+/* harmony import */ var _pages_Farms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Farms */ "./resources/js/pages/Farms.tsx");
+/* harmony import */ var _pages_Turbines__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Turbines */ "./resources/js/pages/Turbines.tsx");
+/* harmony import */ var _pages_Turbine__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Turbine */ "./resources/js/pages/Turbine.tsx");
+/* harmony import */ var _pages_Inspections__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/Inspections */ "./resources/js/pages/Inspections.tsx");
+/* harmony import */ var _pages_errors_PageNotFound__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/errors/PageNotFound */ "./resources/js/pages/errors/PageNotFound.tsx");
+/* harmony import */ var _pages_ComponentTypes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/ComponentTypes */ "./resources/js/pages/ComponentTypes.tsx");
+/* harmony import */ var _pages_Inspection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/Inspection */ "./resources/js/pages/Inspection.tsx");
+/* harmony import */ var _pages_Grades__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/Grades */ "./resources/js/pages/Grades.tsx");
+/* harmony import */ var _pages_Grade__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/Grade */ "./resources/js/pages/Grade.tsx");
+/* harmony import */ var _pages_Components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/Components */ "./resources/js/pages/Components.tsx");
+/* harmony import */ var _pages_GradeTypes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/GradeTypes */ "./resources/js/pages/GradeTypes.tsx");
+/* harmony import */ var _pages_GradeType__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/GradeType */ "./resources/js/pages/GradeType.tsx");
+/* harmony import */ var _pages_ComponentType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/ComponentType */ "./resources/js/pages/ComponentType.tsx");
+/* harmony import */ var _pages_Component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../pages/Component */ "./resources/js/pages/Component.tsx");
+/* harmony import */ var _pages_TurbinesFarm__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/TurbinesFarm */ "./resources/js/pages/TurbinesFarm.tsx");
 
 
 
@@ -5950,89 +6074,86 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppRoutes = function AppRoutes() {
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.BrowserRouter, {
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Routes, {
-      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-        path: "/",
-        element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
-        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "/",
-          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Welcome__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "farms",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farms__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farm__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id/turbines/",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_TurbinesFarm__WEBPACK_IMPORTED_MODULE_18__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":farmId/turbines/:id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbine__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "turbines",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbines__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbine__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "components",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Components__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Component__WEBPACK_IMPORTED_MODULE_17__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "inspections",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Inspections__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Inspection__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "grades",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Grades__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Grade__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "component-types",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ComponentTypes__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ComponentType__WEBPACK_IMPORTED_MODULE_16__["default"], {})
-          })]
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-          path: "grade-types",
-          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: "",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_GradeTypes__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-          }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-            path: ":id",
-            element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_GradeType__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-          })]
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Routes, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+      path: "/",
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "",
+        element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "farms",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farms__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Farm__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id/turbines/",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_TurbinesFarm__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":farmId/turbines/:id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbine__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         })]
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-        path: "*",
-        element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_errors_PageNotFound__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "turbines",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbines__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Turbine__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        })]
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "components",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Components__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Component__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+        })]
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "inspections",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Inspections__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Inspection__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+        })]
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "grades",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Grades__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Grade__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+        })]
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "component-types",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ComponentTypes__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ComponentType__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+        })]
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+        path: "grade-types",
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_GradeTypes__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: ":id",
+          element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_GradeType__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+        })]
       })]
-    })
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+      path: "*",
+      element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_errors_PageNotFound__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRoutes);

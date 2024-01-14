@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import { isNotNullOrUndefined, mapComponentType } from "../helpers/helpers";
-import List from "../components/List";
 import {
   getComponent,
   getComponentTypes,

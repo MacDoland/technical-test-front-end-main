@@ -1,4 +1,4 @@
-import { RestEndpoint, createResource } from "@rest-hooks/rest";
+import { RestEndpoint } from "@rest-hooks/rest";
 import {
   ComponentTypeData,
   ComponentTypesData,

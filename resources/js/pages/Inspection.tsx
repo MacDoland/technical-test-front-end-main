@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
 
-import { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
@@ -13,7 +12,6 @@ import {
   getInspectionGrades,
   getTurbine,
 } from "../schema/endpoints";
-import { ListItem } from "../types/types";
 import List from "../components/List";
 
 const Inspection: React.FC = () => {
@@ -55,8 +53,8 @@ const Inspection: React.FC = () => {
         <>
           <h2>Grades</h2>
           <List
-            items={gradesViewModel as ListItem[]}
-            showLinks={true}
+            items={gradesViewModel}
+            showLinks
             childUrlName="grades"
             keyPrefix="grade-"
           />

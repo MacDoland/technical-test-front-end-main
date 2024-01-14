@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body class="h-full">
-    <div id="app"></div>
+<body class="h-full min-h-full">
+    <div class="min-h-screen" id="app"></div>
 </body>
 <script src="{{ mix('/js/app.js') }}"></script>
 

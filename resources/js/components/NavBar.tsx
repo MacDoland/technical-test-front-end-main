@@ -1,13 +1,17 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const App: React.FC = () => {
+const NavBar: React.FC = () => {
   return (
-    <>
-      <nav>
-        <NavLink end to="/">
-          Home
-        </NavLink>
-        <NavLink end to="/farms">
+    <nav className="flex bg-teal-700 text-white font-bold sticky top-0">
+      <NavLink end to="/" className="">
+        <img
+          alt="Logo - spinning wind turbine"
+          className="w-12 h-12 m-2"
+          src="./img/wind-turbine-sm.gif"
+        />
+      </NavLink>
+      <div className="flex gap-4 p-4 bold items-center">
+        <NavLink className="font-bold" end to="/farms">
           Farms
         </NavLink>
         <NavLink end to="/turbines">
@@ -28,12 +32,9 @@ const App: React.FC = () => {
         <NavLink end to="/grade-types">
           Grade Types
         </NavLink>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
-    </>
+      </div>
+    </nav>
   );
 };
 
-export default App;
+export default NavBar;

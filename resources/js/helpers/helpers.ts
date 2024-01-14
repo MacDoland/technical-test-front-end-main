@@ -1,11 +1,11 @@
-import {
+import type {
   ComponentType,
   Grade,
   Inspection,
   Turbine,
   TurbineComponent,
 } from "../schema/entities";
-import { GradeType, ListItem } from "../types/types";
+import type { GradeType, ListItem } from "../types/types";
 
 export const isNotNullOrUndefined = (value: any): boolean =>
   value !== null && typeof value !== "undefined";
@@ -24,7 +24,7 @@ export const mapInspections: (inspectionList: Inspection[]) => ListItem[] = (
 export const mapInspectedTurbines = (
   inspections: Inspection[],
   turbines: Turbine[],
-) => {
+): ListItem[] => {
   return inspections.map(inspection => {
     const turbine = turbines.find(t => t.id === inspection.turbine_id);
     const name = isNotNullOrUndefined(turbine)
@@ -37,7 +37,10 @@ export const mapInspectedTurbines = (
   });
 };
 
-export const mapGradeType = (grade: Grade, gradeTypes: GradeType[]) => {
+export const mapGradeType = (
+  grade: Grade,
+  gradeTypes: GradeType[],
+): ListItem => {
   const gradeType = gradeTypes.find(g => g.id === grade.grade_type_id);
   const name = isNotNullOrUndefined(gradeType) ? gradeType?.name : "";
 
@@ -50,7 +53,7 @@ export const mapGradeType = (grade: Grade, gradeTypes: GradeType[]) => {
 export const mapComponentType = (
   component: TurbineComponent,
   componentTypes: ComponentType[],
-) => {
+): ListItem => {
   const componentType = componentTypes.find(
     c => c.id === component.component_type_id,
   );
@@ -103,7 +106,7 @@ export const mapGradedComponents = (
   gradesList: Grade[],
   componentTypes: ComponentType[],
   gradeTypes: GradeType[],
-) => {
+): ListItem[] => {
   return gradesList.map(item => {
     const componentType = componentTypes.find(c => c.id === item.component_id);
 
@@ -125,7 +128,7 @@ export const mapComponentTurbines = (
   componentsList: TurbineComponent[],
   componentTypes: ComponentType[],
   turbines: Turbine[],
-) => {
+): ListItem[] => {
   return componentsList.map(item => {
     const componentType = componentTypes.find(
       c => c.id === item.component_type_id,
