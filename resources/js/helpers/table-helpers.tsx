@@ -1,4 +1,4 @@
-import {
+import type {
   ComponentType,
   Grade,
   GradeType,
@@ -114,4 +114,32 @@ export const mapGradedComponentsToTableItems = (
       ),
     };
   });
+};
+
+export const mapGradeType = (
+  grade: Grade,
+  gradeTypes: GradeType[],
+): DataItem => {
+  const gradeType = gradeTypes.find(g => g.id === grade.grade_type_id);
+  const name = isNotNullOrUndefined(gradeType) ? gradeType?.name : "";
+
+  return {
+    id: grade.id,
+    name,
+  };
+};
+
+export const mapComponentType = (
+  component: TurbineComponent,
+  componentTypes: ComponentType[],
+): DataItem => {
+  const componentType = componentTypes.find(
+    c => c.id === component.component_type_id,
+  );
+  const name = isNotNullOrUndefined(componentType) ? componentType?.name : "";
+
+  return {
+    id: component.id,
+    name,
+  };
 };

@@ -41,15 +41,13 @@ const Farm: React.FC = () => {
       ) : null}
 
       {isNotNullOrUndefined(farmTurbines) ? (
-        <>
-          <Table
-            items={turbinesTableItems}
-            showLinks
-            childUrlName="turbines"
-            keyPrefix="turbine-"
-            headings={["Turbines"]}
-          />
-        </>
+        <Table
+          items={turbinesTableItems}
+          showLinks
+          childUrlName="turbines"
+          keyPrefix="turbine-"
+          headings={["Turbines"]}
+        />
       ) : null}
     </>
   );

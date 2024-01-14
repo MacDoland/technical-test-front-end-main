@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import List from "../components/List";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponentTypes,

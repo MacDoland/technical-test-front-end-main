@@ -8,7 +8,7 @@ interface TableProps {
   showLinks?: boolean;
   childUrlName?: string;
   keyPrefix?: string;
-  headings?: String[];
+  headings?: string[];
 }
 
 const Table = ({
@@ -20,20 +20,20 @@ const Table = ({
 }: TableProps): JSX.Element => {
   const urlPart = isNotNullOrUndefined(childUrlName) ? `/${childUrlName}` : "";
 
-  // TODO: rethink what link url should be when childUrlName is not set
-  // TODO: consider passing button into a slot
-
   return (
     <table className="w-full">
       <thead>
         <tr className="w-full flex justify-between">
           {headings?.map((heading, index) => (
-            <th key={index} className="text-left">
+            // eslint-disable-next-line react/no-array-index-key
+            <th key={`heading-${index}`} className="text-left">
               {heading}
             </th>
           ))}
 
-          {showLinks === true ? <th></th> : null}
+          {showLinks === true ? (
+            <th className="screen-reader-only">Action Button</th>
+          ) : null}
         </tr>
       </thead>
       <tbody>
@@ -65,6 +65,7 @@ const Table = ({
 };
 
 Table.defaultProps = {
+  headings: [],
   showLinks: false,
   childUrlName: "",
   keyPrefix: "",

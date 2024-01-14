@@ -4,14 +4,15 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import { isNotNullOrUndefined, mapComponentType } from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponent,
   getComponentTypes,
   getTurbine,
 } from "../schema/endpoints";
-import { TableItem } from "../types/types";
+import type { TableItem } from "../types/types";
 import Table from "../components/Table";
+import { mapComponentType } from "../helpers/table-helpers";
 
 const Component: React.FC = () => {
   const { id } = useParams<{ id?: string }>();

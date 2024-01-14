@@ -4,11 +4,7 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import {
-  isNotNullOrUndefined,
-  mapComponentType,
-  mapGradeType,
-} from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponent,
   getComponentTypes,
@@ -17,6 +13,7 @@ import {
   getInspection,
 } from "../schema/endpoints";
 import Table from "../components/Table";
+import { mapComponentType, mapGradeType } from "../helpers/table-helpers";
 
 const Grade: React.FC = () => {
   const { id } = useParams<{ id?: string }>();

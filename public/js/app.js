@@ -4997,11 +4997,11 @@ var Table = function Table(_ref) {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
         className: "w-full flex justify-between",
-        children: [headings === null || headings === void 0 ? void 0 : headings.map(function (heading) {
+        children: [headings === null || headings === void 0 ? void 0 : headings.map(function (heading, index) {
           return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
             className: "text-left",
             children: heading
-          });
+          }, index);
         }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {}) : null]
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", {
@@ -5039,130 +5039,10 @@ Table.defaultProps = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   isNotNullOrUndefined: () => (/* binding */ isNotNullOrUndefined),
-/* harmony export */   mapComponentTurbines: () => (/* binding */ mapComponentTurbines),
-/* harmony export */   mapComponentType: () => (/* binding */ mapComponentType),
-/* harmony export */   mapComponentTypes: () => (/* binding */ mapComponentTypes),
-/* harmony export */   mapGradeType: () => (/* binding */ mapGradeType),
-/* harmony export */   mapGradeTypes: () => (/* binding */ mapGradeTypes),
-/* harmony export */   mapGradedComponents: () => (/* binding */ mapGradedComponents),
-/* harmony export */   mapInspectedTurbines: () => (/* binding */ mapInspectedTurbines),
-/* harmony export */   mapInspections: () => (/* binding */ mapInspections)
+/* harmony export */   isNotNullOrUndefined: () => (/* binding */ isNotNullOrUndefined)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 var isNotNullOrUndefined = function isNotNullOrUndefined(value) {
   return value !== null && typeof value !== "undefined";
-};
-var mapInspections = function mapInspections(inspectionList) {
-  return inspectionList.map(function (item) {
-    return {
-      id: item.id,
-      name: item.inspected_at
-    };
-  });
-};
-var mapInspectedTurbines = function mapInspectedTurbines(inspections, turbines) {
-  return inspections.map(function (inspection) {
-    var turbine = turbines.find(function (t) {
-      return t.id === inspection.turbine_id;
-    });
-    var name = isNotNullOrUndefined(turbine) ? "Inspection: ".concat(inspection.inspected_at, " on turbine: ").concat(turbine === null || turbine === void 0 ? void 0 : turbine.name, " ") : "";
-    return {
-      id: inspection.id,
-      name: name
-    };
-  });
-};
-var mapGradeType = function mapGradeType(grade, gradeTypes) {
-  var gradeType = gradeTypes.find(function (g) {
-    return g.id === grade.grade_type_id;
-  });
-  var name = isNotNullOrUndefined(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
-  return {
-    id: grade.id,
-    name: name
-  };
-};
-var mapComponentType = function mapComponentType(component, componentTypes) {
-  var componentType = componentTypes.find(function (c) {
-    return c.id === component.component_type_id;
-  });
-  var name = isNotNullOrUndefined(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
-  return {
-    id: component.id,
-    name: name
-  };
-};
-var mapGradeTypes = function mapGradeTypes(gradeList, gradeTypes) {
-  return gradeList.map(function (item) {
-    var gradeType = gradeTypes.find(function (g) {
-      return g.id === item.grade_type_id;
-    });
-    var name = isNotNullOrUndefined(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
-    return {
-      id: item.id,
-      name: name
-    };
-  });
-};
-var mapComponentTypes = function mapComponentTypes(componentList, componentTypes) {
-  return componentList.map(function (item) {
-    var componentType = componentTypes.find(function (g) {
-      return g.id === item.component_type_id;
-    });
-    var name = isNotNullOrUndefined(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
-    return {
-      id: item.id,
-      name: name
-    };
-  });
-};
-var mapGradedComponents = function mapGradedComponents(gradesList, componentTypes, gradeTypes) {
-  return gradesList.map(function (item) {
-    var componentType = componentTypes.find(function (c) {
-      return c.id === item.component_id;
-    });
-    var gradeType = gradeTypes.find(function (g) {
-      return g.id === item.grade_type_id;
-    });
-    var componentName = isNotNullOrUndefined(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
-    var gradeName = isNotNullOrUndefined(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
-    return {
-      id: item.id,
-      name: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-          children: "Component: ".concat(componentName)
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-          children: "Grade: ".concat(gradeName)
-        })]
-      })
-    };
-  });
-};
-var mapComponentTurbines = function mapComponentTurbines(componentsList, componentTypes, turbines) {
-  return componentsList.map(function (item) {
-    var componentType = componentTypes.find(function (c) {
-      return c.id === item.component_type_id;
-    });
-    var turbine = turbines.find(function (t) {
-      return t.id === item.turbine_id;
-    });
-    var componentName = isNotNullOrUndefined(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
-    var turbineName = isNotNullOrUndefined(turbine) ? turbine === null || turbine === void 0 ? void 0 : turbine.name : "";
-    return {
-      id: item.id,
-      name: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-          className: "p-2",
-          children: componentName
-        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-          className: "p-2",
-          children: turbineName
-        })]
-      })
-    };
-  });
 };
 
 /***/ }),
@@ -5179,6 +5059,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   convertDataItemForDisplay: () => (/* binding */ convertDataItemForDisplay),
 /* harmony export */   convertDataItemsForDisplay: () => (/* binding */ convertDataItemsForDisplay),
 /* harmony export */   mapComponentTurbinesToTableItem: () => (/* binding */ mapComponentTurbinesToTableItem),
+/* harmony export */   mapComponentType: () => (/* binding */ mapComponentType),
+/* harmony export */   mapGradeType: () => (/* binding */ mapGradeType),
 /* harmony export */   mapGradedComponentsToTableItems: () => (/* binding */ mapGradedComponentsToTableItems),
 /* harmony export */   mapGradesToTableItems: () => (/* binding */ mapGradesToTableItems),
 /* harmony export */   mapInspectedTurbinesToTableItems: () => (/* binding */ mapInspectedTurbinesToTableItems)
@@ -5283,6 +5165,26 @@ var mapGradedComponentsToTableItems = function mapGradedComponentsToTableItems(g
     };
   });
 };
+var mapGradeType = function mapGradeType(grade, gradeTypes) {
+  var gradeType = gradeTypes.find(function (g) {
+    return g.id === grade.grade_type_id;
+  });
+  var name = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
+  return {
+    id: grade.id,
+    name: name
+  };
+};
+var mapComponentType = function mapComponentType(component, componentTypes) {
+  var componentType = componentTypes.find(function (c) {
+    return c.id === component.component_type_id;
+  });
+  var name = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
+  return {
+    id: component.id,
+    name: name
+  };
+};
 
 /***/ }),
 
@@ -5298,12 +5200,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 /* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5313,8 +5216,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Component = function Component() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5322,12 +5226,12 @@ var Component = function Component() {
     });
   }
   var idNum = Number(id);
-  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
+  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
     id: idNum
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
-  var namedComponent = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapComponentType)(component.data, componentTypes.data);
-  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var namedComponent = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__.mapComponentType)(component.data, componentTypes.data);
+  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
     id: component.data.turbine_id
   });
   var tableItems = [{
@@ -5341,7 +5245,7 @@ var Component = function Component() {
     })
   }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Component"
       })
@@ -5653,12 +5557,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
 /* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5668,8 +5573,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Grade = function Grade() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5677,19 +5583,19 @@ var Grade = function Grade() {
     });
   }
   var idNum = Number(id);
-  var grade = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGrade, {
+  var grade = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGrade, {
     id: idNum
   });
-  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
-  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
+  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
+  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
     id: grade.data.component_id
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
-  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
     id: grade.data.inspection_id
   });
-  var namedGrade = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapGradeType)(grade.data, gradeTypes.data);
-  var namedComponent = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapComponentType)(component.data, componentTypes.data);
+  var namedGrade = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__.mapGradeType)(grade.data, gradeTypes.data);
+  var namedComponent = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__.mapComponentType)(component.data, componentTypes.data);
   var gradeTableItems = [{
     id: grade.data.id,
     display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -5703,7 +5609,7 @@ var Grade = function Grade() {
     })
   }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Grade"
       })
@@ -6475,7 +6381,6 @@ var getTurbines = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
   urlPrefix: "http://localhost/api",
   path: "/turbines",
   schema: _entities__WEBPACK_IMPORTED_MODULE_0__.TurbinesData,
-  dataExpiryLength: 50,
   invalidIfStale: true
 });
 var getTurbineComponents = new _rest_hooks_rest__WEBPACK_IMPORTED_MODULE_1__["default"]({
