@@ -4817,6 +4817,34 @@ root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPA
 
 /***/ }),
 
+/***/ "./resources/js/components/ButtonNavLink.tsx":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ButtonNavLink.tsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
+
+var ButtonNavLink = function ButtonNavLink(_ref) {
+  var children = _ref.children,
+    to = _ref.to;
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+    className: "text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800",
+    to: to,
+    children: children
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonNavLink);
+
+/***/ }),
+
 /***/ "./resources/js/components/Footer.tsx":
 /*!********************************************!*\
   !*** ./resources/js/components/Footer.tsx ***!
@@ -4978,8 +5006,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _TableRow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TableRow */ "./resources/js/components/TableRow.tsx");
 
 
 
@@ -4990,43 +5018,89 @@ var Table = function Table(_ref) {
     keyPrefix = _ref.keyPrefix,
     headings = _ref.headings;
   var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
-  // TODO: rethink what link url should be when childUrlName is not set
-  // TODO: consider passing button into a slot
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", {
     className: "w-full",
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
         className: "w-full flex justify-between",
         children: [headings === null || headings === void 0 ? void 0 : headings.map(function (heading, index) {
-          return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-            className: "text-left",
-            children: heading
-          }, index);
-        }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {}) : null]
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
+              className: "text-left",
+              children: heading
+            }, "heading-".concat(index))
+          );
+        }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
+          className: "screen-reader-only",
+          children: "Action Button"
+        }) : null]
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", {
       children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(items) ? items.map(function (item, index) {
-        return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
-          className: "".concat(index % 2 === 0 ? "bg-slate-200" : "bg-slate-100", " border-t border-slate-300 w-full flex justify-between "),
-          children: [item.display, showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-            className: "text-right",
-            children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
-              className: "text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800",
-              to: "".concat(urlPart, "/").concat(item.id),
-              children: "view"
-            })
-          }) : null]
-        }, "".concat(keyPrefix).concat(item.id));
+        return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_TableRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          item: item,
+          alternateWhen: index % 2 === 0,
+          childUrlName: childUrlName,
+          showLinks: showLinks,
+          keyPrefix: keyPrefix
+        });
       }) : null
     })]
   });
 };
 Table.defaultProps = {
+  headings: [],
   showLinks: false,
   childUrlName: "",
   keyPrefix: ""
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
+
+/***/ }),
+
+/***/ "./resources/js/components/TableRow.tsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/TableRow.tsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _ButtonNavLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonNavLink */ "./resources/js/components/ButtonNavLink.tsx");
+
+
+
+var TableRow = function TableRow(_ref) {
+  var item = _ref.item,
+    keyPrefix = _ref.keyPrefix,
+    alternateWhen = _ref.alternateWhen,
+    childUrlName = _ref.childUrlName,
+    showLinks = _ref.showLinks;
+  var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
+    className: "".concat(alternateWhen ? "bg-slate-200" : "bg-slate-100", " border-t border-slate-300 w-full flex justify-between "),
+    children: [item.display, showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      className: "text-right",
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonNavLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        to: "".concat(urlPart, "/").concat(item.id),
+        children: "view"
+      })
+    }) : null]
+  }, "".concat(keyPrefix).concat(item.id));
+};
+TableRow.defaultProps = {
+  showLinks: false,
+  childUrlName: "",
+  keyPrefix: "",
+  alternateWhen: false
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableRow);
 
 /***/ }),
 
@@ -5039,10 +5113,14 @@ Table.defaultProps = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   isNotNullOrUndefined: () => (/* binding */ isNotNullOrUndefined)
+/* harmony export */   isNotNullOrUndefined: () => (/* binding */ isNotNullOrUndefined),
+/* harmony export */   isNotUndefined: () => (/* binding */ isNotUndefined)
 /* harmony export */ });
 var isNotNullOrUndefined = function isNotNullOrUndefined(value) {
   return value !== null && typeof value !== "undefined";
+};
+var isNotUndefined = function isNotUndefined(value) {
+  return typeof value !== "undefined";
 };
 
 /***/ }),
@@ -5483,14 +5561,12 @@ var Farm = function Farm() {
     }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farm) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
       items: farmTableItems,
       headings: ["Name"]
-    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farmTurbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        items: turbinesTableItems,
-        showLinks: true,
-        childUrlName: "turbines",
-        keyPrefix: "turbine-",
-        headings: ["Turbines"]
-      })
+    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farmTurbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: turbinesTableItems,
+      showLinks: true,
+      childUrlName: "turbines",
+      keyPrefix: "turbine-",
+      headings: ["Turbines"]
     }) : null]
   });
 };

@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 
 import type { TableItem } from "../types/types";
+import TableRow from "./TableRow";
 
 interface TableProps {
   items: TableItem[];
@@ -18,8 +18,6 @@ const Table = ({
   keyPrefix,
   headings,
 }: TableProps): JSX.Element => {
-  const urlPart = isNotNullOrUndefined(childUrlName) ? `/${childUrlName}` : "";
-
   return (
     <table className="w-full">
       <thead>
@@ -40,22 +38,14 @@ const Table = ({
         {isNotNullOrUndefined(items)
           ? items.map((item, index) => {
               return (
-                <tr
-                  key={`${keyPrefix}${item.id}`}
-                  className={`${
-                    index % 2 === 0 ? "bg-slate-200" : "bg-slate-100"
-                  } border-t border-slate-300 w-full flex justify-between `}>
-                  {item.display}
-                  {showLinks === true ? (
-                    <td className="text-right">
-                      <NavLink
-                        className="text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
-                        to={`${urlPart}/${item.id}`}>
-                        view
-                      </NavLink>
-                    </td>
-                  ) : null}
-                </tr>
+                <TableRow
+                  key={item.id}
+                  item={item}
+                  alternateWhen={index % 2 === 0}
+                  childUrlName={childUrlName}
+                  showLinks={showLinks}
+                  keyPrefix={keyPrefix}
+                />
               );
             })
           : null}

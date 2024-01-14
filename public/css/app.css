@@ -732,11 +732,24 @@ h1 {
   margin-bottom: 16px;
 }
 
-
-table td, table th{ 
-  padding: .5rem;
+table td,
+table th {
+  padding: 0.5rem;
   text-align: left;
   width: 100%;
+}
+
+
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: hidden;
 }
 
 
@@ -777,4 +790,3 @@ table td, table th{
     --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
   }
 }
-
