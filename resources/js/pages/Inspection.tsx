@@ -4,7 +4,7 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import { isNotNullOrUndefined, mapGradedComponents } from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponentTypes,
   getGradeTypes,
@@ -12,7 +12,8 @@ import {
   getInspectionGrades,
   getTurbine,
 } from "../schema/endpoints";
-import List from "../components/List";
+import Table from "../components/Table";
+import { mapGradedComponentsToTableItems } from "../helpers/table-helpers";
 
 const Inspection: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -32,7 +33,19 @@ const Inspection: React.FC = () => {
   const gradeTypes = useSuspense(getGradeTypes);
   const componentTypes = useSuspense(getComponentTypes);
 
-  const gradesViewModel = mapGradedComponents(
+  const inspectionTableItems = [
+    {
+      id: inspection.data.id,
+      display: (
+        <>
+          <td>{inspection?.data.inspected_at}</td>
+          <td>{turbine.data.name}</td>
+        </>
+      ),
+    },
+  ];
+
+  const gradesTableItems = mapGradedComponentsToTableItems(
     inspectionGrades.data,
     componentTypes.data,
     gradeTypes.data,
@@ -45,18 +58,20 @@ const Inspection: React.FC = () => {
       </Helmet>
       <h1>Inspection</h1>
       {isNotNullOrUndefined(inspection) ? (
-        <div>
-          {`Turbine: ${turbine.data.name} inspected on: ${inspection?.data.inspected_at}`}
-        </div>
+        <Table
+          items={inspectionTableItems}
+          headings={["Inspected On", "Table"]}
+        />
       ) : null}
-      {isNotNullOrUndefined(gradesViewModel) ? (
+      {isNotNullOrUndefined(gradesTableItems) ? (
         <>
           <h2>Grades</h2>
-          <List
-            items={gradesViewModel}
+          <Table
+            items={gradesTableItems}
             showLinks
             childUrlName="grades"
             keyPrefix="grade-"
+            headings={["Component", "Grade"]}
           />
         </>
       ) : null}

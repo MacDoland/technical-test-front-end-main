@@ -1,19 +1,21 @@
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import List from "../components/List";
-import { isNotNullOrUndefined, mapComponentTurbines } from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponentTypes,
   getComponents,
   getTurbines,
 } from "../schema/endpoints";
+import Table from "../components/Table";
+import { mapComponentTurbinesToTableItem } from "../helpers/table-helpers";
 
 const Components: React.FC = () => {
   const components = useSuspense(getComponents);
   const turbines = useSuspense(getTurbines);
   const componentTypes = useSuspense(getComponentTypes);
 
-  const namedComponents = mapComponentTurbines(
+  const namedComponents = mapComponentTurbinesToTableItem(
     components.data,
     componentTypes.data,
     turbines.data,
@@ -26,7 +28,12 @@ const Components: React.FC = () => {
       </Helmet>
       <h1>Components</h1>
       {isNotNullOrUndefined(components) ? (
-        <List items={namedComponents} childUrlName="components" showLinks />
+        <Table
+          headings={["Name", "Turbine"]}
+          items={namedComponents}
+          childUrlName="components"
+          showLinks
+        />
       ) : null}
     </>
   );

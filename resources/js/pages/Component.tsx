@@ -10,6 +10,8 @@ import {
   getComponentTypes,
   getTurbine,
 } from "../schema/endpoints";
+import { TableItem } from "../types/types";
+import Table from "../components/Table";
 
 const Component: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -24,6 +26,18 @@ const Component: React.FC = () => {
   const namedComponent = mapComponentType(component.data, componentTypes.data);
   const turbine = useSuspense(getTurbine, { id: component.data.turbine_id });
 
+  const tableItems: TableItem[] = [
+    {
+      id: component.data.id,
+      display: (
+        <>
+          <td>{namedComponent?.name}</td>
+          <td>{turbine.data.name}</td>
+        </>
+      ),
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -31,7 +45,12 @@ const Component: React.FC = () => {
       </Helmet>
       <h1>Component</h1>
       {isNotNullOrUndefined(namedComponent) && isNotNullOrUndefined(turbine) ? (
-        <div>{`Component ${namedComponent?.name} from turbine ${turbine.data.name}`}</div>
+        <Table
+          headings={["Name", "Turbine"]}
+          items={tableItems}
+          childUrlName="components"
+          showLinks
+        />
       ) : null}
     </>
   );

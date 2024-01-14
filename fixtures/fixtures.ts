@@ -3,7 +3,9 @@ import {
   getFarm,
   getFarmTurbines,
   getFarms,
+  getGradeTypes,
   getInspection,
+  getInspectionGrades,
   getInspections,
   getTurbine,
   getTurbineComponents,
@@ -13,6 +15,7 @@ import { farm, farms } from "./farms";
 import { turbine, turbines } from "./turbines";
 import { components, componentTypes } from "./components";
 import { inspection, inspections } from "./inspections";
+import { grades, gradeTypes } from "./grades";
 export default {
   farm: [
     {
@@ -63,12 +66,47 @@ export default {
       args: [] as const,
       response: inspections,
     },
+    {
+      endpoint: getTurbines,
+      args: [] as const,
+      response: turbines,
+    },
+    {
+      endpoint: getInspectionGrades,
+      args: [{ id: 1 }] as const,
+      response: grades,
+    },
   ],
   inspection: [
     {
       endpoint: getInspection,
       args: [{ id: 1 }] as const,
       response: inspection,
+    },
+    {
+      endpoint: getTurbines,
+      args: [] as const,
+      response: turbines,
+    },
+    {
+      endpoint: getTurbine,
+      args: [{ id: 1 }] as const,
+      response: turbines,
+    },
+    {
+      endpoint: getInspectionGrades,
+      args: [{ id: 1 }] as const,
+      response: grades,
+    },
+    {
+      endpoint: getGradeTypes,
+      args: [] as const,
+      response: gradeTypes,
+    },
+    {
+      endpoint: getComponentTypes,
+      args: [] as const,
+      response: componentTypes,
     },
   ],
   componentTypes: [

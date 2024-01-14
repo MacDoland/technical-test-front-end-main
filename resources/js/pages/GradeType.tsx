@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getGradeType } from "../schema/endpoints";
+import Table from "../components/Table";
 
 const GradeType: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -16,15 +17,21 @@ const GradeType: React.FC = () => {
 
   const idNum = Number(id);
   const gradeType = useSuspense(getGradeType, { id: idNum });
+  const gradeTypeTableItems = [
+    {
+      id: gradeType?.data.id,
+      display: <td>{gradeType?.data.name}</td>,
+    },
+  ];
 
   return (
     <>
       <Helmet>
-        <title>GradeType</title>
+        <title>Grade Type</title>
       </Helmet>
-      <h1>GradeType</h1>
+      <h1>Grade Type</h1>
       {isNotNullOrUndefined(gradeType) ? (
-        <div>{gradeType?.data.name}</div>
+        <Table headings={["Name"]} items={gradeTypeTableItems} />
       ) : null}
     </>
   );

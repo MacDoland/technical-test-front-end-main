@@ -11,6 +11,7 @@ import {
   getTurbine,
   getTurbineComponents,
 } from "../schema/endpoints";
+import Table from "../components/Table";
 
 const Turbine: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -26,19 +27,28 @@ const Turbine: React.FC = () => {
   });
   const componentTypes = useSuspense(getComponentTypes);
 
-  const turbineComponentsViewModel = turbineComponents.data.map(component => {
+  const turbineComponentsTableItems = turbineComponents.data.map(component => {
     const targetComponentType = componentTypes.data.find(
       type => type.id === component.component_type_id,
     );
 
     return {
       ...component,
-      name:
-        typeof targetComponentType !== "undefined"
-          ? targetComponentType.name
-          : "Unknown",
+      display:
+        typeof targetComponentType !== "undefined" ? (
+          <td>{targetComponentType.name}</td>
+        ) : (
+          "Unknown"
+        ),
     };
   });
+
+  const turbineTableItems = [
+    {
+      id: turbine.data.id,
+      display: <td>{turbine?.data.name}</td>,
+    },
+  ];
 
   return (
     <>
@@ -46,16 +56,13 @@ const Turbine: React.FC = () => {
         <title>Turbine</title>
       </Helmet>
       <h1>Turbine</h1>
-      {isNotNullOrUndefined(turbine) ? <div>{turbine?.data.name}</div> : null}
-      {isNotNullOrUndefined(turbineComponentsViewModel) ? (
+      {isNotNullOrUndefined(turbine) ? (
+        <Table items={turbineTableItems} headings={["Name"]} />
+      ) : null}
+      {isNotNullOrUndefined(turbineComponentsTableItems) ? (
         <>
           <h2>Components</h2>
-          <List
-            items={turbineComponentsViewModel as ListItem[]}
-            showLinks={false}
-            childUrlName="turbines"
-            keyPrefix="turbine-"
-          />
+          <Table items={turbineComponentsTableItems} headings={["Name"]} />
         </>
       ) : null}
     </>

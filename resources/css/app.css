@@ -10,3 +10,10 @@ h1 {
   font-size: 32px;
   margin-bottom: 16px;
 }
+
+
+table td, table th{ 
+  padding: .5rem;
+  text-align: left;
+  width: 100%;
+}

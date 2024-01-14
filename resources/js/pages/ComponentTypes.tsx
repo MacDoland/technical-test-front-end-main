@@ -1,12 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import List from "../components/List";
-import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getComponentTypes } from "../schema/endpoints";
+import { convertDataItemsForDisplay } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const ComponentTypes: React.FC = () => {
   const componentTypes = useSuspense(getComponentTypes);
+  const componentTypesTableItems = convertDataItemsForDisplay(
+    componentTypes.data,
+  );
 
   return (
     <>
@@ -15,8 +18,9 @@ const ComponentTypes: React.FC = () => {
       </Helmet>
       <h1>Component Types</h1>
       {isNotNullOrUndefined(componentTypes) ? (
-        <List
-          items={componentTypes.data as ListItem[]}
+        <Table
+          items={componentTypesTableItems}
+          headings={["Name"]}
           childUrlName="component-types"
           showLinks
         />

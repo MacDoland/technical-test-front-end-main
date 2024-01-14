@@ -16,6 +16,7 @@ import {
   getGradeTypes,
   getInspection,
 } from "../schema/endpoints";
+import Table from "../components/Table";
 
 const Grade: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -36,6 +37,19 @@ const Grade: React.FC = () => {
   const namedGrade = mapGradeType(grade.data, gradeTypes.data);
   const namedComponent = mapComponentType(component.data, componentTypes.data);
 
+  const gradeTableItems = [
+    {
+      id: grade.data.id,
+      display: (
+        <>
+          <td>{namedGrade.name}</td>
+          <td>{namedComponent.name}</td>
+          <td>{inspection.data.inspected_at}</td>
+        </>
+      ),
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -43,7 +57,11 @@ const Grade: React.FC = () => {
       </Helmet>
       <h1>Grade</h1>
       {isNotNullOrUndefined(grade) ? (
-        <div>{`Grade: ${namedGrade.name} - Component: ${namedComponent.name} - inspected on: ${inspection.data.inspected_at}`}</div>
+        <Table
+          items={gradeTableItems}
+          headings={["Name", "Component", "Inspected On"]}
+          childUrlName="component-types"
+        />
       ) : null}
     </>
   );

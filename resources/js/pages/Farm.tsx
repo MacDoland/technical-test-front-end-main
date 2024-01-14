@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import { isNotNullOrUndefined } from "../helpers/helpers";
-import List from "../components/List";
 import { getFarm, getFarmTurbines } from "../schema/endpoints";
+import { convertDataItemsForDisplay } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const Farm: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -21,21 +22,32 @@ const Farm: React.FC = () => {
     id: idNum,
   });
 
+  const farmTableItems = [
+    {
+      id: farm.data.id,
+      display: <td>{farm?.data.name}</td>,
+    },
+  ];
+  const turbinesTableItems = convertDataItemsForDisplay(farmTurbines.data);
+
   return (
     <>
       <Helmet>
         <title>Farm</title>
       </Helmet>
       <h1>Farm</h1>
-      {isNotNullOrUndefined(farm) ? <div>{farm?.data.name}</div> : null}
+      {isNotNullOrUndefined(farm) ? (
+        <Table items={farmTableItems} headings={["Name"]} />
+      ) : null}
+
       {isNotNullOrUndefined(farmTurbines) ? (
         <>
-          <h2>Turbines</h2>
-          <List
-            items={farmTurbines.data}
-            showLinks={false}
+          <Table
+            items={turbinesTableItems}
+            showLinks
             childUrlName="turbines"
             keyPrefix="turbine-"
+            headings={["Turbines"]}
           />
         </>
       ) : null}

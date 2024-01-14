@@ -1,23 +1,23 @@
 import { NavLink } from "react-router-dom";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 
-import type { ListItem } from "../types/types";
+import type { TableItem } from "../types/types";
 
-interface ListProps {
-  items: ListItem[];
+interface TableProps {
+  items: TableItem[];
   showLinks?: boolean;
   childUrlName?: string;
   keyPrefix?: string;
   headings?: String[];
 }
 
-const List = ({
+const Table = ({
   items,
   showLinks,
   childUrlName,
   keyPrefix,
   headings,
-}: ListProps): JSX.Element => {
+}: TableProps): JSX.Element => {
   const urlPart = isNotNullOrUndefined(childUrlName) ? `/${childUrlName}` : "";
 
   // TODO: rethink what link url should be when childUrlName is not set
@@ -25,14 +25,15 @@ const List = ({
 
   return (
     <table className="w-full">
-      <colgroup>
-        <col span={1} style={{ width: "10%" }} />
-        <col span={1} style={{ width: "85%" }} />
-        <col span={1} style={{ width: "5%" }} />
-      </colgroup>
       <thead>
-        <tr className="w-full">
-          {headings?.map(heading => <th className="text-left">{heading}</th>)}
+        <tr className="w-full flex justify-between">
+          {headings?.map((heading, index) => (
+            <th key={index} className="text-left">
+              {heading}
+            </th>
+          ))}
+
+          {showLinks === true ? <th></th> : null}
         </tr>
       </thead>
       <tbody>
@@ -43,10 +44,10 @@ const List = ({
                   key={`${keyPrefix}${item.id}`}
                   className={`${
                     index % 2 === 0 ? "bg-slate-200" : "bg-slate-100"
-                  } p-2 border-t border-slate-300  w-full`}>
-                  {item.name}
+                  } border-t border-slate-300 w-full flex justify-between `}>
+                  {item.display}
                   {showLinks === true ? (
-                    <td>
+                    <td className="text-right">
                       <NavLink
                         className="text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
                         to={`${urlPart}/${item.id}`}>
@@ -63,11 +64,11 @@ const List = ({
   );
 };
 
-List.defaultProps = {
+Table.defaultProps = {
   showLinks: false,
   childUrlName: "",
   keyPrefix: "",
 };
 
-export default List;
-export type { ListItem, ListProps };
+export default Table;
+export type { TableItem, TableProps };

@@ -119,7 +119,12 @@ export const mapGradedComponents = (
 
     return {
       id: item.id,
-      name: `Component: ${componentName} - Grade: ${gradeName}`,
+      name: (
+        <>
+          <span>{`Component: ${componentName}`}</span>
+          <span>{`Grade: ${gradeName}`}</span>
+        </>
+      ),
     };
   });
 };
@@ -143,7 +148,12 @@ export const mapComponentTurbines = (
 
     return {
       id: item.id,
-      name: `Component: ${componentName} - Turbine: ${turbineName}`,
+      name: (
+        <>
+          <td className="p-2">{componentName}</td>
+          <td className="p-2">{turbineName}</td>
+        </>
+      ),
     };
   });
 };

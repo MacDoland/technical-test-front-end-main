@@ -1,14 +1,17 @@
-import { useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import List from "../components/List";
-import { isNotNullOrUndefined, mapInspectedTurbines } from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getInspections, getTurbines } from "../schema/endpoints";
+import { mapInspectedTurbinesToTableItems } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const Inspections: React.FC = () => {
   const inspections = useSuspense(getInspections);
   const turbines = useSuspense(getTurbines);
-  const displayInspections = useCallback(mapInspectedTurbines, []);
+  const displayInspections = mapInspectedTurbinesToTableItems(
+    inspections.data,
+    turbines.data,
+  );
 
   return (
     <>
@@ -17,8 +20,9 @@ const Inspections: React.FC = () => {
       </Helmet>
       <h1>Inspections</h1>
       {isNotNullOrUndefined(inspections) && isNotNullOrUndefined(turbines) ? (
-        <List
-          items={displayInspections(inspections.data, turbines.data)}
+        <Table
+          items={displayInspections}
+          headings={["Inspected On", "Turbine"]}
           childUrlName="inspections"
           showLinks
         />

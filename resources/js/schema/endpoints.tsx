@@ -53,7 +53,6 @@ export const getTurbines = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/turbines",
   schema: TurbinesData,
-  dataExpiryLength: 50,
   invalidIfStale: true,
 });
 

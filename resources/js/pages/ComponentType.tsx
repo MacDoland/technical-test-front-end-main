@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getComponentType } from "../schema/endpoints";
+import Table from "../components/Table";
 
 const ComponentType: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -17,6 +18,13 @@ const ComponentType: React.FC = () => {
   const idNum = Number(id);
   const componentType = useSuspense(getComponentType, { id: idNum });
 
+  const componentTypeTableItems = [
+    {
+      id: componentType.data.id,
+      display: <td>{componentType?.data.name}</td>,
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -24,7 +32,11 @@ const ComponentType: React.FC = () => {
       </Helmet>
       <h1>Component Type</h1>
       {isNotNullOrUndefined(componentType) ? (
-        <div>{componentType?.data.name}</div>
+        <Table
+          items={componentTypeTableItems}
+          headings={["Name"]}
+          childUrlName="component-types"
+        />
       ) : null}
     </>
   );

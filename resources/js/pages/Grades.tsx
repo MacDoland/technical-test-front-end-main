@@ -1,14 +1,14 @@
-import { useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import List from "../components/List";
-import { isNotNullOrUndefined, mapGradeTypes } from "../helpers/helpers";
+import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getGradeTypes, getGrades } from "../schema/endpoints";
+import { mapGradesToTableItems } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const Grades: React.FC = () => {
   const grades = useSuspense(getGrades);
   const gradeTypes = useSuspense(getGradeTypes);
-  const displayGrades = useCallback(mapGradeTypes, []);
+  const gradesTableItems = mapGradesToTableItems(grades.data, gradeTypes.data);
 
   return (
     <>
@@ -17,8 +17,9 @@ const Grades: React.FC = () => {
       </Helmet>
       <h1>Grades</h1>
       {isNotNullOrUndefined(grades) && isNotNullOrUndefined(gradeTypes) ? (
-        <List
-          items={displayGrades(grades.data, gradeTypes.data)}
+        <Table
+          headings={["Name"]}
+          items={gradesTableItems}
           childUrlName="grades"
           showLinks
         />

@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
-import List from "../components/List";
-import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getFarms } from "../schema/endpoints";
+import { convertDataItemsForDisplay } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const Farms: React.FC = () => {
   const farms = useSuspense(getFarms);
+
+  const farmsTableItems = convertDataItemsForDisplay(farms.data);
 
   return (
     <>
@@ -15,7 +17,12 @@ const Farms: React.FC = () => {
       </Helmet>
       <h1>Farms</h1>
       {isNotNullOrUndefined(farms) ? (
-        <List items={farms.data as ListItem[]} childUrlName="farms" showLinks />
+        <Table
+          items={farmsTableItems}
+          childUrlName="farms"
+          showLinks
+          headings={["Name"]}
+        />
       ) : null}
     </>
   );

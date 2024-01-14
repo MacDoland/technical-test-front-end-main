@@ -35,7 +35,7 @@ describe("Inspection Component", () => {
       );
     });
 
-    const inspectionName = await screen.getByText("West Viviannemouth");
+    const inspectionName = await screen.getByText("2023-04-01 08:00:57");
 
     // Assert
     expect(inspectionName).toBeInTheDocument();

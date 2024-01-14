@@ -4,19 +4,23 @@ import List from "../components/List";
 import type { ListItem } from "../types/types";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import { getGradeTypes } from "../schema/endpoints";
+import { convertDataItemsForDisplay } from "../helpers/table-helpers";
+import Table from "../components/Table";
 
 const GradeTypes: React.FC = () => {
   const gradeTypes = useSuspense(getGradeTypes);
+  const gradeTypesTableItems = convertDataItemsForDisplay(gradeTypes.data);
 
   return (
     <>
       <Helmet>
-        <title>GradeTypes</title>
+        <title>Grade Types</title>
       </Helmet>
-      <h1>GradeTypes</h1>
+      <h1>Grade Types</h1>
       {isNotNullOrUndefined(gradeTypes) ? (
-        <List
-          items={gradeTypes.data as ListItem[]}
+        <Table
+          items={gradeTypesTableItems}
+          headings={["Name"]}
           childUrlName="grade-types"
           showLinks
         />

@@ -4863,7 +4863,7 @@ __webpack_require__.r(__webpack_exports__);
 var Layout = function Layout(_ref) {
   var children = _ref.children;
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "min-h-screen flex flex-col bg-gradient-to-r from-slate-200 to-slate-300 bg-left-25",
+    className: "min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25",
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
       className: "flex-grow container mx-auto p-4 pt-4 pb-12",
       children: children
@@ -4871,55 +4871,6 @@ var Layout = function Layout(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
-
-/***/ }),
-
-/***/ "./resources/js/components/List.tsx":
-/*!******************************************!*\
-  !*** ./resources/js/components/List.tsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-
-
-
-var List = function List(_ref) {
-  var items = _ref.items,
-    showLinks = _ref.showLinks,
-    childUrlName = _ref.childUrlName,
-    keyPrefix = _ref.keyPrefix;
-  var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
-  // TODO: rethink what link url should be when childUrlName is not set
-  // TODO: consider passing button into a slot
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
-    children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(items) ? items.map(function (item, index) {
-      return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
-        className: "".concat(index % 2 === 0 ? "bg-slate-200" : "bg-slate-100", " p-2 border-t border-slate-300 flex gap-4 items-center justify-between"),
-        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-          children: item.name
-        }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
-          className: "text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800",
-          to: "".concat(urlPart, "/").concat(item.id),
-          children: "view"
-        }) : null]
-      }, "".concat(keyPrefix).concat(item.id));
-    }) : null
-  });
-};
-List.defaultProps = {
-  showLinks: false,
-  childUrlName: "",
-  keyPrefix: ""
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);
 
 /***/ }),
 
@@ -5015,10 +4966,74 @@ var NavBar = function NavBar() {
 
 /***/ }),
 
-/***/ "./resources/js/helpers/helpers.ts":
-/*!*****************************************!*\
-  !*** ./resources/js/helpers/helpers.ts ***!
-  \*****************************************/
+/***/ "./resources/js/components/Table.tsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Table.tsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+
+
+
+var Table = function Table(_ref) {
+  var items = _ref.items,
+    showLinks = _ref.showLinks,
+    childUrlName = _ref.childUrlName,
+    keyPrefix = _ref.keyPrefix,
+    headings = _ref.headings;
+  var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
+  // TODO: rethink what link url should be when childUrlName is not set
+  // TODO: consider passing button into a slot
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", {
+    className: "w-full",
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
+        className: "w-full flex justify-between",
+        children: [headings === null || headings === void 0 ? void 0 : headings.map(function (heading) {
+          return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
+            className: "text-left",
+            children: heading
+          });
+        }), showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {}) : null]
+      })
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", {
+      children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(items) ? items.map(function (item, index) {
+        return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
+          className: "".concat(index % 2 === 0 ? "bg-slate-200" : "bg-slate-100", " border-t border-slate-300 w-full flex justify-between "),
+          children: [item.display, showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+            className: "text-right",
+            children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
+              className: "text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800",
+              to: "".concat(urlPart, "/").concat(item.id),
+              children: "view"
+            })
+          }) : null]
+        }, "".concat(keyPrefix).concat(item.id));
+      }) : null
+    })]
+  });
+};
+Table.defaultProps = {
+  showLinks: false,
+  childUrlName: "",
+  keyPrefix: ""
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
+
+/***/ }),
+
+/***/ "./resources/js/helpers/helpers.tsx":
+/*!******************************************!*\
+  !*** ./resources/js/helpers/helpers.tsx ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5034,6 +5049,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   mapInspectedTurbines: () => (/* binding */ mapInspectedTurbines),
 /* harmony export */   mapInspections: () => (/* binding */ mapInspections)
 /* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 var isNotNullOrUndefined = function isNotNullOrUndefined(value) {
   return value !== null && typeof value !== "undefined";
 };
@@ -5113,7 +5130,13 @@ var mapGradedComponents = function mapGradedComponents(gradesList, componentType
     var gradeName = isNotNullOrUndefined(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
     return {
       id: item.id,
-      name: "Component: ".concat(componentName, " - Grade: ").concat(gradeName)
+      name: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+          children: "Component: ".concat(componentName)
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+          children: "Grade: ".concat(gradeName)
+        })]
+      })
     };
   });
 };
@@ -5129,7 +5152,134 @@ var mapComponentTurbines = function mapComponentTurbines(componentsList, compone
     var turbineName = isNotNullOrUndefined(turbine) ? turbine === null || turbine === void 0 ? void 0 : turbine.name : "";
     return {
       id: item.id,
-      name: "Component: ".concat(componentName, " - Turbine: ").concat(turbineName)
+      name: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          className: "p-2",
+          children: componentName
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          className: "p-2",
+          children: turbineName
+        })]
+      })
+    };
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/helpers/table-helpers.tsx":
+/*!************************************************!*\
+  !*** ./resources/js/helpers/table-helpers.tsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   convertDataItemForDisplay: () => (/* binding */ convertDataItemForDisplay),
+/* harmony export */   convertDataItemsForDisplay: () => (/* binding */ convertDataItemsForDisplay),
+/* harmony export */   mapComponentTurbinesToTableItem: () => (/* binding */ mapComponentTurbinesToTableItem),
+/* harmony export */   mapGradedComponentsToTableItems: () => (/* binding */ mapGradedComponentsToTableItems),
+/* harmony export */   mapGradesToTableItems: () => (/* binding */ mapGradesToTableItems),
+/* harmony export */   mapInspectedTurbinesToTableItems: () => (/* binding */ mapInspectedTurbinesToTableItems)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./resources/js/helpers/helpers.tsx");
+
+
+var convertDataItemForDisplay = function convertDataItemForDisplay(item) {
+  return {
+    id: item.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      children: item.name
+    })
+  };
+};
+var convertDataItemsForDisplay = function convertDataItemsForDisplay(items) {
+  return items.map(function (item) {
+    return {
+      id: item.id,
+      display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: item.name
+      })
+    };
+  });
+};
+var mapComponentTurbinesToTableItem = function mapComponentTurbinesToTableItem(componentsList, componentTypes, turbines) {
+  return componentsList.map(function (item) {
+    var componentType = componentTypes.find(function (c) {
+      return c.id === item.component_type_id;
+    });
+    var turbine = turbines.find(function (t) {
+      return t.id === item.turbine_id;
+    });
+    var componentName = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
+    var turbineName = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? turbine === null || turbine === void 0 ? void 0 : turbine.name : "";
+    return {
+      id: item.id,
+      display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          className: "p-2",
+          children: componentName
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          className: "p-2",
+          children: turbineName
+        })]
+      })
+    };
+  });
+};
+var mapGradesToTableItems = function mapGradesToTableItems(gradeList, gradeTypes) {
+  return gradeList.map(function (item) {
+    var gradeType = gradeTypes.find(function (g) {
+      return g.id === item.grade_type_id;
+    });
+    var grade = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
+    return {
+      id: item.id,
+      display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: grade
+      })
+    };
+  });
+};
+var mapInspectedTurbinesToTableItems = function mapInspectedTurbinesToTableItems(inspections, turbines) {
+  return inspections.map(function (inspection) {
+    var turbine = turbines.find(function (t) {
+      return t.id === inspection.turbine_id;
+    });
+    var display = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: inspection.inspected_at
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: turbine === null || turbine === void 0 ? void 0 : turbine.name
+      })]
+    }) : null;
+    return {
+      id: inspection.id,
+      display: display
+    };
+  });
+};
+var mapGradedComponentsToTableItems = function mapGradedComponentsToTableItems(gradesList, componentTypes, gradeTypes) {
+  return gradesList.map(function (item) {
+    var componentType = componentTypes.find(function (c) {
+      return c.id === item.component_id;
+    });
+    var gradeType = gradeTypes.find(function (g) {
+      return g.id === item.grade_type_id;
+    });
+    var componentName = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentType) ? componentType === null || componentType === void 0 ? void 0 : componentType.name : "";
+    var gradeName = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeType) ? gradeType === null || gradeType === void 0 ? void 0 : gradeType.name : "";
+    return {
+      id: item.id,
+      display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          children: componentName
+        }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+          children: gradeName
+        })]
+      })
     };
   });
 };
@@ -5148,11 +5298,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5161,8 +5312,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Component = function Component() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5170,23 +5322,36 @@ var Component = function Component() {
     });
   }
   var idNum = Number(id);
-  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
+  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
     id: idNum
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
   var namedComponent = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapComponentType)(component.data, componentTypes.data);
-  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
+  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
     id: component.data.turbine_id
   });
+  var tableItems = [{
+    id: component.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: namedComponent === null || namedComponent === void 0 ? void 0 : namedComponent.name
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: turbine.data.name
+      })]
+    })
+  }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Component"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Component"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(namedComponent) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: "Component ".concat(namedComponent === null || namedComponent === void 0 ? void 0 : namedComponent.name, " from turbine ").concat(turbine.data.name)
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(namedComponent) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      headings: ["Name", "Turbine"],
+      items: tableItems,
+      childUrlName: "components",
+      showLinks: true
     }) : null]
   });
 };
@@ -5206,11 +5371,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5219,8 +5385,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var ComponentType = function ComponentType() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5228,18 +5395,26 @@ var ComponentType = function ComponentType() {
     });
   }
   var idNum = Number(id);
-  var componentType = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentType, {
+  var componentType = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentType, {
     id: idNum
   });
+  var componentTypeTableItems = [{
+    id: componentType.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      children: componentType === null || componentType === void 0 ? void 0 : componentType.data.name
+    })
+  }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Component Type"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Component Type"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentType) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: componentType === null || componentType === void 0 ? void 0 : componentType.data.name
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentType) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      items: componentTypeTableItems,
+      headings: ["Name"],
+      childUrlName: "component-types"
     }) : null]
   });
 };
@@ -5259,11 +5434,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+
 
 
 
@@ -5271,16 +5448,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ComponentTypes = function ComponentTypes() {
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getComponentTypes);
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var componentTypesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(componentTypes.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Component Types"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Component Types"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(componentTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      items: componentTypes.data,
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(componentTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: componentTypesTableItems,
+      headings: ["Name"],
       childUrlName: "component-types",
       showLinks: true
     }) : null]
@@ -5302,11 +5481,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+
 
 
 
@@ -5314,18 +5495,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Components = function Components() {
-  var components = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getComponents);
-  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbines);
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getComponentTypes);
-  var namedComponents = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.mapComponentTurbines)(components.data, componentTypes.data, turbines.data);
+  var components = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponents);
+  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbines);
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var namedComponents = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__.mapComponentTurbinesToTableItem)(components.data, componentTypes.data, turbines.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Components"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Components"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(components) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(components) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      headings: ["Name", "Turbine"],
       items: namedComponents,
       childUrlName: "components",
       showLinks: true
@@ -5348,12 +5530,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5363,8 +5546,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Farm = function Farm() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5372,30 +5556,37 @@ var Farm = function Farm() {
     });
   }
   var idNum = Number(id);
-  var farm = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarm, {
+  var farm = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getFarm, {
     id: idNum
   });
-  var farmTurbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarmTurbines, {
+  var farmTurbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getFarmTurbines, {
     id: idNum
   });
+  var farmTableItems = [{
+    id: farm.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      children: farm === null || farm === void 0 ? void 0 : farm.data.name
+    })
+  }];
+  var turbinesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(farmTurbines.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Farm"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Farm"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farm) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: farm === null || farm === void 0 ? void 0 : farm.data.name
-    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farmTurbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-        children: "Turbines"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        items: farmTurbines.data,
-        showLinks: false,
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farm) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: farmTableItems,
+      headings: ["Name"]
+    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farmTurbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        items: turbinesTableItems,
+        showLinks: true,
         childUrlName: "turbines",
-        keyPrefix: "turbine-"
-      })]
+        keyPrefix: "turbine-",
+        headings: ["Turbines"]
+      })
     }) : null]
   });
 };
@@ -5415,11 +5606,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+
 
 
 
@@ -5427,18 +5620,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Farms = function Farms() {
-  var farms = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarms);
+  var farms = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getFarms);
+  var farmsTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(farms.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Farms"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Farms"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(farms) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      items: farms.data,
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(farms) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: farmsTableItems,
       childUrlName: "farms",
-      showLinks: true
+      showLinks: true,
+      headings: ["Name"]
     }) : null]
   });
 };
@@ -5458,11 +5653,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5471,8 +5667,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Grade = function Grade() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5480,28 +5677,42 @@ var Grade = function Grade() {
     });
   }
   var idNum = Number(id);
-  var grade = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGrade, {
+  var grade = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGrade, {
     id: idNum
   });
-  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
-  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
+  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
+  var component = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponent, {
     id: grade.data.component_id
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
-  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
     id: grade.data.inspection_id
   });
   var namedGrade = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapGradeType)(grade.data, gradeTypes.data);
   var namedComponent = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapComponentType)(component.data, componentTypes.data);
+  var gradeTableItems = [{
+    id: grade.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: namedGrade.name
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: namedComponent.name
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: inspection.data.inspected_at
+      })]
+    })
+  }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Grade"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Grade"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(grade) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: "Grade: ".concat(namedGrade.name, " - Component: ").concat(namedComponent.name, " - inspected on: ").concat(inspection.data.inspected_at)
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(grade) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      items: gradeTableItems,
+      headings: ["Name", "Component", "Inspected On"],
+      childUrlName: "component-types"
     }) : null]
   });
 };
@@ -5521,11 +5732,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5534,8 +5746,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var GradeType = function GradeType() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5543,18 +5756,25 @@ var GradeType = function GradeType() {
     });
   }
   var idNum = Number(id);
-  var gradeType = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeType, {
+  var gradeType = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeType, {
     id: idNum
   });
+  var gradeTypeTableItems = [{
+    id: gradeType === null || gradeType === void 0 ? void 0 : gradeType.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      children: gradeType === null || gradeType === void 0 ? void 0 : gradeType.data.name
+    })
+  }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
-        children: "GradeType"
+        children: "Grade Type"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-      children: "GradeType"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeType) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: gradeType === null || gradeType === void 0 ? void 0 : gradeType.data.name
+      children: "Grade Type"
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeType) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      headings: ["Name"],
+      items: gradeTypeTableItems
     }) : null]
   });
 };
@@ -5574,11 +5794,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+
 
 
 
@@ -5586,16 +5808,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var GradeTypes = function GradeTypes() {
-  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getGradeTypes);
+  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
+  var gradeTypesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(gradeTypes.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
-        children: "GradeTypes"
+        children: "Grade Types"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-      children: "GradeTypes"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(gradeTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      items: gradeTypes.data,
+      children: "Grade Types"
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: gradeTypesTableItems,
+      headings: ["Name"],
       childUrlName: "grade-types",
       showLinks: true
     }) : null]
@@ -5617,13 +5841,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 
 
@@ -5632,9 +5855,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Grades = function Grades() {
-  var grades = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_4__.getGrades);
-  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_4__.getGradeTypes);
-  var displayGrades = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.mapGradeTypes, []);
+  var grades = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGrades);
+  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
+  var gradesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.mapGradesToTableItems)(grades.data, gradeTypes.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -5642,8 +5865,9 @@ var Grades = function Grades() {
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Grades"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.isNotNullOrUndefined)(grades) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.isNotNullOrUndefined)(gradeTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      items: displayGrades(grades.data, gradeTypes.data),
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(grades) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradeTypes) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      headings: ["Name"],
+      items: gradesTableItems,
       childUrlName: "grades",
       showLinks: true
     }) : null]
@@ -5665,12 +5889,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
 /* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5680,8 +5905,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Inspection = function Inspection() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5689,35 +5915,47 @@ var Inspection = function Inspection() {
     });
   }
   var idNum = Number(id);
-  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
+  var inspection = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspection, {
     id: idNum
   });
-  var inspectionGrades = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspectionGrades, {
+  var inspectionGrades = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspectionGrades, {
     id: idNum
   });
-  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
+  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
     id: inspection.data.turbine_id
   });
-  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
-  var gradesViewModel = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.mapGradedComponents)(inspectionGrades.data, componentTypes.data, gradeTypes.data);
+  var gradeTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getGradeTypes);
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var inspectionTableItems = [{
+    id: inspection.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: inspection === null || inspection === void 0 ? void 0 : inspection.data.inspected_at
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: turbine.data.name
+      })]
+    })
+  }];
+  var gradesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_4__.mapGradedComponentsToTableItems)(inspectionGrades.data, componentTypes.data, gradeTypes.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Inspection"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Inspection"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(inspection) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: "Turbine: ".concat(turbine.data.name, " inspected on: ").concat(inspection === null || inspection === void 0 ? void 0 : inspection.data.inspected_at)
-    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradesViewModel) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(inspection) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      items: inspectionTableItems,
+      headings: ["Inspected On", "Table"]
+    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(gradesTableItems) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
       children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
         children: "Grades"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        items: gradesViewModel,
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        items: gradesTableItems,
         showLinks: true,
         childUrlName: "grades",
-        keyPrefix: "grade-"
+        keyPrefix: "grade-",
+        headings: ["Component", "Grade"]
       })]
     }) : null]
   });
@@ -5738,13 +5976,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 
 
@@ -5753,9 +5990,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Inspections = function Inspections() {
-  var inspections = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_4__.getInspections);
-  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_4__.getTurbines);
-  var displayInspections = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.mapInspectedTurbines, []);
+  var inspections = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getInspections);
+  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbines);
+  var displayInspections = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.mapInspectedTurbinesToTableItems)(inspections.data, turbines.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -5763,8 +6000,9 @@ var Inspections = function Inspections() {
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Inspections"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.isNotNullOrUndefined)(inspections) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      items: displayInspections(inspections.data, turbines.data),
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(inspections) && (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: displayInspections,
+      headings: ["Inspected On", "Turbine"],
       childUrlName: "inspections",
       showLinks: true
     }) : null]
@@ -5811,9 +6049,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
 /* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5832,21 +6070,29 @@ var Turbine = function Turbine() {
     });
   }
   var idNum = Number(id);
-  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbine, {
+  var turbine = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbine, {
     id: idNum
   });
-  var turbineComponents = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbineComponents, {
+  var turbineComponents = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbineComponents, {
     id: idNum
   });
-  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getComponentTypes);
-  var turbineComponentsViewModel = turbineComponents.data.map(function (component) {
+  var componentTypes = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes);
+  var turbineComponentsTableItems = turbineComponents.data.map(function (component) {
     var targetComponentType = componentTypes.data.find(function (type) {
       return type.id === component.component_type_id;
     });
     return Object.assign(Object.assign({}, component), {
-      name: typeof targetComponentType !== "undefined" ? targetComponentType.name : "Unknown"
+      display: typeof targetComponentType !== "undefined" ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+        children: targetComponentType.name
+      }) : "Unknown"
     });
   });
+  var turbineTableItems = [{
+    id: turbine.data.id,
+    display: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
+      children: turbine === null || turbine === void 0 ? void 0 : turbine.data.name
+    })
+  }];
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
@@ -5854,16 +6100,15 @@ var Turbine = function Turbine() {
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Turbine"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      children: turbine === null || turbine === void 0 ? void 0 : turbine.data.name
-    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbineComponentsViewModel) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbine) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      items: turbineTableItems,
+      headings: ["Name"]
+    }) : null, (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbineComponentsTableItems) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
       children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
         children: "Components"
-      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        items: turbineComponentsViewModel,
-        showLinks: false,
-        childUrlName: "turbines",
-        keyPrefix: "turbine-"
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        items: turbineComponentsTableItems,
+        headings: ["Name"]
       })]
     }) : null]
   });
@@ -5884,11 +6129,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
+
 
 
 
@@ -5896,17 +6143,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Turbines = function Turbines() {
-  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_4__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getTurbines);
+  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getTurbines);
+  var turbinesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(turbines.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_5__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Turbines"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Turbines"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      items: turbines === null || turbines === void 0 ? void 0 : turbines.data,
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: turbinesTableItems,
       childUrlName: "turbines",
+      headings: ["Name"],
       showLinks: true
     }) : null]
   });
@@ -5927,12 +6176,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
-/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/List */ "./resources/js/components/List.tsx");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.ts");
-/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var react_helmet_async__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-helmet-async */ "./node_modules/react-helmet-async/lib/index.esm.js");
+/* harmony import */ var _rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rest-hooks/react */ "./node_modules/@data-client/react/lib/hooks/useSuspense.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.tsx");
+/* harmony import */ var _schema_endpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../schema/endpoints */ "./resources/js/schema/endpoints.tsx");
+/* harmony import */ var _helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/table-helpers */ "./resources/js/helpers/table-helpers.tsx");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Table */ "./resources/js/components/Table.tsx");
 
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
@@ -5942,8 +6192,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Turbines = function Turbines() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
   if (typeof id === "undefined") {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -5951,18 +6202,20 @@ var Turbines = function Turbines() {
     });
   }
   var idAsNumber = Number(id);
-  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_5__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_3__.getFarmTurbines, {
+  var turbines = (0,_rest_hooks_react__WEBPACK_IMPORTED_MODULE_6__["default"])(_schema_endpoints__WEBPACK_IMPORTED_MODULE_2__.getFarmTurbines, {
     id: idAsNumber
   });
+  var turbinesTableItems = (0,_helpers_table_helpers__WEBPACK_IMPORTED_MODULE_3__.convertDataItemsForDisplay)(turbines.data);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.Helmet, {
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_7__.Helmet, {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("title", {
         children: "Turbines"
       })
     }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
       children: "Turbines"
-    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      items: turbines === null || turbines === void 0 ? void 0 : turbines.data,
+    }), (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(turbines) ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: turbinesTableItems,
+      headings: ["Name"],
       childUrlName: "turbines",
       showLinks: true
     }) : null]
