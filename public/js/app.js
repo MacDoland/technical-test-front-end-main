@@ -4788,7 +4788,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.tsx");
 /* harmony import */ var _pages_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Loading */ "./resources/js/pages/Loading.tsx");
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Layout */ "./resources/js/components/Layout.tsx");
+/* harmony import */ var _layouts_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./layouts/Layout */ "./resources/js/layouts/Layout.tsx");
 
 
 
@@ -4804,7 +4804,7 @@ root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPA
   children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_helmet_async__WEBPACK_IMPORTED_MODULE_6__.HelmetProvider, {
     children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
-        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_layouts_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
           children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_rest_hooks_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
             fallback: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_Loading__WEBPACK_IMPORTED_MODULE_4__["default"], {}),
             children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_routes_routes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
@@ -4858,47 +4858,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var Footer = function Footer() {
+var Footer = function Footer(_ref) {
+  var children = _ref.children;
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("footer", {
     className: "flex justify-center bg-slate-900 p-8",
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-      className: "text-white",
-      children: "Created by Joe McDowall for Cyberhawk 2024"
-    })
+    children: children
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
-
-/***/ }),
-
-/***/ "./resources/js/components/Layout.tsx":
-/*!********************************************!*\
-  !*** ./resources/js/components/Layout.tsx ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.tsx");
-/* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavBar */ "./resources/js/components/NavBar.tsx");
-
-
-
-var Layout = function Layout(_ref) {
-  var children = _ref.children;
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25",
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
-      className: "flex-grow container mx-auto p-4 pt-4 pb-12",
-      children: children
-    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
 
 /***/ }),
 
@@ -5017,7 +4984,6 @@ var Table = function Table(_ref) {
     childUrlName = _ref.childUrlName,
     keyPrefix = _ref.keyPrefix,
     headings = _ref.headings;
-  var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", {
     className: "w-full",
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", {
@@ -5044,7 +5010,7 @@ var Table = function Table(_ref) {
           childUrlName: childUrlName,
           showLinks: showLinks,
           keyPrefix: keyPrefix
-        });
+        }, item.id);
       }) : null
     })]
   });
@@ -5084,7 +5050,7 @@ var TableRow = function TableRow(_ref) {
     showLinks = _ref.showLinks;
   var urlPart = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.isNotNullOrUndefined)(childUrlName) ? "/".concat(childUrlName) : "";
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
-    className: "".concat(alternateWhen ? "bg-slate-200" : "bg-slate-100", " border-t border-slate-300 w-full flex justify-between "),
+    className: "".concat(alternateWhen === true ? "bg-slate-200" : "bg-slate-100", " border-t border-slate-300 w-full flex justify-between "),
     children: [item.display, showLinks === true ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
       className: "text-right",
       children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonNavLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -5263,6 +5229,42 @@ var mapComponentType = function mapComponentType(component, componentTypes) {
     name: name
   };
 };
+
+/***/ }),
+
+/***/ "./resources/js/layouts/Layout.tsx":
+/*!*****************************************!*\
+  !*** ./resources/js/layouts/Layout.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Footer */ "./resources/js/components/Footer.tsx");
+/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx");
+
+
+
+var Layout = function Layout(_ref) {
+  var children = _ref.children;
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25",
+    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+      className: "flex-grow container mx-auto p-4 pt-4 pb-12",
+      children: children
+    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        className: "text-white",
+        children: "Created by Joe McDowall for Cyberhawk 2024"
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
 
 /***/ }),
 

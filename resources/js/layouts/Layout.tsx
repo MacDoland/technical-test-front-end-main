@@ -1,6 +1,6 @@
 import React, { type ReactNode } from "react";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +13,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-grow container mx-auto p-4 pt-4 pb-12">
         {children}
       </main>
-      <Footer />
+      <Footer>
+        <p className="text-white">Created by Joe McDowall for Cyberhawk 2024</p>
+      </Footer>
     </div>
   );
 };
