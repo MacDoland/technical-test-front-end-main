@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="flex bg-teal-700 text-white font-bold sticky top-0">
+    <nav className="flex bg-teal-700 text-white font-bold top-0">
       <NavLink end to="/" className="">
         <img
           alt="Logo - spinning wind turbine"

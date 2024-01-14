@@ -1,13 +1,18 @@
+import type { LatLngExpression } from "leaflet";
 import type { ReactNode } from "react";
 
-interface DataItem {
+export interface DataItem {
   id: number;
   name: string | undefined;
 }
 
-interface TableItem {
+export interface TableItem {
   id: number;
   display: string | undefined | ReactNode;
 }
 
-export type { TableItem, DataItem };
+export interface MapMarker {
+  id: number;
+  position: LatLngExpression;
+  title: string;
+}

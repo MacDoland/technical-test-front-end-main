@@ -7,6 +7,8 @@ import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
 import { MockResolver, mockInitialState } from "@rest-hooks/test";
 import results from "../../../../fixtures/fixtures";
 
+jest.mock("leaflet");
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({

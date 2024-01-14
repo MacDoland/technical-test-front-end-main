@@ -4,5 +4,10 @@
     "transform": {
         "^.+\\.js$": "babel-jest"
       },
-    "testMatch": ["**/*.spec.tsx"]
+    "testMatch": ["**/*.spec.tsx"],
+    "moduleNameMapper": {
+      "react-leaflet": "<rootDir>/mocks/reactLeafletMock.js",
+      "leaflet/dist/leaflet.css":  "<rootDir>/mocks/reactLeafletMock.js"
+    }
+
 }

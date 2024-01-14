@@ -4,6 +4,7 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
+import type { LatLngExpression } from "leaflet";
 import { isNotNullOrUndefined } from "../helpers/helpers";
 import {
   getComponentTypes,
@@ -11,6 +12,8 @@ import {
   getTurbineComponents,
 } from "../schema/endpoints";
 import Table from "../components/Table";
+import TurbineMap from "../components/TurbineMap";
+import type { MapMarker } from "../types/types";
 
 const Turbine: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -49,6 +52,18 @@ const Turbine: React.FC = () => {
     },
   ];
 
+  const markerPosition: LatLngExpression = [
+    Number(turbine.data.lat),
+    Number(turbine.data.lng),
+  ];
+  const markers: MapMarker[] = [
+    {
+      id: turbine.data.id,
+      position: markerPosition,
+      title: turbine.data.name,
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -58,6 +73,8 @@ const Turbine: React.FC = () => {
       {isNotNullOrUndefined(turbine) ? (
         <Table items={turbineTableItems} headings={["Name"]} />
       ) : null}
+      <TurbineMap markers={markers} initialPosition={markerPosition} />
+
       {isNotNullOrUndefined(turbineComponentsTableItems) ? (
         <>
           <h2>Components</h2>

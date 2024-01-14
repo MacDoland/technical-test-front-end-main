@@ -531,9 +531,6 @@ video {
 .absolute {
   position: absolute;
 }
-.sticky {
-  position: sticky;
-}
 .bottom-1\/2 {
   bottom: 50%;
 }
