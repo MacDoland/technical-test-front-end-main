@@ -111,6 +111,12 @@ I was hoping rest-hooks or Reactive Data Client as its now known would help me w
 
 There is definitely opportunity to reuse some of the lists for example passing a farm_id to the Turbines component and having it only display a subset but I think I'm going to do it the simple way first and then optimise after if I can find a nice way to correlate the route params with a different url call.
 
-I couldn't quite get it working but I was attempting to create a generic ListView component that could recieve a RestEndPoint to call for its data. That would cut down on the number of components to maintain and test.
 
+
+
+### Things I would improve
+
+* React Data Client (Rest-Hooks) has a peer dependency mismatch an expects a lower version of React and react-dom. However lowering version breaks my tests so I did an override in package.json. If I had noticed earlier I may have went with a different direction however forcing react 18 does not seem to impact its function. (Thankfully!)
+
+* I couldn't quite get it working but I was attempting to create a generic ListView component that could recieve a RestEndPoint to call for its data. That would cut down on the number of components to maintain and test.
 
