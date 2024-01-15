@@ -1,12 +1,16 @@
 import React, { type ReactNode } from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import useAuthGuard from "../auth/useAuthGuard";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  /* Added auth guard here to catch all, but can be placed more granularly */
+  useAuthGuard();
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25">
       <NavBar />

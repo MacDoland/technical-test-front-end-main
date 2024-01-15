@@ -30,7 +30,7 @@ const WindTurbine: React.FC<WindTurbineProps> = ({
   });
 
   useEffect(() => {
-    if (typeof mixer.current !== "undefined") {
+    if (typeof mixer !== "undefined") {
       mixer.current = new THREE.AnimationMixer(scene);
       const action = mixer.current.clipAction(animations[1]);
       action.play();

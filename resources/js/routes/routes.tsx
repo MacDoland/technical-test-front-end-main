@@ -16,12 +16,15 @@ import GradeType from "../pages/GradeType";
 import ComponentType from "../pages/ComponentType";
 import Component from "../pages/Component";
 import TurbinesFarm from "../pages/TurbinesFarm";
+import Login from "../pages/Login";
+import ErrorPage from "../pages/errors/ErrorPage";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/">
         <Route path="" element={<Welcome />} />
+        <Route path="login" element={<Login />} />
         <Route path="farms">
           <Route path="" element={<Farms />} />
           <Route path=":id" element={<Farm />} />
@@ -54,6 +57,7 @@ const AppRoutes: React.FC = () => {
         </Route>
       </Route>
       <Route path="*" element={<PageNotFound />} />
+      <Route path="/error" element={<ErrorPage />} />
     </Routes>
   );
 };

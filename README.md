@@ -115,9 +115,23 @@ There is definitely opportunity to reuse some of the lists for example passing a
 ### Map
 I've looked at a few options to implement a map, I've gone with leaflet react as it was open source and quite easy to get going! I've placed it on the Turbines views because they contained Lat/Lng data. I was consider also putting it on the farms view and using any linked turbine to give it a position. It's also a tricky one to test, I don't really want to test that the map works - but I can just check that the components it sits within still function.
 
-## 3D Viewer
+### 3D Viewer
 
 I created a 3D model of a wind turbine, exported it from Blender and used React Three Fiber to display and play an animation. With some more time I could create a number of models with different defects and use the component grades to display different models.
+
+### Authentication
+
+I put in a basic login page and front end auth framework (react auth kit) to handle managing the front end access. However I have left the API implementation for as I am new to Laravel it would take me a bit of time to figure out everything I need. From a quick look over documents I believe my steps would be:
+
+* create a database migration file to create the users table
+* create a user model
+* create an authentication controller
+* validate credentials
+* generate a jwt access token
+* add auth route
+* guard api routes 
+* setup middleware to guard protected api routes - token would be sent by front end and decoded to check if user can access
+
 
 ### Things I would improve
 
@@ -129,6 +143,8 @@ I created a 3D model of a wind turbine, exported it from Blender and used React 
 
 * Find nicer workaround for Leaflet  vs Three canvas collisions - I had to do a hacky solution for now. I wouldn't want to have to do something like that in production so would probably swap leaflet maps out with something else if I couldnt find a solution. What I think happens is that the THREE canvas initialisation triggers a re-initialisation of the leaflet canvas container and that throws an error. So if Leaflet initialises first after the 3D canvas then its fine.
 
+* In resources/js/schema/endpoints.tsx I define a number of api rest end points that all are currently hard coded to localhost - I would like to replace with an env variable for being able to deploy the app into different environments
 
+* login validation is very basic and could be made more meaningful for the user
 
 
