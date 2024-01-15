@@ -13,6 +13,7 @@
     "prettier": "prettier ./resources --write",
     "prepare": "husky install",
     "test": "jest",
+    "playwright-install": "npx playwright install",
     "test-e2e": "npx playwright test"
   },
   "devDependencies": {

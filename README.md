@@ -83,9 +83,9 @@ First step is to set up the project foundations such as adding TS, linting, test
 Then some simple views that render all the models for each controller
 
 Just for transparency - I am completely new to Laravel, I'm learning how it works as I go along. I'm trying my best to build my application in way that feels like an extension of the framework rather than something bolted on. 
-~~For that reason I'm introducting inertia as from I understand this allows me to continue to use Laravels routing and keeps it in a MVC pattern.~~ I discovered that going with inertia meeant I would have to tamper with the API that has been defined, as it's whole thing is being able to build SPA's without an API, so decided to revert back to using api calls.
+~~For that reason I'm introducting inertia as from I understand this allows me to continue to use Laravels routing and keeps it in a MVC pattern.~~ I discovered that going with inertia meant I would have to tamper with the API that has been defined. It's whole thing is being able to build SPA's without an API, so I decided to revert back to using api calls.
 
-I have some rough designs on some screens I would like to build which I'll send through via email later. My initial plan is finish a set of views for the existing controllers, and then maybe add a couple of my own to do a map and 3D scene. This way I can complete the requirements and afford myself some time later to jump on the cool bits!
+My initial plan is finish a set of views for the existing api routes, and then maybe add a couple of my own components to do a map and 3D scene. This way I can complete the requirements and afford myself some time later to jump on the cool bits!
 
 I installed husky to run linting / typescript compile checks pre git commit - however I struggled to figure out how to have it run reliably through sail and docker (with git credentials) so I've commented it out for now - I'll do manual checks for the interim and maybe look into it again later
 
@@ -94,6 +94,20 @@ I installed husky to run linting / typescript compile checks pre git commit - ho
 My next step is getting my testing setup in the simple components I've put together, once I'm happy with that I can roll them out to any further components. The bulk of the testing will be component testing using React Testing Library and jest. I will however add a few playwright E2E tests to test some user behaviour I feel that might not be covered as well as testing accessibility.
 
 Once I have all the basic MVP components together I can start to think about the presentation and how I break these down into reusable components, having the initial tests in place will be benefitial to make sure I don't break anything in the process.
+
+### Playwright
+You will have to install playwright by running as root user to install the operating system dependencies.
+
+I did this with "sail root-shell"
+
+Then ->  npm init playwright@latest
+
+With the following options:
+
+✔ Where to put your end-to-end tests? · e2e
+✔ Add a GitHub Actions workflow? (y/N) · false
+✔ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
+✔ Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N) · true
 
 
 ### Refactoring Components
@@ -145,6 +159,10 @@ I put in a basic login page and front end auth framework (react auth kit) to han
 
 * In resources/js/schema/endpoints.tsx I define a number of api rest end points that all are currently hard coded to localhost - I would like to replace with an env variable for being able to deploy the app into different environments
 
+* Same as above for e2e tests - currently hardcoded to localhost
+
 * login validation is very basic and could be made more meaningful for the user
+
+* generally the presentation - which I felt got the briefest of passes
 
 
