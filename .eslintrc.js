@@ -42,6 +42,7 @@ module.exports = {
             "unnamedComponents": "arrow-function"
         }],
         "import/extensions": "off",
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "react/no-unknown-property": [2, { "ignore": ["intensity", "position", "angle", "penumbra", "decay", "object"] }]
     }
 }

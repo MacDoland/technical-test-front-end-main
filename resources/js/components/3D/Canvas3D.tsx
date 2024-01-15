@@ -1,13 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
-import WindTurbine from "./WindTurbine";
-import { CameraView } from "../../enums/cameraView";
+import type { ReactNode } from "react";
 
 interface Canvas3DProps {
-  cameraView?: `${CameraView}`;
+  children: ReactNode;
 }
 
-const Canvas3D = ({ cameraView }: Canvas3DProps) => {
+const Canvas3D: React.FC<Canvas3DProps> = ({ children }: Canvas3DProps) => {
   return (
     <Canvas resize={{ scroll: false }}>
       <>
@@ -26,15 +25,11 @@ const Canvas3D = ({ cameraView }: Canvas3DProps) => {
             decay={0}
             intensity={Math.PI}
           />
-          <WindTurbine cameraView={cameraView} />
+          {children}
         </group>
       </>
     </Canvas>
   );
-};
-
-Canvas3D.defaultProps = {
-  cameraView: CameraView.FULL,
 };
 
 export default Canvas3D;

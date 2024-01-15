@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 // TODO: Look into ensuring either useParams can't be undefined or extracting part of the component to ensure hooks satisfy above rule
-
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSuspense } from "@rest-hooks/react";
@@ -15,9 +15,10 @@ import Table from "../components/Table";
 import TurbineMap from "../components/TurbineMap";
 import type { MapMarker } from "../types/types";
 import Canvas3D from "../components/3D/Canvas3D";
-import { useEffect, useState } from "react";
 import { mapTurbineComponentsTableItems } from "../helpers/table-helpers";
-import { CameraView } from "../enums/cameraView";
+import CameraView from "../enums/cameraView";
+import WindTurbine from "../components/3D/WindTurbine";
+import ActionButton from "../components/ActionButton";
 
 const Turbine: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -32,7 +33,9 @@ const Turbine: React.FC = () => {
       setShowComponent(true);
     }, 100);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   if (typeof id === "undefined") {
@@ -68,13 +71,16 @@ const Turbine: React.FC = () => {
     },
   ];
 
-  const lookAtRotor = () => {
+  const lookAtTurbine = (): void => {
+    setCameraView(CameraView.FULL);
+  };
+  const lookAtRotor = (): void => {
     setCameraView(CameraView.ROTOR);
   };
-  const lookAtHub = () => {
+  const lookAtHub = (): void => {
     setCameraView(CameraView.HUB);
   };
-  const lookAtBlade = () => {
+  const lookAtBlade = (): void => {
     setCameraView(CameraView.BLADE);
   };
 
@@ -87,37 +93,60 @@ const Turbine: React.FC = () => {
       {isNotNullOrUndefined(turbine) ? (
         <Table items={turbineTableItems} headings={["Name"]} />
       ) : null}
-      <div className="flex">
-        <div id="threejs-canvas-container" className="w-full m-4">
-          <Canvas3D cameraView={cameraView} />
+      <div className="flex gap-4">
+        <div id="threejs-canvas-container" className="w-full my-4">
+          <Canvas3D>
+            <WindTurbine cameraView={cameraView} />
+          </Canvas3D>
         </div>
-        <div id="leaflet-map-container" className="w-full m-4">
+        <div id="leaflet-map-container" className="w-full my-4">
           {showComponent && (
             <TurbineMap markers={markers} initialPosition={markerPosition} />
           )}
         </div>
       </div>
-      <>
-        <button
-          className="mx-2 ml-4 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+      <div className="flex gap-4">
+        <ActionButton
+          className={
+            cameraView === CameraView.FULL
+              ? "bg-yellow-500 hover:bg-yellow-900"
+              : ""
+          }
+          onClick={lookAtTurbine}>
+          View Turbine
+        </ActionButton>
+        <ActionButton
+          className={
+            cameraView === CameraView.ROTOR
+              ? "bg-yellow-500 hover:bg-yellow-900"
+              : ""
+          }
           onClick={lookAtRotor}>
           View Rotor
-        </button>
-        <button
-          className="mx-2 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+        </ActionButton>
+        <ActionButton
+          className={
+            cameraView === CameraView.HUB
+              ? "bg-yellow-500 hover:bg-yellow-900"
+              : ""
+          }
           onClick={lookAtHub}>
           View Hub
-        </button>
-        <button
-          className="mx-2 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+        </ActionButton>
+        <ActionButton
+          className={
+            cameraView === CameraView.BLADE
+              ? "bg-yellow-500 hover:bg-yellow-900"
+              : ""
+          }
           onClick={lookAtBlade}>
           View Blade
-        </button>
-      </>
+        </ActionButton>
+      </div>
 
       {isNotNullOrUndefined(turbineComponentsTableItems) ? (
         <>
-          <h2>Components</h2>
+          <h2 className="mt-12">Components</h2>
           <Table items={turbineComponentsTableItems} headings={["Name"]} />
         </>
       ) : null}

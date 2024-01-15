@@ -1,4 +1,4 @@
-import { CameraView } from "../enums/cameraView";
+import CameraView from "../enums/cameraView";
 
 export const isNotNullOrUndefined = (value: any): boolean =>
   value !== null && typeof value !== "undefined";
@@ -6,10 +6,10 @@ export const isNotNullOrUndefined = (value: any): boolean =>
 export const isNotUndefined = (value: any): boolean =>
   typeof value !== "undefined";
 
-export const setCameraPosition = (
+export const updateCameraPosition = (
   cameraView: `${CameraView}`,
   position: THREE.Vector3,
-) => {
+): THREE.Vector3 => {
   switch (cameraView) {
     case CameraView.HUB:
       position.set(-10, 50, 0);
@@ -26,10 +26,10 @@ export const setCameraPosition = (
   return position;
 };
 
-export const setTargetPosition = (
+export const updateTargetPosition = (
   cameraView: `${CameraView}`,
   target: THREE.Vector3,
-) => {
+): THREE.Vector3 => {
   switch (cameraView) {
     case CameraView.BLADE:
       target.set(-5, 64, 0);

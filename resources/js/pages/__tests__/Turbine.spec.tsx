@@ -8,6 +8,17 @@ import { MockResolver, mockInitialState } from "@rest-hooks/test";
 import results from "../../../../fixtures/fixtures";
 
 jest.mock("leaflet");
+jest.mock("@react-three/drei", () => ({
+  Environment: jest.fn(),
+}));
+
+class ResizeObserverMock {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+global.ResizeObserver = ResizeObserverMock;
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
