@@ -143,3 +143,24 @@ export const mapComponentType = (
     name,
   };
 };
+
+export const mapTurbineComponentsTableItems = (
+  components: TurbineComponent[],
+  componentTypes: ComponentType[],
+): TableItem[] => {
+  return components.map(component => {
+    const targetComponentType = componentTypes.find(
+      type => type.id === component.component_type_id,
+    );
+
+    return {
+      id: component.id,
+      display:
+        typeof targetComponentType !== "undefined" ? (
+          <td>{targetComponentType.name}</td>
+        ) : (
+          "Unknown"
+        ),
+    };
+  });
+};

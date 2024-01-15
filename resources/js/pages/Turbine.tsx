@@ -14,9 +14,26 @@ import {
 import Table from "../components/Table";
 import TurbineMap from "../components/TurbineMap";
 import type { MapMarker } from "../types/types";
+import Canvas3D from "../components/3D/Canvas3D";
+import { useEffect, useState } from "react";
+import { mapTurbineComponentsTableItems } from "../helpers/table-helpers";
+import { CameraView } from "../enums/cameraView";
 
 const Turbine: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
+
+  const [showComponent, setShowComponent] = useState(false);
+  const [cameraView, setCameraView] = useState(CameraView.FULL);
+
+  useEffect(() => {
+    // TODO: Look for fix for Map container already initialised if both Map and 3D canvas attempt to render at same time
+    // For now the hack below works but its less than ideal
+    const timeout = setTimeout(() => {
+      setShowComponent(true);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   if (typeof id === "undefined") {
     return <div>Loading...</div>;
@@ -28,23 +45,10 @@ const Turbine: React.FC = () => {
     id: idNum,
   });
   const componentTypes = useSuspense(getComponentTypes);
-
-  const turbineComponentsTableItems = turbineComponents.data.map(component => {
-    const targetComponentType = componentTypes.data.find(
-      type => type.id === component.component_type_id,
-    );
-
-    return {
-      ...component,
-      display:
-        typeof targetComponentType !== "undefined" ? (
-          <td>{targetComponentType.name}</td>
-        ) : (
-          "Unknown"
-        ),
-    };
-  });
-
+  const turbineComponentsTableItems = mapTurbineComponentsTableItems(
+    turbineComponents.data,
+    componentTypes.data,
+  );
   const turbineTableItems = [
     {
       id: turbine.data.id,
@@ -64,6 +68,16 @@ const Turbine: React.FC = () => {
     },
   ];
 
+  const lookAtRotor = () => {
+    setCameraView(CameraView.ROTOR);
+  };
+  const lookAtHub = () => {
+    setCameraView(CameraView.HUB);
+  };
+  const lookAtBlade = () => {
+    setCameraView(CameraView.BLADE);
+  };
+
   return (
     <>
       <Helmet>
@@ -73,7 +87,33 @@ const Turbine: React.FC = () => {
       {isNotNullOrUndefined(turbine) ? (
         <Table items={turbineTableItems} headings={["Name"]} />
       ) : null}
-      <TurbineMap markers={markers} initialPosition={markerPosition} />
+      <div className="flex">
+        <div id="threejs-canvas-container" className="w-full m-4">
+          <Canvas3D cameraView={cameraView} />
+        </div>
+        <div id="leaflet-map-container" className="w-full m-4">
+          {showComponent && (
+            <TurbineMap markers={markers} initialPosition={markerPosition} />
+          )}
+        </div>
+      </div>
+      <>
+        <button
+          className="mx-2 ml-4 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+          onClick={lookAtRotor}>
+          View Rotor
+        </button>
+        <button
+          className="mx-2 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+          onClick={lookAtHub}>
+          View Hub
+        </button>
+        <button
+          className="mx-2 text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+          onClick={lookAtBlade}>
+          View Blade
+        </button>
+      </>
 
       {isNotNullOrUndefined(turbineComponentsTableItems) ? (
         <>

@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
         <img
           alt="Logo - spinning wind turbine"
           className="w-12 h-12 m-2"
-          src="./img/wind-turbine-sm.gif"
+          src="/img/wind-turbine-sm.gif"
         />
       </NavLink>
       <div className="flex gap-4 p-4 bold items-center">

@@ -115,10 +115,16 @@ There is definitely opportunity to reuse some of the lists for example passing a
 ### Map
 I've looked at a few options to implement a map, I've gone with leaflet react as it was open source and quite easy to get going! I've placed it on the Turbines views because they contained Lat/Lng data. I was consider also putting it on the farms view and using any linked turbine to give it a position. It's also a tricky one to test, I don't really want to test that the map works - but I can just check that the components it sits within still function.
 
+## 3D Viewer
+
+I created a 3D model of a wind turbine, exported it from Blender and used React Three Fiber to display and play an animation. With some more time I could create a number of models with different defects and use the component grades to display different models.
+
 ### Things I would improve
 
 * React Data Client (Rest-Hooks) has a peer dependency mismatch an expects a lower version of React and react-dom. However lowering version breaks my tests so I did an override in package.json. If I had noticed earlier I may have went with a different direction however forcing react 18 does not seem to impact its function. (Thankfully!)
 
 * I couldn't quite get it working but I was attempting to create a generic ListView component that could recieve a RestEndPoint to call for its data. That would cut down on the number of components to maintain and test.
+
+* Add animations to wind turbine 3D - like explode out a panel to view inside
 
 

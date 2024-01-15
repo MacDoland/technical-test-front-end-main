@@ -29,3 +29,7 @@ table th {
   border: 0;
   visibility: hidden;
 }
+
+canvas {
+  background-color: #364039;
+}
