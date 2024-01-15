@@ -8,7 +8,10 @@ interface Canvas3DProps {
 
 const Canvas3D: React.FC<Canvas3DProps> = ({ children }: Canvas3DProps) => {
   return (
-    <Canvas resize={{ scroll: false }}>
+    <Canvas
+      style={{ height: "500px" }}
+      resize={{ scroll: false }}
+      className="h-500 max-h-500">
       <>
         <Environment files="/img/meadow_2_1k.exr" />
         <group>

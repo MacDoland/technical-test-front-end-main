@@ -93,55 +93,59 @@ const Turbine: React.FC = () => {
       {isNotNullOrUndefined(turbine) ? (
         <Table items={turbineTableItems} headings={["Name"]} />
       ) : null}
-      <div className="flex gap-4">
-        <div id="threejs-canvas-container" className="w-full my-4">
-          <Canvas3D>
-            <WindTurbine cameraView={cameraView} />
-          </Canvas3D>
+      <div className="flex gap-4 flex-col md:flex-row">
+        <div className="w-full my-4 relative">
+          <div
+            id="threejs-canvas-container"
+            className="h-500 min-h-500 max-h-500">
+            <Canvas3D>
+              <WindTurbine cameraView={cameraView} />
+            </Canvas3D>
+          </div>
+          <div className="flex gap-4 absolute bottom-0 m-2 flex-wrap">
+            <ActionButton
+              className={
+                cameraView === CameraView.FULL
+                  ? "bg-yellow-500 hover:bg-yellow-900"
+                  : ""
+              }
+              onClick={lookAtTurbine}>
+              View Turbine
+            </ActionButton>
+            <ActionButton
+              className={
+                cameraView === CameraView.ROTOR
+                  ? "bg-yellow-500 hover:bg-yellow-900"
+                  : ""
+              }
+              onClick={lookAtRotor}>
+              View Rotor
+            </ActionButton>
+            <ActionButton
+              className={
+                cameraView === CameraView.HUB
+                  ? "bg-yellow-500 hover:bg-yellow-900"
+                  : ""
+              }
+              onClick={lookAtHub}>
+              View Hub
+            </ActionButton>
+            <ActionButton
+              className={
+                cameraView === CameraView.BLADE
+                  ? "bg-yellow-500 hover:bg-yellow-900"
+                  : ""
+              }
+              onClick={lookAtBlade}>
+              View Blade
+            </ActionButton>
+          </div>
         </div>
         <div id="leaflet-map-container" className="w-full my-4">
           {showComponent && (
             <TurbineMap markers={markers} initialPosition={markerPosition} />
           )}
         </div>
-      </div>
-      <div className="flex gap-4">
-        <ActionButton
-          className={
-            cameraView === CameraView.FULL
-              ? "bg-yellow-500 hover:bg-yellow-900"
-              : ""
-          }
-          onClick={lookAtTurbine}>
-          View Turbine
-        </ActionButton>
-        <ActionButton
-          className={
-            cameraView === CameraView.ROTOR
-              ? "bg-yellow-500 hover:bg-yellow-900"
-              : ""
-          }
-          onClick={lookAtRotor}>
-          View Rotor
-        </ActionButton>
-        <ActionButton
-          className={
-            cameraView === CameraView.HUB
-              ? "bg-yellow-500 hover:bg-yellow-900"
-              : ""
-          }
-          onClick={lookAtHub}>
-          View Hub
-        </ActionButton>
-        <ActionButton
-          className={
-            cameraView === CameraView.BLADE
-              ? "bg-yellow-500 hover:bg-yellow-900"
-              : ""
-          }
-          onClick={lookAtBlade}>
-          View Blade
-        </ActionButton>
       </div>
 
       {isNotNullOrUndefined(turbineComponentsTableItems) ? (
