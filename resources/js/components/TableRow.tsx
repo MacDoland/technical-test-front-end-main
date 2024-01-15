@@ -8,6 +8,7 @@ interface TableProps {
   childUrlName?: string;
   keyPrefix?: string;
   alternateWhen?: boolean;
+  appendIdToLink?: boolean;
 }
 
 const TableRow: React.FC<TableProps> = ({
@@ -16,6 +17,7 @@ const TableRow: React.FC<TableProps> = ({
   alternateWhen,
   childUrlName,
   showLinks,
+  appendIdToLink,
 }: TableProps) => {
   const urlPart = isNotNullOrUndefined(childUrlName) ? `/${childUrlName}` : "";
   return (
@@ -27,7 +29,10 @@ const TableRow: React.FC<TableProps> = ({
       {item.display}
       {showLinks === true ? (
         <td className="text-right">
-          <ButtonNavLink to={`${urlPart}/${item.id}`}>view</ButtonNavLink>
+          <ButtonNavLink
+            to={`${urlPart}/${appendIdToLink === true ? item.id : ""}`}>
+            view
+          </ButtonNavLink>
         </td>
       ) : null}
     </tr>
@@ -39,6 +44,7 @@ TableRow.defaultProps = {
   childUrlName: "",
   keyPrefix: "",
   alternateWhen: false,
+  appendIdToLink: true,
 };
 
 export default TableRow;

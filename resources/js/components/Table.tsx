@@ -9,6 +9,7 @@ interface TableProps {
   childUrlName?: string;
   keyPrefix?: string;
   headings?: string[];
+  appendIdToLink?: boolean;
 }
 
 const Table = ({
@@ -17,6 +18,7 @@ const Table = ({
   childUrlName,
   keyPrefix,
   headings,
+  appendIdToLink,
 }: TableProps): JSX.Element => {
   return (
     <table className="w-full">
@@ -45,6 +47,7 @@ const Table = ({
                   childUrlName={childUrlName}
                   showLinks={showLinks}
                   keyPrefix={keyPrefix}
+                  appendIdToLink={appendIdToLink}
                 />
               );
             })
@@ -59,6 +62,7 @@ Table.defaultProps = {
   showLinks: false,
   childUrlName: "",
   keyPrefix: "",
+  appendIdToLink: true,
 };
 
 export default Table;

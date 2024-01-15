@@ -10,7 +10,7 @@ import results from "../../../../fixtures/fixtures";
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({
-    id: 1,
+    farmId: 1,
   }),
 }));
 

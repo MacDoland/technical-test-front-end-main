@@ -39,6 +39,12 @@ export const getFarmTurbines = new RestEndpoint({
   invalidIfStale: true,
 });
 
+export const getFarmTurbine = new RestEndpoint({
+  urlPrefix: "http://localhost/api",
+  path: "/farms/:id/turbines/:turbineId",
+  schema: TurbineData,
+});
+
 /* Turbines */
 
 export const getTurbine = new RestEndpoint({
@@ -62,16 +68,12 @@ export const getTurbineComponents = new RestEndpoint({
   schema: TurbineComponentsData,
 });
 
+/* Components */
+
 export const getComponent = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/components/:id",
   schema: TurbineComponentData,
-});
-
-export const getComponents = new RestEndpoint({
-  urlPrefix: "http://localhost/api",
-  path: "/components",
-  schema: TurbineComponentsData,
 });
 
 export const getComponentType = new RestEndpoint({
@@ -80,10 +82,24 @@ export const getComponentType = new RestEndpoint({
   schema: ComponentTypeData,
 });
 
+export const getComponentGrades = new RestEndpoint({
+  urlPrefix: "http://localhost/api",
+  path: "/component-types/:id/grades",
+  schema: TurbineComponentsData,
+});
+
 export const getComponentTypes = new RestEndpoint({
   urlPrefix: "http://localhost/api",
   path: "/component-types",
   schema: ComponentTypesData,
+});
+
+/* Inspections */
+
+export const getComponents = new RestEndpoint({
+  urlPrefix: "http://localhost/api",
+  path: "/components",
+  schema: TurbineComponentsData,
 });
 
 export const getInspection = new RestEndpoint({

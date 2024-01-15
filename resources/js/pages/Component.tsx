@@ -49,8 +49,7 @@ const Component: React.FC = () => {
         <Table
           headings={["Name", "Turbine"]}
           items={tableItems}
-          childUrlName="components"
-          showLinks
+          childUrlName={`components/${id}/grades`}
         />
       ) : null}
     </>
