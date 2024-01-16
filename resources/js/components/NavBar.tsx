@@ -27,29 +27,43 @@ const NavBar: React.FC<NavBarProps> = ({ className }: NavBarProps) => {
             src="/img/wind-turbine-sm.gif"
           />
         </NavLink>
-        <div className="flex gap-4 p-4 bold items-center hidden md:flex">
-          <NavLink className="bold" end to="/farms">
-            Farms
-          </NavLink>
-          <NavLink className="bold" end to="/turbines">
-            Turbines
-          </NavLink>
-          <NavLink className="bold" end to="/components">
-            Components
-          </NavLink>
-          <NavLink className="bold" end to="/inspections">
-            Inspections
-          </NavLink>
-          <NavLink className="bold" end to="/grades">
-            Grades
-          </NavLink>
-          <NavLink className="bold" end to="/component-types">
-            Component Types
-          </NavLink>
-          <NavLink className="bold" end to="/grade-types">
-            Grade Types
-          </NavLink>
-        </div>
+        <ul className="flex gap-4 p-4 bold items-center hidden md:flex">
+          <li>
+            <NavLink className="bold" end to="/farms">
+              Farms
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/turbines">
+              Turbines
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/components">
+              Components
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/inspections">
+              Inspections
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/grades">
+              Grades
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/component-types">
+              Component Types
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="bold" end to="/grade-types">
+              Grade Types
+            </NavLink>
+          </li>
+        </ul>
         <HamburgerButton
           isOpen={showMenu}
           onToggle={toggleMenu}
@@ -57,29 +71,43 @@ const NavBar: React.FC<NavBarProps> = ({ className }: NavBarProps) => {
         />
       </div>
       {showMenu ? (
-        <div className="flex gap-4 p-4 bolditems-center flex-col text-white md:hidden">
-          <NavLink onClick={closeMenu} className="bold" end to="/farms">
-            Farms
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/turbines">
-            Turbines
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/components">
-            Components
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/inspections">
-            Inspections
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/grades">
-            Grades
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/component-types">
-            Component Types
-          </NavLink>
-          <NavLink onClick={closeMenu} end to="/grade-types">
-            Grade Types
-          </NavLink>
-        </div>
+        <ul className="flex gap-4 p-4 bolditems-center flex-col text-white md:hidden">
+          <li>
+            <NavLink onClick={closeMenu} className="bold" end to="/farms">
+              Farms
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/turbines">
+              Turbines
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/components">
+              Components
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/inspections">
+              Inspections
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/grades">
+              Grades
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/component-types">
+              Component Types
+            </NavLink>
+          </li>
+          <li>
+            <NavLink onClick={closeMenu} end to="/grade-types">
+              Grade Types
+            </NavLink>
+          </li>
+        </ul>
       ) : null}
     </nav>
   );

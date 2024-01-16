@@ -6,7 +6,7 @@ const ButtonNavLink: React.FC<NavLinkProps> = ({
 }: NavLinkProps) => {
   return (
     <NavLink
-      className="text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800"
+      className="text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-teeak-700 dark:hover:bg-teal-900 focus:outline-none dark:focus:ring-blue-800 mt-.5 mb-.5 inline-block"
       to={to}>
       {children}
     </NavLink>

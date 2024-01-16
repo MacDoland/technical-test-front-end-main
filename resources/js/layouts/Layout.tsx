@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useAuthGuard();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25">
+    <div className="background min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25">
       <NavBar className="container mx-auto" />
       <main className="flex-grow container mx-auto p-4 pt-8 pb-12">
         {children}
