@@ -163,4 +163,6 @@ I put in a basic login page and front end auth framework (react auth kit) to han
 
 * generally the presentation - which I felt got the briefest of passes
 
+* A number of e2e tests reporting flaky - it may be the AsyncBoundary/Loading Page that's tripping up the tests or the api call time, im not sure - they are not fully deterministic which is something I would look to address. For now I just bumped up the retry count.
 
+* Improve e2e tests to include more than just Title. I left it at title, as I was mainly interested in ensuring navigating through the application didnt result in broken or missing pages. Inspecting any data could result in having to update the tests on every seed.
