@@ -31,7 +31,7 @@ const ComponentType: React.FC = () => {
         <title>Component Type</title>
       </Helmet>
       <h1>Component Type</h1>
-      {isNotNullOrUndefined(componentType) ? (
+      {isNotNullOrUndefined(componentTypeTableItems) ? (
         <Table
           items={componentTypeTableItems}
           headings={["Name"]}

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { HTMLAttributes, useState } from "react";
 import HamburgerButton from "./HamburgerButton";
+import { useState } from "react";
 
 interface NavBarProps {
   className?: string;
@@ -70,7 +70,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }: NavBarProps) => {
           className="md:hidden mr-4"
         />
       </div>
-      {showMenu ? (
+      {showMenu === true ? (
         <ul className="flex gap-4 p-4 bolditems-center flex-col text-white md:hidden">
           <li>
             <NavLink onClick={closeMenu} className="bold" end to="/farms">

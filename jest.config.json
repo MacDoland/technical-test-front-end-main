@@ -4,7 +4,7 @@
     "transform": {
         "^.+\\.js$": "babel-jest"
       },
-    "testMatch": ["**/*.spec.tsx"],
+    "testMatch": ["/**/*/resources/**/*.spec.tsx", "/**/*/resources/**/*.spec.ts"],
     "moduleNameMapper": {
       "react-leaflet": "<rootDir>/mocks/reactLeafletMock.js",
       "leaflet/dist/leaflet.css":  "<rootDir>/mocks/reactLeafletMock.js"

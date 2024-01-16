@@ -1,5 +1,9 @@
 import React from "react";
-import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
+import {
+  AsyncBoundary,
+  CacheProvider,
+  NetworkErrorBoundary,
+} from "@rest-hooks/react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter } from "react-router-dom";
@@ -8,6 +12,7 @@ import AuthProvider from "react-auth-kit";
 import AppRoutes from "./routes/routes";
 import Loading from "./pages/Loading";
 import Layout from "./layouts/Layout";
+import ErrorPage from "./pages/errors/ErrorPage";
 
 interface AuthSettings {
   authName: string;
@@ -32,13 +37,15 @@ root.render(
     <AuthProvider store={store}>
       <HelmetProvider>
         <CacheProvider>
-          <BrowserRouter>
-            <Layout>
-              <AsyncBoundary fallback={<Loading />}>
-                <AppRoutes />
-              </AsyncBoundary>
-            </Layout>
-          </BrowserRouter>
+          <NetworkErrorBoundary fallbackComponent={ErrorPage}>
+            <BrowserRouter>
+              <Layout>
+                <AsyncBoundary fallback={<Loading />}>
+                  <AppRoutes />
+                </AsyncBoundary>
+              </Layout>
+            </BrowserRouter>
+          </NetworkErrorBoundary>
         </CacheProvider>
       </HelmetProvider>
     </AuthProvider>

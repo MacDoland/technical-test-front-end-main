@@ -170,3 +170,5 @@ I put in a basic login page and front end auth framework (react auth kit) to han
 * created and updated properties on entities should be parsed to date objects so rest-hooks knows when to make resources stale
 
 * 3D turbine should reset the blade back to position on "View Blade", some times it doesn't
+
+* test coverage - I've included a number of tests but I definitely haven't covered all components

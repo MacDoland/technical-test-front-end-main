@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { NavLink } from "react-router-dom";
 
 const Welcome: React.FC = () => {
   return (
