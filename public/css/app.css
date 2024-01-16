@@ -782,10 +782,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(15 118 110 / var(--tw-bg-opacity));
 }
-.bg-teal-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(19 78 74 / var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -829,8 +825,8 @@ video {
 .pb-12 {
   padding-bottom: 3rem;
 }
-.pt-4 {
-  padding-top: 1rem;
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -939,6 +935,10 @@ canvas {
   background-color: #364039;
 }
 
+.active {
+  text-decoration: underline;
+}
+
 .hover\:bg-teal-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(19 78 74 / var(--tw-bg-opacity));
@@ -1013,4 +1013,3 @@ canvas {
     --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
   }
 }
-

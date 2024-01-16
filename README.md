@@ -149,7 +149,7 @@ I put in a basic login page and front end auth framework (react auth kit) to han
 
 ### Things I would improve
 
-* I'm missing a number of routes such as /turbines/:turbineID/inspections/:inspectionID. I couldn't quite find a way to reuse my components with rest-hooks which left me having manually create a component for each combination which just didnt feel right. I couldn't quite get it working but I was attempting to create a generic ListView component that could recieve a FetchFunction to call for its data. That would have dramatically cut down on the number of components to maintain and test.
+* I'm missing a number of routes such as /turbines/:turbineID/inspections/:inspectionID. I couldn't quite find a way to reuse my components with rest-hooks which left me having manually create a component for each combination which just didnt feel right. I couldn't quite get it working but I was attempting to create a generic TableView component that could recieve a FetchFunction to call for its data and is parms such as farmId and turbineId via an HOC. That would have dramatically cut down on the number of components to maintain and test I feel but I couldn't quite think of the right way to do it. My attempts at finding the right typescript type for the fetch function of useSuspense and passing in it and a param resulted in console errors.
 
 * React Data Client (Rest-Hooks) has a peer dependency mismatch an expects a lower version of React and react-dom. However lowering version breaks my tests so I did an override in package.json. If I had noticed earlier I may have went with a different direction however forcing react 18 does not seem to impact its function. (Thankfully!)
 

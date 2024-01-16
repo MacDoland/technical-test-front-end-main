@@ -13,8 +13,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-r from-slate-100 to-slate-200 bg-left-25">
-      <NavBar />
-      <main className="flex-grow container mx-auto p-4 pt-4 pb-12">
+      <NavBar className="container mx-auto" />
+      <main className="flex-grow container mx-auto p-4 pt-8 pb-12">
         {children}
       </main>
       <Footer>

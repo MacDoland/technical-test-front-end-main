@@ -6,6 +6,7 @@ test.describe("homepage", () => {
     page,
   }) => {
     await page.goto("http://localhost");
+    await page.waitForLoadState("load", { timeout: 6000 });
     await page.waitForSelector("h1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
@@ -19,6 +20,7 @@ test.describe("farms", () => {
     page,
   }) => {
     await page.goto("http://localhost/farms");
+    await page.waitForLoadState("load", { timeout: 6000 });
     await page.waitForSelector("h1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
@@ -32,6 +34,7 @@ test.describe("farm", () => {
     page,
   }) => {
     await page.goto("http://localhost/farms/1");
+    await page.waitForLoadState("load", { timeout: 6000 });
     await page.waitForSelector("h1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
@@ -45,6 +48,7 @@ test.describe("farm-turbines", () => {
     page,
   }) => {
     await page.goto("http://localhost/farms/1/turbines");
+    await page.waitForLoadState("load", { timeout: 6000 });
     await page.waitForSelector("h1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
@@ -58,6 +62,7 @@ test.describe("turbines", () => {
     page,
   }) => {
     await page.goto("http://localhost/turbines");
+    await page.waitForLoadState("load", { timeout: 6000 });
     await page.waitForSelector("h1");
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();

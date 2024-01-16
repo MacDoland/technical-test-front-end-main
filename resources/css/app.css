@@ -35,3 +35,7 @@ table th {
 canvas {
   background-color: #364039;
 }
+
+.active {
+  text-decoration: underline;
+}

@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { HTMLAttributes, useState } from "react";
 import HamburgerButton from "./HamburgerButton";
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  className?: string;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ className }: NavBarProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = (isOpen: boolean): void => {
@@ -13,8 +17,9 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-teal-900">
-      <div className="flex gap-4 bg-teal-700 text-white boldtop-0 justify-between md:justify-start">
+    <nav className="bg-teal-700">
+      <div
+        className={`flex gap-4 bg-teal-700 text-white boldtop-0 justify-between md:justify-start ${className}`}>
         <NavLink end to="/" className="">
           <img
             alt="Logo - spinning wind turbine"
@@ -78,6 +83,10 @@ const NavBar: React.FC = () => {
       ) : null}
     </nav>
   );
+};
+
+NavBar.defaultProps = {
+  className: "",
 };
 
 export default NavBar;
