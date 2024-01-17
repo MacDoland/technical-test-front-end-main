@@ -27,7 +27,7 @@ const WindTurbine: React.FC<WindTurbineProps> = ({
   useEffect(() => {
     camera.position.z = 64;
     camera.position.y = 40;
-  });
+  }, [camera.position]);
 
   useEffect(() => {
     if (typeof mixer !== "undefined") {
