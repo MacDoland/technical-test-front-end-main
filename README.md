@@ -171,4 +171,4 @@ I put in a basic login page and front end auth framework (react auth kit) to han
 
 * 3D turbine should reset the blade back to position on "View Blade", some times it doesn't
 
-* test coverage - I've included a number of tests but I definitely haven't covered all components
+* test coverage - I've included a number of tests but I definitely haven't covered everything I would like to. I have basic component tests covering all of my page components but I would normally want to work from the bottom up and ensure I had tests for all my sub components and helper functions. 
