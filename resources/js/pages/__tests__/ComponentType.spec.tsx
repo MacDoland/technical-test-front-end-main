@@ -19,6 +19,7 @@ describe("ComponentType Component", () => {
     // Arrange
 
     // Act
+    // TODO: Refactor below into a reusable render function that wraps tested component
     await act(async () => {
       render(
         <HelmetProvider>

@@ -1,6 +1,8 @@
 import {
+  getComponent,
   getComponentType,
   getComponentTypes,
+  getComponents,
   getFarm,
   getFarmTurbines,
   getFarms,
@@ -14,7 +16,12 @@ import {
 } from "../resources/js/schema/endpoints";
 import { farm, farms } from "./farms";
 import { turbine, turbines } from "./turbines";
-import { components, componentType, componentTypes } from "./components";
+import {
+  component,
+  components,
+  componentType,
+  componentTypes,
+} from "./components";
 import { inspection, inspections } from "./inspections";
 import { grades, gradeTypes } from "./grades";
 export default {
@@ -59,6 +66,40 @@ export default {
       endpoint: getTurbines,
       args: [] as const,
       response: turbines,
+    },
+  ],
+  component: [
+    {
+      endpoint: getComponent,
+      args: [{ id: 1 }] as const,
+      response: component,
+    },
+    {
+      endpoint: getTurbine,
+      args: [{ id: 1 }] as const,
+      response: turbine,
+    },
+    {
+      endpoint: getComponentTypes,
+      args: [] as const,
+      response: componentTypes,
+    },
+  ],
+  components: [
+    {
+      endpoint: getComponents,
+      args: [] as const,
+      response: components,
+    },
+    {
+      endpoint: getTurbines,
+      args: [] as const,
+      response: turbines,
+    },
+    {
+      endpoint: getComponentTypes,
+      args: [] as const,
+      response: componentTypes,
     },
   ],
   inspections: [

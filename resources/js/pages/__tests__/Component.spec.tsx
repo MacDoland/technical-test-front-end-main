@@ -2,7 +2,7 @@ import { act, render, screen } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import Farm from "../Farm";
+import Component from "../Component";
 import { AsyncBoundary, CacheProvider } from "@rest-hooks/react";
 import { MockResolver, mockInitialState } from "@rest-hooks/test";
 import results from "../../../../fixtures/fixtures";
@@ -10,12 +10,12 @@ import results from "../../../../fixtures/fixtures";
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({
-    farmId: 1,
+    id: 1,
   }),
 }));
 
-describe("Farm Component", () => {
-  test("renders and displays expected farm name", async () => {
+describe("Component Component", () => {
+  test("renders and displays expected component name", async () => {
     // Arrange
 
     // Act
@@ -23,11 +23,11 @@ describe("Farm Component", () => {
     await act(async () => {
       render(
         <HelmetProvider>
-          <CacheProvider initialState={mockInitialState(results.farm)}>
-            <MockResolver fixtures={results.farm}>
+          <CacheProvider initialState={mockInitialState(results.component)}>
+            <MockResolver fixtures={results.component}>
               <AsyncBoundary fallback="loading">
                 <BrowserRouter>
-                  <Farm />
+                  <Component />
                 </BrowserRouter>
               </AsyncBoundary>
             </MockResolver>
@@ -36,9 +36,11 @@ describe("Farm Component", () => {
       );
     });
 
-    const farmName = await screen.getByText("West Viviannemouth");
+    const component = await screen.getByText("Blade");
+    const turbine = await screen.getByText("Linen");
 
     // Assert
-    expect(farmName).toBeInTheDocument();
+    expect(component).toBeInTheDocument();
+    expect(turbine).toBeInTheDocument();
   });
 });

@@ -91,7 +91,7 @@ export class Inspection extends Entity {
     return `${this.id}`;
   }
 
-  static key = "ComponentType";
+  static key = "Inspection";
 
   static process(value: InspectionData): Inspection {
     return value.data;
